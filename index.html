@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cybersecurity :: Study Notes</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2305070a'/%3E%3Cpath d='M50 8 L88 29 L88 71 L50 92 L12 71 L12 29 Z' fill='none' stroke='%232de2e6' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='11' fill='%23ff2f92'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!--
+============================================================
+  CYBERSECURITY NOTES — TEMPLATE
+  A reskinned, subject-cleared fork of a study-notes app shell.
+  All business-course content has been removed. Two modules of
+  real, generic cybersecurity content are included so you can
+  see every component in use — everything after that is yours
+  to fill in. Search "HOW TO ADD" for the extension points.
+============================================================
+-->
+
+<style>
+  /* ============================================================
+     TOKENS — retheme the whole thing from here
+     ============================================================ */
+  :root {
+    --void:            #05070a;
+    --bg-sidebar:       #06090f;
+    --bg-sidebar-top:   #040609;
+    --bg-page:          #070b12;
+    --bg-card:          #0c1119;
+    --bg-card-raised:   #10161f;
+    --bg-terminal:      #04070b;
+
+    --cyan:             #2de2e6;
+    --cyan-glow:        rgba(45, 226, 230, .35);
+    --cyan-dim:         rgba(45, 226, 230, .10);
+    --magenta:          #ff2f92;
+    --magenta-dim:      rgba(255, 47, 146, .12);
+    --amber:            #ffb400;
+    --amber-dim:        rgba(255, 180, 0, .12);
+    --green:            #2bffa3;
+    --green-dim:        rgba(43, 255, 163, .10);
+    --red:              #ff3b5c;
+    --red-dim:          rgba(255, 59, 92, .10);
+
+    --text-primary:     #d9e7f1;
+    --text-secondary:   #6d8ba3;
+    --text-dim:         #3c5065;
+    --text-sidebar:     #4c6379;
+    --text-sidebar-hover: #a9c3d6;
+    --text-sidebar-active: #eaf4fa;
+
+    --border:           #152030;
+    --border-bright:    #223349;
+
+    --font-display:     'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-mono:        'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+    --sidebar-width:    258px;
+    --radius:           4px;
+    --transition:       .15s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+
+  body {
+    font-family: var(--font-mono);
+    background: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
+
+  ::selection { background: var(--magenta); color: #06090f; }
+
+  /* ============================================================
+     AMBIENT FX — fine scanline texture, a slow light-sweep, and
+     a soft vignette. Fixed + pointer-events:none so they never
+     interfere with the UI underneath.
+     ============================================================ */
+  .crt-scanlines {
+    position: fixed; inset: 0; z-index: 998; pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.04) 0px,
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+    opacity: .5;
+  }
+
+  .crt-vignette {
+    position: fixed; inset: 0; z-index: 997; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.55) 135%);
+  }
+
+  .scan-beam {
+    position: fixed; left: 0; right: 0; top: 0; height: 160px; z-index: 996; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, var(--cyan-dim) 45%, transparent);
+    opacity: .7;
+    animation: scanSweep 9s linear infinite;
+  }
+  @keyframes scanSweep {
+    0%   { transform: translateY(-160px); }
+    100% { transform: translateY(100vh); }
+  }
+
+  /* ============================================================
+     SIDEBAR
+     ============================================================ */
+  #sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    background: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    z-index: 10;
+    border-right: 1px solid var(--border);
+  }
+
+  #sidebar-header {
+    padding: 26px 18px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-sidebar-top);
+    position: relative;
+  }
+
+  #sidebar-header .boot-line {
+    font-size: .68rem;
+    color: var(--green);
+    letter-spacing: .04em;
+    margin-bottom: 10px;
+    opacity: .85;
+  }
+  #sidebar-header .boot-line::before { content: "> "; color: var(--text-dim); }
+
+  #sidebar-header h1 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    color: var(--text-sidebar-active);
+    line-height: 1.15;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* one-shot glitch on load — settles and stays still */
+  .glitch { position: relative; }
+  .glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: var(--bg-sidebar-top);
+    overflow: hidden;
+  }
+  .glitch::before {
+    color: var(--cyan);
+    clip-path: inset(0 0 55% 0);
+    animation: glitchTop .9s steps(2, end) 1;
+  }
+  .glitch::after {
+    color: var(--magenta);
+    clip-path: inset(55% 0 0 0);
+    animation: glitchBottom .9s steps(2, end) 1;
+  }
+  @keyframes glitchTop {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-3px, -1px); }
+    40%  { transform: translate(2px, 1px); }
+    60%  { transform: translate(-2px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+  @keyframes glitchBottom {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(3px, 1px); }
+    45%  { transform: translate(-2px, -1px); }
+    70%  { transform: translate(2px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+
+  #sidebar-header .cursor {
+    display: inline-block;
+    width: 9px; height: 1.1rem;
+    background: var(--cyan);
+    margin-left: 3px;
+    vertical-align: -3px;
+    animation: blink 1.1s step-end infinite;
+    box-shadow: 0 0 8px var(--cyan-glow);
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  #sidebar-header p {
+    font-size: .72rem;
+    color: var(--text-sidebar);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     SEARCH
+     ============================================================ */
+  #search-wrap { padding: 14px 16px; border-bottom: 1px solid var(--border); position: relative; }
+
+  #search-input-row {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+  #search-input-row .search-icon { font-size: .8rem; color: var(--text-dim); }
+  #search-input {
+    flex: 1; background: none; border: none; outline: none;
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    color: var(--text-primary);
+  }
+  #search-input::placeholder { color: var(--text-sidebar); }
+  #search-input-row:focus-within {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px var(--cyan-dim), 0 0 14px var(--cyan-dim);
+  }
+  #search-shortcut-hint {
+    font-size: .65rem;
+    color: var(--text-dim);
+    border: 1px solid var(--border-bright);
+    border-radius: 3px;
+    padding: 1px 5px;
+  }
+  #search-input:focus ~ #search-shortcut-hint,
+  #search-input:not(:placeholder-shown) ~ #search-shortcut-hint { display: none; }
+  #search-clear {
+    display: none;
+    background: none; border: none; color: var(--text-dim);
+    cursor: pointer; font-size: .75rem;
+  }
+  #search-wrap.has-query #search-clear { display: block; }
+  #search-wrap.has-query #search-shortcut-hint { display: none; }
+
+  #search-results {
+    display: none;
+    position: absolute; left: 16px; right: 16px; top: calc(100% - 2px);
+    max-height: 60vh; overflow-y: auto;
+    background: var(--bg-card-raised);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px rgba(0,0,0,.55), 0 0 0 1px var(--cyan-dim);
+    z-index: 30;
+  }
+  #search-wrap.open #search-results { display: block; }
+
+  .result-item { padding: 10px 12px; cursor: pointer; border-bottom: 1px solid var(--border); }
+  .result-item:last-child { border-bottom: none; }
+  .result-item:hover, .result-item.hot { background: var(--cyan-dim); }
+  .result-breadcrumb { font-size: .62rem; color: var(--cyan); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+  .result-title { font-family: var(--font-display); font-size: .84rem; color: var(--text-primary); font-weight: 600; margin-bottom: 3px; }
+  .result-snippet { font-size: .72rem; color: var(--text-secondary); line-height: 1.5; }
+  .result-snippet mark { background: var(--magenta-dim); color: var(--magenta); border-radius: 2px; }
+  .result-empty { padding: 16px 12px; font-size: .76rem; color: var(--text-dim); text-align: center; }
+
+  /* ============================================================
+     MODULE / LESSON NAV
+     ============================================================ */
+  #module-list { list-style: none; padding: 8px 0 20px; flex: 1; }
+
+  .module-btn {
+    width: 100%; display: flex; align-items: center; gap: 10px;
+    background: none; border: none; text-align: left;
+    padding: 10px 16px; cursor: pointer;
+    font-family: var(--font-mono); font-size: .78rem; font-weight: 600;
+    color: var(--text-sidebar-hover);
+    transition: background var(--transition), color var(--transition);
+  }
+  .module-btn:hover { background: var(--cyan-dim); color: var(--text-sidebar-active); }
+  .module-number {
+    font-size: .68rem; color: var(--void); background: var(--text-dim);
+    width: 20px; height: 20px; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .module-item.open .module-number,
+  .module-item .module-btn:hover .module-number { background: var(--cyan); color: var(--void); }
+  .module-label { flex: 1; }
+  .expand-icon { color: var(--text-dim); font-size: .7rem; transition: transform var(--transition); }
+  .module-item.open .expand-icon { transform: rotate(180deg); color: var(--cyan); }
+
+  .lesson-list { list-style: none; max-height: 0; overflow: hidden; transition: max-height .2s ease; }
+  .module-item.open .lesson-list { max-height: 600px; }
+
+  .lesson-btn {
+    width: 100%; display: flex; align-items: baseline; gap: 8px;
+    background: none; border: none; text-align: left;
+    padding: 8px 16px 8px 40px; cursor: pointer;
+    font-family: var(--font-mono); font-size: .74rem;
+    color: var(--text-sidebar);
+    border-left: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+  }
+  .lesson-btn:hover { color: var(--text-sidebar-hover); background: rgba(45,226,230,.04); }
+  .lesson-btn.active {
+    color: var(--cyan);
+    border-left-color: var(--cyan);
+    background: var(--cyan-dim);
+  }
+  .lesson-num { color: var(--text-dim); font-size: .68rem; }
+  .lesson-btn.active .lesson-num { color: var(--magenta); }
+
+  #sidebar-footer {
+    padding: 12px 16px; border-top: 1px solid var(--border);
+    font-size: .62rem; color: var(--text-dim); letter-spacing: .02em;
+  }
+  #sidebar-footer .dot { color: var(--green); }
+
+  /* ============================================================
+     MAIN CONTENT
+     ============================================================ */
+  #main { flex: 1; height: 100vh; overflow-y: auto; padding: 40px 44px 70px; }
+
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+  .lesson-group { display: none; }
+  .lesson-group.active { display: block; animation: fadeUp .18s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .lesson-header { margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .lesson-eyebrow {
+    font-size: .68rem; color: var(--cyan); letter-spacing: .08em;
+    display: block; margin-bottom: 8px;
+  }
+  .lesson-eyebrow::before { content: "// "; color: var(--text-dim); }
+  .lesson-header h2 {
+    font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
+    color: var(--text-primary); letter-spacing: -.01em; margin-bottom: 10px;
+  }
+  .lesson-description { font-size: .85rem; color: var(--text-secondary); line-height: 1.65; max-width: 68ch; }
+
+  /* ── Topic tabs ── */
+  .topic-tabs { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .topic-tab {
+    background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px;
+    padding: 9px 15px; font-family: var(--font-mono); font-size: .76rem; font-weight: 600;
+    color: var(--text-secondary); cursor: pointer; white-space: nowrap;
+    transition: color var(--transition), border-color var(--transition);
+  }
+  .topic-tab:hover { color: var(--text-primary); }
+  .topic-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); text-shadow: 0 0 10px var(--cyan-dim); }
+
+  .topic-panel { display: none; }
+  .topic-panel.active { display: block; animation: fadeUp .18s ease; }
+
+  /* ============================================================
+     NOTE CARDS — HUD corner brackets + neon tag pills
+     ============================================================ */
+  .note-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 18px;
+  }
+  .note-card::before, .note-card::after {
+    content: ""; position: absolute; width: 10px; height: 10px; pointer-events: none;
+    border-color: var(--border-bright);
+  }
+  .note-card::before { top: -1px; left: -1px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); opacity: .55; }
+  .note-card::after  { bottom: -1px; right: -1px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); opacity: .55; }
+
+  .tag {
+    display: inline-block; font-size: .64rem; font-weight: 600; letter-spacing: .03em;
+    color: var(--cyan); background: var(--cyan-dim); border: 1px solid var(--cyan-dim);
+    padding: 3px 9px; border-radius: 30px; margin-bottom: 12px;
+  }
+
+  .note-card h3 {
+    font-family: var(--font-display); font-size: 1.02rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .note-card h3 .card-icon { font-size: .95rem; flex-shrink: 0; }
+
+  .note-card p { font-size: .82rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+  .note-card p:last-child { margin-bottom: 0; }
+
+  .note-card ul { list-style: none; padding-left: 0; margin-bottom: 4px; }
+  .note-card ul li {
+    position: relative; padding-left: 18px; margin-bottom: 8px;
+    font-size: .82rem; color: var(--text-secondary); line-height: 1.65;
+  }
+  .note-card ul li::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px; background: var(--cyan); opacity: .55;
+    transform: rotate(45deg);
+  }
+  .note-card ul li:last-child { margin-bottom: 0; }
+
+  .key-term {
+    color: var(--text-primary); font-weight: 600;
+    border-bottom: 1px dashed var(--cyan-glow);
+    text-shadow: 0 0 10px var(--cyan-dim);
+  }
+
+  /* ── severity badges — genuine info, not decoration ── */
+  .sev {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: .62rem; font-weight: 700; letter-spacing: .05em;
+    padding: 3px 8px; border-radius: 3px; margin-left: 8px;
+    vertical-align: middle;
+  }
+  .sev::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
+  .sev-low      { color: var(--green);   background: var(--green-dim);  }
+  .sev-low::before { background: var(--green); }
+  .sev-medium   { color: var(--amber);   background: var(--amber-dim); }
+  .sev-medium::before { background: var(--amber); }
+  .sev-high     { color: var(--red);     background: var(--red-dim);   }
+  .sev-high::before { background: var(--red); }
+  .sev-critical { color: var(--magenta); background: var(--magenta-dim); animation: pulseCritical 1.6s ease-in-out infinite; }
+  .sev-critical::before { background: var(--magenta); }
+  @keyframes pulseCritical { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+
+  /* ── terminal / example box ── */
+  .terminal-box {
+    background: var(--bg-terminal);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    margin-top: 4px;
+    overflow: hidden;
+  }
+  .terminal-bar {
+    display: flex; align-items: center; gap: 6px;
+    padding: 7px 10px; background: #080c12; border-bottom: 1px solid var(--border);
+  }
+  .terminal-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-bright); }
+  .terminal-bar span:nth-child(1) { background: var(--red); opacity: .7; }
+  .terminal-bar span:nth-child(2) { background: var(--amber); opacity: .7; }
+  .terminal-bar span:nth-child(3) { background: var(--green); opacity: .7; }
+  .terminal-bar em { font-style: normal; margin-left: 8px; font-size: .62rem; color: var(--text-dim); }
+  .terminal-body { padding: 14px 16px; font-size: .78rem; line-height: 1.75; color: var(--text-secondary); }
+  .terminal-body .prompt { color: var(--green); }
+  .terminal-body .prompt::before { content: "$ "; color: var(--text-dim); }
+
+  /* ── risk grid: exposure / defence pairing ── */
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+  .risk-grid .note-card { margin-bottom: 0; }
+  .risk-grid .note-card.risk-card   { border-top: 2px solid var(--red); }
+  .risk-grid .note-card.mitigation-card { border-top: 2px solid var(--green); }
+  .risk-grid .note-card.risk-card::before,
+  .risk-grid .note-card.risk-card::after { border-color: var(--red); }
+  .risk-grid .note-card.mitigation-card::before,
+  .risk-grid .note-card.mitigation-card::after { border-color: var(--green); }
+  .card-col-header {
+    font-family: var(--font-mono); font-size: .74rem; font-weight: 700; letter-spacing: .03em;
+    padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .risk-card .card-col-header { color: var(--red); }
+  .mitigation-card .card-col-header { color: var(--green); }
+  .risk-grid .note-card ul li::before { background: currentColor; opacity: .6; }
+  .risk-card ul li::before { color: var(--red); }
+  .mitigation-card ul li::before { color: var(--green); }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 18px; }
+  .card-grid .note-card { margin-bottom: 0; }
+
+  @media (max-width: 760px) {
+    .risk-grid, .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Flash highlight when navigated to from search */
+  .note-card.flash {
+    animation: flashHit 1.4s ease;
+  }
+  @keyframes flashHit {
+    0%   { box-shadow: 0 0 0 1px var(--cyan), 0 0 26px var(--cyan-dim); }
+    100% { box-shadow: none; }
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 860px) {
+    body { flex-direction: column; overflow: auto; }
+    #sidebar { width: 100%; min-width: unset; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+    #module-list { display: block; padding: 0; }
+    .lesson-btn { padding-left: 28px; }
+    #main { height: auto; padding: 24px 18px 54px; }
+    .lesson-header h2 { font-size: 1.4rem; }
+    .risk-grid, .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* keyboard focus visibility */
+  button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--cyan); outline-offset: 2px;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="crt-scanlines" aria-hidden="true"></div>
+  <div class="crt-vignette" aria-hidden="true"></div>
+  <div class="scan-beam" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       SIDEBAR
+       HOW TO ADD A NEW MODULE:
+         1. Add a <li class="module-item"> block below.
+         2. Give the module-btn a data-module value.
+         3. Add lesson-btn entries under .lesson-list with matching
+            data-module and data-lesson values.
+         4. Add a matching module panel + lesson groups in #main.
+       HOW TO ADD A LESSON TO AN EXISTING MODULE:
+         1. Add a <li> with a lesson-btn inside the module's .lesson-list.
+         2. Add a matching .lesson-group in the module panel.
+       HOW TO ADD A TOPIC TO A LESSON:
+         1. Add a button to that lesson's .topic-tabs.
+         2. Add a matching .topic-panel with the same data-topic value.
+       ============================================================ -->
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <span class="boot-line">access granted</span>
+      <h1 class="glitch" data-text="Cybersecurity">Cybersecurity<span class="cursor"></span></h1>
+      <p>Personal study notes — select a module to begin.</p>
+    </div>
+
+    <!-- ============================================================
+         SEARCH
+         Live, client-side search across every note card. Indexed
+         once on load straight from the DOM, so it can't drift out
+         of sync with the content.
+         ============================================================ -->
+    <div id="search-wrap">
+      <div id="search-input-row">
+        <span class="search-icon">⌕</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="grep notes…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search notes"
+        />
+        <span id="search-shortcut-hint">/</span>
+        <button id="search-clear" type="button" aria-label="Clear search">✕</button>
+      </div>
+      <div id="search-results" role="listbox"></div>
+    </div>
+
+    <ul id="module-list">
+
+      <!-- ── MODULE 1 ── -->
+      <li class="module-item open">
+        <button class="module-btn" data-module="1">
+          <span class="module-number">1</span>
+          <span class="module-label">Foundations</span>
+          <span class="expand-icon">▾</span>
+        </button>
+        <ul class="lesson-list">
+          <li>
+            <button class="lesson-btn active" data-module="1" data-lesson="1">
+              <span class="lesson-num">01</span> Core Security Principles
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="1" data-lesson="2">
+              <span class="lesson-num">02</span> Threat Landscape
+            </button>
+          </li>
+        </ul>
+      </li>
+
+      <!-- ── MODULE 2 ── -->
+      <li class="module-item">
+        <button class="module-btn" data-module="2">
+          <span class="module-number">2</span>
+          <span class="module-label">Malware &amp; Social Engineering</span>
+          <span class="expand-icon">▾</span>
+        </button>
+        <ul class="lesson-list">
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="1">
+              <span class="lesson-num">01</span> Malware Types
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="2">
+              <span class="lesson-num">02</span> Phishing &amp; Network Attacks
+            </button>
+          </li>
+        </ul>
+      </li>
+
+      <!-- ── MODULE 3 — empty scaffold, ready for your own notes ── -->
+      <li class="module-item">
+        <button class="module-btn" data-module="3">
+          <span class="module-number">3</span>
+          <span class="module-label">Your Notes</span>
+          <span class="expand-icon">▾</span>
+        </button>
+        <ul class="lesson-list">
+          <li>
+            <button class="lesson-btn" data-module="3" data-lesson="1">
+              <span class="lesson-num">01</span> New Lesson
+            </button>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <div id="sidebar-footer"><span class="dot">●</span> local — nothing leaves this file</div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       Each .module-panel corresponds to one module in the sidebar.
+       Only the panel whose data-module matches the active sidebar
+       button is shown at a time (controlled by JS below).
+       ============================================================ -->
+  <main id="main">
+
+    <!-- ════════════════════════════════════════════════════════════
+         MODULE 1 PANEL
+         ════════════════════════════════════════════════════════════ -->
+    <div class="module-panel active" data-module="1">
+
+      <!-- ════════════════════════════════
+           MODULE 1 / LESSON 1 — Core Security Principles
+           ════════════════════════════════ -->
+      <div class="lesson-group active" data-module="1" data-lesson="1">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Module 1 · Lesson 1</span>
+          <h2>Core Security Principles</h2>
+          <p class="lesson-description">The foundational model every other security concept builds on: what we're protecting, and how we control who can touch it.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m1l1-cia">CIA Triad</button>
+          <button class="topic-tab" data-topic="m1l1-aaa">AAA Framework</button>
+          <button class="topic-tab" data-topic="m1l1-terms">Key Terminology</button>
+        </div>
+
+        <!-- ── TOPIC: CIA Triad ── -->
+        <div class="topic-panel active" data-topic="m1l1-cia">
+
+          <div class="note-card">
+            <span class="tag">Core Model</span>
+            <h3><span class="card-icon">◉</span>Confidentiality</h3>
+            <ul>
+              <li>Ensures information is only accessible to <span class="key-term">authorised</span> people, systems, or processes</li>
+              <li>Enforced through encryption, access controls, and classification levels</li>
+              <li>Breach = an unauthorised party reads or copies data they shouldn't</li>
+            </ul>
+            <div class="terminal-box">
+              <div class="terminal-bar"><span></span><span></span><span></span><em>scenario.log</em></div>
+              <div class="terminal-body">
+                <span class="prompt">unencrypted database backup left on a public S3 bucket</span><br>
+                → anyone with the URL can read every customer record. Confidentiality failed even though nothing was "hacked."
+              </div>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Core Model</span>
+            <h3><span class="card-icon">◈</span>Integrity</h3>
+            <ul>
+              <li>Ensures data stays <span class="key-term">accurate and unaltered</span> unless changed by an authorised action</li>
+              <li>Enforced through hashing, digital signatures, checksums, and version control</li>
+              <li>Breach = data is modified, corrupted, or forged without detection</li>
+            </ul>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Core Model</span>
+            <h3><span class="card-icon">◎</span>Availability</h3>
+            <ul>
+              <li>Ensures systems and data are <span class="key-term">accessible when needed</span> by authorised users</li>
+              <li>Enforced through redundancy, backups, load balancing, and DDoS protection</li>
+              <li>Breach = legitimate users can't reach the system — e.g. a ransomware outage or a DoS attack</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- END CIA Triad -->
+
+        <!-- ── TOPIC: AAA Framework ── -->
+        <div class="topic-panel" data-topic="m1l1-aaa">
+
+          <div class="note-card">
+            <span class="tag">Access Control</span>
+            <h3><span class="card-icon">▣</span>Authentication</h3>
+            <p>Proving <span class="key-term">who you are</span> — passwords, biometrics, hardware tokens, or a combination (MFA).</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Access Control</span>
+            <h3><span class="card-icon">▤</span>Authorisation</h3>
+            <p>Defining <span class="key-term">what you're allowed to do</span> once identity is confirmed — enforced through permissions, roles, and the principle of least privilege.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Access Control</span>
+            <h3><span class="card-icon">▥</span>Accounting</h3>
+            <p>Recording <span class="key-term">what actually happened</span> — audit logs, timestamps, and session records used for review and incident response.</p>
+          </div>
+
+        </div>
+        <!-- END AAA Framework -->
+
+        <!-- ── TOPIC: Key Terminology ── -->
+        <div class="topic-panel" data-topic="m1l1-terms">
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">Term</span>
+              <h3>Asset</h3>
+              <p>Anything of value worth protecting — data, hardware, software, or reputation.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Term</span>
+              <h3>Vulnerability</h3>
+              <p>A weakness that could be exploited to cause harm.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Term</span>
+              <h3>Threat</h3>
+              <p>Anything with the potential to exploit a vulnerability.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Term</span>
+              <h3>Exploit</h3>
+              <p>The specific method or code used to take advantage of a vulnerability.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Term</span>
+              <h3>Risk</h3>
+              <p>The likelihood of a threat exploiting a vulnerability, multiplied by the impact if it does.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- END MODULE 1 / LESSON 1 -->
+
+      <!-- ════════════════════════════════
+           MODULE 1 / LESSON 2 — Threat Landscape
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="1" data-lesson="2">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Module 1 · Lesson 2</span>
+          <h2>Threat Landscape</h2>
+          <p class="lesson-description">Who's actually behind the attacks, and what makes a system worth attacking in the first place.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m1l2-actors">Threat Actors</button>
+          <button class="topic-tab" data-topic="m1l2-surface">Attack Surface</button>
+        </div>
+
+        <!-- ── TOPIC: Threat Actors ── -->
+        <div class="topic-panel active" data-topic="m1l2-actors">
+
+          <div class="note-card">
+            <span class="tag">Threat Actor</span>
+            <h3><span class="card-icon">▲</span>Script Kiddies<span class="sev sev-low">low capability</span></h3>
+            <p>Use pre-built tools without deep technical understanding. Often opportunistic rather than targeted.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Threat Actor</span>
+            <h3><span class="card-icon">▲</span>Hacktivists<span class="sev sev-medium">medium capability</span></h3>
+            <p>Motivated by political or social causes. Favour defacement, leaks, and denial-of-service to make a statement.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Threat Actor</span>
+            <h3><span class="card-icon">▲</span>Organised Crime<span class="sev sev-high">high capability</span></h3>
+            <p>Financially motivated. Behind most ransomware and large-scale data-theft-for-profit operations.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Threat Actor</span>
+            <h3><span class="card-icon">▲</span>Nation-State Actors<span class="sev sev-critical">critical capability</span></h3>
+            <p>Well-funded, patient, and highly capable. Pursue espionage, sabotage, or long-term strategic access — Advanced Persistent Threats (APTs).</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Threat Actor</span>
+            <h3><span class="card-icon">▲</span>Insider Threats<span class="sev sev-medium">medium capability</span></h3>
+            <p>Current or former employees/contractors with legitimate access, acting maliciously or carelessly.</p>
+          </div>
+
+        </div>
+        <!-- END Threat Actors -->
+
+        <!-- ── TOPIC: Attack Surface ── -->
+        <div class="topic-panel" data-topic="m1l2-surface">
+
+          <div class="note-card">
+            <span class="tag">Concept</span>
+            <h3><span class="card-icon">◐</span>Attack Surface</h3>
+            <p>The sum of every point where an <span class="key-term">unauthorised user</span> could try to enter or extract data from a system — every open port, form field, API endpoint, and user account.</p>
+          </div>
+
+          <div class="risk-grid">
+            <div class="note-card risk-card">
+              <div class="card-col-header">↑ increases exposure</div>
+              <ul>
+                <li>Unpatched software and outdated systems</li>
+                <li>Excessive open ports and services</li>
+                <li>Overly broad user permissions</li>
+                <li>Shadow IT — unmanaged, unapproved tools</li>
+              </ul>
+            </div>
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">↓ reduces exposure</div>
+              <ul>
+                <li>Regular patching and update cycles</li>
+                <li>Closing unused ports and services</li>
+                <li>Principle of least privilege</li>
+                <li>Asset inventory and approved software lists</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- END MODULE 1 / LESSON 2 -->
+
+    </div>
+    <!-- END MODULE 1 PANEL -->
+
+    <!-- ════════════════════════════════════════════════════════════
+         MODULE 2 PANEL
+         ════════════════════════════════════════════════════════════ -->
+    <div class="module-panel" data-module="2">
+
+      <!-- ════════════════════════════════
+           MODULE 2 / LESSON 1 — Malware Types
+           ════════════════════════════════ -->
+      <div class="lesson-group active" data-module="2" data-lesson="1">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Module 2 · Lesson 1</span>
+          <h2>Malware Types</h2>
+          <p class="lesson-description">Malicious software, grouped by how it spreads and what it does once it's in.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l1-virus">Viruses &amp; Worms</button>
+          <button class="topic-tab" data-topic="m2l1-ransom">Ransomware</button>
+          <button class="topic-tab" data-topic="m2l1-trojan">Trojans &amp; Spyware</button>
+        </div>
+
+        <!-- ── TOPIC: Viruses & Worms ── -->
+        <div class="topic-panel active" data-topic="m2l1-virus">
+
+          <div class="note-card">
+            <span class="tag">Malware</span>
+            <h3><span class="card-icon">✱</span>Virus</h3>
+            <ul>
+              <li>Attaches itself to a legitimate file or program</li>
+              <li>Needs a <span class="key-term">human action</span> to spread — opening the infected file</li>
+              <li>Payload triggers once executed: corruption, theft, or further spreading</li>
+            </ul>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Malware</span>
+            <h3><span class="card-icon">✱</span>Worm</h3>
+            <ul>
+              <li>Self-replicating — spreads across networks with <span class="key-term">no user interaction</span> required</li>
+              <li>Exploits vulnerabilities directly to jump between systems</li>
+              <li>Can cripple networks purely through the volume of traffic it generates</li>
+            </ul>
+          </div>
+
+          <div class="risk-grid">
+            <div class="note-card risk-card">
+              <div class="card-col-header">⚠ indicators</div>
+              <ul>
+                <li>Unexplained slow performance or crashes</li>
+                <li>Unusual outbound network traffic</li>
+                <li>Files that appear, disappear, or change size</li>
+              </ul>
+            </div>
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">✓ mitigations</div>
+              <ul>
+                <li>Keep endpoint protection and definitions current</li>
+                <li>Patch known vulnerabilities promptly</li>
+                <li>Network segmentation to contain spread</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── TOPIC: Ransomware ── -->
+        <div class="topic-panel" data-topic="m2l1-ransom">
+
+          <div class="note-card">
+            <span class="tag">Malware</span>
+            <h3><span class="card-icon">✱</span>Ransomware<span class="sev sev-critical">critical impact</span></h3>
+            <ul>
+              <li>Encrypts a victim's files and demands payment for the decryption key</li>
+              <li>Often paired with <span class="key-term">double extortion</span> — data is stolen before encryption, and leaked if payment is refused</li>
+              <li>Common entry points: phishing emails and exposed remote-access services</li>
+            </ul>
+            <div class="terminal-box">
+              <div class="terminal-bar"><span></span><span></span><span></span><em>readme_recover.txt</em></div>
+              <div class="terminal-body">
+                <span class="prompt">all your files have been encrypted</span><br>
+                pay 2.4 BTC within 72 hours or the price doubles — a typical ransom-note pattern, designed to pressure a fast, unverified decision.
+              </div>
+            </div>
+          </div>
+
+          <div class="risk-grid">
+            <div class="note-card risk-card">
+              <div class="card-col-header">⚠ indicators</div>
+              <ul>
+                <li>Files renamed with unfamiliar extensions</li>
+                <li>A ransom note appearing on the desktop</li>
+                <li>Sudden inability to open common file types</li>
+              </ul>
+            </div>
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">✓ mitigations</div>
+              <ul>
+                <li>Regular, offline/immutable backups</li>
+                <li>Disable unnecessary remote access (e.g. RDP)</li>
+                <li>Email filtering and user awareness training</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── TOPIC: Trojans & Spyware ── -->
+        <div class="topic-panel" data-topic="m2l1-trojan">
+
+          <div class="note-card">
+            <span class="tag">Malware</span>
+            <h3><span class="card-icon">✱</span>Trojan</h3>
+            <p>Disguises itself as <span class="key-term">legitimate software</span> to trick the user into installing it. Unlike a virus, it doesn't self-replicate — it relies entirely on deception to get in.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Malware</span>
+            <h3><span class="card-icon">✱</span>Spyware</h3>
+            <p>Runs quietly in the background, <span class="key-term">collecting information</span> — keystrokes, browsing habits, credentials — and sending it back to an attacker.</p>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- END MODULE 2 / LESSON 1 -->
+
+      <!-- ════════════════════════════════
+           MODULE 2 / LESSON 2 — Phishing & Network Attacks
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="2" data-lesson="2">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Module 2 · Lesson 2</span>
+          <h2>Phishing &amp; Network Attacks</h2>
+          <p class="lesson-description">Attacks aimed at people and at the connections between systems, rather than the systems themselves.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l2-phishing">Phishing</button>
+          <button class="topic-tab" data-topic="m2l2-dos">DoS / DDoS</button>
+          <button class="topic-tab" data-topic="m2l2-mitm">Man-in-the-Middle</button>
+        </div>
+
+        <!-- ── TOPIC: Phishing ── -->
+        <div class="topic-panel active" data-topic="m2l2-phishing">
+
+          <div class="note-card">
+            <span class="tag">Social Engineering</span>
+            <h3><span class="card-icon">✉</span>Phishing</h3>
+            <ul>
+              <li>Fraudulent messages impersonating a <span class="key-term">trusted source</span> to trick a victim into acting</li>
+              <li><strong>Spear phishing</strong> — targeted at a specific individual using researched personal details</li>
+              <li><strong>Whaling</strong> — spear phishing aimed at senior executives</li>
+              <li><strong>Smishing / Vishing</strong> — the same technique via SMS or phone call</li>
+            </ul>
+            <div class="terminal-box">
+              <div class="terminal-bar"><span></span><span></span><span></span><em>inbox — 1 new message</em></div>
+              <div class="terminal-body">
+                <span class="prompt">"URGENT: your account will be suspended — verify now"</span><br>
+                a mismatched sender domain and a link that doesn't match the display text are the two fastest tells.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── TOPIC: DoS / DDoS ── -->
+        <div class="topic-panel" data-topic="m2l2-dos">
+
+          <div class="note-card">
+            <span class="tag">Network Attack</span>
+            <h3><span class="card-icon">⇶</span>Denial of Service</h3>
+            <p>Floods a system with traffic or requests until it can no longer serve <span class="key-term">legitimate users</span> — a direct attack on availability.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Network Attack</span>
+            <h3><span class="card-icon">⇶</span>Distributed Denial of Service</h3>
+            <p>The same attack, launched from a <span class="key-term">botnet</span> of many compromised devices at once — far harder to block by source alone.</p>
+          </div>
+
+        </div>
+
+        <!-- ── TOPIC: Man-in-the-Middle ── -->
+        <div class="topic-panel" data-topic="m2l2-mitm">
+
+          <div class="note-card">
+            <span class="tag">Network Attack</span>
+            <h3><span class="card-icon">⇄</span>Man-in-the-Middle (MITM)</h3>
+            <ul>
+              <li>Attacker secretly positions themselves <span class="key-term">between two parties</span> in a conversation</li>
+              <li>Can read, and in some cases alter, traffic without either side knowing</li>
+              <li>Common on unsecured public Wi-Fi, or via ARP/DNS spoofing</li>
+            </ul>
+          </div>
+
+          <div class="risk-grid">
+            <div class="note-card risk-card">
+              <div class="card-col-header">⚠ indicators</div>
+              <ul>
+                <li>Unexpected certificate warnings</li>
+                <li>URLs that don't match the expected domain</li>
+              </ul>
+            </div>
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">✓ mitigations</div>
+              <ul>
+                <li>Enforce HTTPS/TLS everywhere</li>
+                <li>Avoid sensitive activity on untrusted networks; use a VPN</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- END MODULE 2 / LESSON 2 -->
+
+    </div>
+    <!-- END MODULE 2 PANEL -->
+
+    <!-- ════════════════════════════════════════════════════════════
+         MODULE 3 PANEL — empty scaffold
+         Copy any topic-panel block above as a starting point.
+         ════════════════════════════════════════════════════════════ -->
+    <div class="module-panel" data-module="3">
+
+      <div class="lesson-group active" data-module="3" data-lesson="1">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Module 3 · Lesson 1</span>
+          <h2>New Lesson</h2>
+          <p class="lesson-description">Replace this description, then add topic tabs and note-cards below — copy the structure from Module 1 or 2.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m3l1-first">First Topic</button>
+        </div>
+
+        <div class="topic-panel active" data-topic="m3l1-first">
+          <div class="note-card">
+            <span class="tag">Tag</span>
+            <h3><span class="card-icon">◆</span>Card Title</h3>
+            <p>Start typing here. Use <span class="key-term">key-term</span> spans for definitions worth remembering, and copy a <code>.terminal-box</code> or <code>.risk-grid</code> from an earlier lesson if this topic needs one.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+
+    /* ── 1. Module toggle — expand/collapse lesson list ── */
+    document.querySelectorAll('.module-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.module-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.module-item').forEach(m => m.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ── 2. Lesson switching ── */
+    document.querySelectorAll('.lesson-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetModule = btn.dataset.module;
+        const targetLesson = btn.dataset.lesson;
+
+        document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const moduleItem = btn.closest('.module-item');
+        document.querySelectorAll('.module-item').forEach(m => m.classList.remove('open'));
+        if (moduleItem) moduleItem.classList.add('open');
+
+        document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+        const modulePanel = document.querySelector(`.module-panel[data-module="${targetModule}"]`);
+        if (modulePanel) modulePanel.classList.add('active');
+
+        if (modulePanel) {
+          modulePanel.querySelectorAll('.lesson-group').forEach(g => g.classList.remove('active'));
+          const lessonGroup = modulePanel.querySelector(`.lesson-group[data-lesson="${targetLesson}"]`);
+          if (lessonGroup) {
+            lessonGroup.classList.add('active');
+            const firstTab = lessonGroup.querySelector('.topic-tab');
+            if (firstTab) firstTab.click();
+          }
+        }
+      });
+    });
+
+    /* ── 3. Topic tab switching — scoped to the lesson-group ── */
+    document.querySelectorAll('.topic-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTopic = tab.dataset.topic;
+        const lessonGroup = tab.closest('.lesson-group');
+        if (!lessonGroup) return;
+
+        lessonGroup.querySelectorAll('.topic-tab').forEach(t => t.classList.remove('active'));
+        lessonGroup.querySelectorAll('.topic-panel').forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetPanel = lessonGroup.querySelector(`.topic-panel[data-topic="${targetTopic}"]`);
+        if (targetPanel) targetPanel.classList.add('active');
+      });
+    });
+
+    /* ── 3b. Arrow-key navigation between topic tabs ── */
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable)) return;
+
+      const activeModulePanel = document.querySelector('.module-panel.active');
+      if (!activeModulePanel) return;
+      const lessonGroup = activeModulePanel.querySelector('.lesson-group.active');
+      if (!lessonGroup) return;
+
+      const tabs = Array.from(lessonGroup.querySelectorAll('.topic-tab'));
+      if (tabs.length < 2) return;
+
+      const currentIndex = tabs.findIndex(t => t.classList.contains('active'));
+      if (currentIndex === -1) return;
+      e.preventDefault();
+
+      const nextIndex = e.key === 'ArrowRight'
+        ? (currentIndex + 1) % tabs.length
+        : (currentIndex - 1 + tabs.length) % tabs.length;
+
+      tabs[nextIndex].click();
+      tabs[nextIndex].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+
+    /* ── 3c. Arrow-key navigation between lessons (↑/↓) and modules (Shift+↑/↓) ── */
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable)) return;
+      e.preventDefault();
+
+      if (e.shiftKey) {
+        const moduleBtns = Array.from(document.querySelectorAll('.module-btn'));
+        if (moduleBtns.length < 2) return;
+
+        const activeLessonBtn = document.querySelector('.lesson-btn.active');
+        const currentModuleItem = activeLessonBtn ? activeLessonBtn.closest('.module-item') : null;
+        const currentModuleBtn = currentModuleItem ? currentModuleItem.querySelector('.module-btn') : null;
+        const currentIndex = currentModuleBtn ? moduleBtns.indexOf(currentModuleBtn) : -1;
+        if (currentIndex === -1) return;
+
+        const nextIndex = e.key === 'ArrowDown'
+          ? Math.min(currentIndex + 1, moduleBtns.length - 1)
+          : Math.max(currentIndex - 1, 0);
+        if (nextIndex === currentIndex) return;
+
+        const nextModuleItem = moduleBtns[nextIndex].closest('.module-item');
+        const firstLessonBtn = nextModuleItem ? nextModuleItem.querySelector('.lesson-btn') : null;
+        if (firstLessonBtn) {
+          firstLessonBtn.click();
+          firstLessonBtn.scrollIntoView({ block: 'nearest' });
+        }
+        return;
+      }
+
+      const lessonBtns = Array.from(document.querySelectorAll('.lesson-btn'));
+      if (lessonBtns.length < 2) return;
+
+      const currentIndex = lessonBtns.findIndex(b => b.classList.contains('active'));
+      if (currentIndex === -1) return;
+
+      const nextIndex = e.key === 'ArrowDown'
+        ? Math.min(currentIndex + 1, lessonBtns.length - 1)
+        : Math.max(currentIndex - 1, 0);
+      if (nextIndex === currentIndex) return;
+
+      lessonBtns[nextIndex].click();
+      lessonBtns[nextIndex].scrollIntoView({ block: 'nearest' });
+    });
+
+    /* ── 4. Search — indexing, matching, results UI, navigation ── */
+    (function () {
+      const searchInput  = document.getElementById('search-input');
+      const searchWrap    = document.getElementById('search-wrap');
+      const resultsPanel = document.getElementById('search-results');
+      const clearBtn      = document.getElementById('search-clear');
+
+      let searchIndex = [];
+      let activeResults = [];
+      let activeIndex = -1;
+
+      function buildIndex() {
+        const index = [];
+        document.querySelectorAll('.topic-panel').forEach(panel => {
+          const topicKey    = panel.dataset.topic;
+          const lessonGroup = panel.closest('.lesson-group');
+          if (!lessonGroup) return;
+
+          const moduleNum  = lessonGroup.dataset.module;
+          const lessonNum  = lessonGroup.dataset.lesson;
+          const lessonTitleEl = lessonGroup.querySelector('.lesson-header h2');
+          const lessonTitle = lessonTitleEl ? lessonTitleEl.textContent.trim() : '';
+
+          const tabBtn = lessonGroup.querySelector(`.topic-tab[data-topic="${CSS.escape(topicKey)}"]`);
+          const topicLabel = tabBtn ? tabBtn.textContent.trim() : '';
+
+          const mainH3 = panel.querySelector('h3');
+          const mainTitle = mainH3 ? mainH3.textContent.trim() : topicLabel;
+
+          const breadcrumb = `Module ${moduleNum} · L${lessonNum} ${lessonTitle}`;
+
+          panel.querySelectorAll('.note-card').forEach(card => {
+            const h3 = card.querySelector('h3');
+            const colHeader = card.querySelector('.card-col-header');
+            let cardTitle;
+            if (h3) {
+              cardTitle = h3.textContent.trim();
+            } else if (colHeader) {
+              cardTitle = `${mainTitle} — ${colHeader.textContent.trim().replace(/^[↑↓⚠✓]\s*/, '')}`;
+            } else {
+              cardTitle = mainTitle;
+            }
+
+            const text = card.textContent.replace(/\s+/g, ' ').trim();
+            const searchId = String(index.length);
+            card.dataset.searchId = searchId;
+
+            index.push({
+              id: searchId,
+              module: moduleNum,
+              lesson: lessonNum,
+              topic: topicKey,
+              breadcrumb,
+              topicLabel,
+              title: cardTitle,
+              text,
+              lowerText: text.toLowerCase(),
+              lowerTitle: cardTitle.toLowerCase()
+            });
+          });
+        });
+        return index;
+      }
+
+      function escapeRegExp(str) { return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function escapeHtml(str) { return str.replace(/[&<>]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch])); }
+
+      function search(query) {
+        const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        if (!words.length) return [];
+
+        const scored = [];
+        for (const entry of searchIndex) {
+          let score = 0;
+          let allWordsPresent = true;
+
+          for (const w of words) {
+            const inTitle = entry.lowerTitle.includes(w);
+            const bodyMatches = entry.lowerText.split(w).length - 1;
+            if (!inTitle && bodyMatches === 0) { allWordsPresent = false; break; }
+            if (inTitle) score += 12;
+            score += Math.min(bodyMatches, 5) * 2;
+            if (entry.lowerTitle.startsWith(w)) score += 6;
+          }
+
+          if (allWordsPresent) scored.push({ entry, score });
+        }
+
+        scored.sort((a, b) => b.score - a.score);
+        return scored.slice(0, 25).map(s => s.entry);
+      }
+
+      function buildSnippet(entry, words) {
+        const text = entry.text;
+        const lower = entry.lowerText;
+        let hitPos = -1;
+        for (const w of words) {
+          const p = lower.indexOf(w);
+          if (p !== -1 && (hitPos === -1 || p < hitPos)) hitPos = p;
+        }
+        if (hitPos === -1) hitPos = 0;
+
+        const radius = 70;
+        let start = Math.max(0, hitPos - radius);
+        let end = Math.min(text.length, hitPos + radius);
+        let snippet = text.slice(start, end);
+        if (start > 0) snippet = '… ' + snippet;
+        if (end < text.length) snippet = snippet + ' …';
+
+        let safe = escapeHtml(snippet);
+        for (const w of words) {
+          if (!w) continue;
+          const re = new RegExp('(' + escapeRegExp(w) + ')', 'ig');
+          safe = safe.replace(re, '<mark>$1</mark>');
+        }
+        return safe;
+      }
+
+      function renderResults(query) {
+        const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        resultsPanel.innerHTML = '';
+        activeIndex = -1;
+
+        if (!activeResults.length) {
+          const empty = document.createElement('div');
+          empty.className = 'result-empty';
+          empty.textContent = activeResults.length === 0 && query ? 'no matches' : '';
+          resultsPanel.appendChild(empty);
+          return;
+        }
+
+        activeResults.forEach((entry, i) => {
+          const item = document.createElement('div');
+          item.className = 'result-item';
+          item.setAttribute('role', 'option');
+          item.dataset.index = String(i);
+          item.innerHTML = `
+            <div class="result-breadcrumb">${escapeHtml(entry.breadcrumb)} · ${escapeHtml(entry.topicLabel)}</div>
+            <div class="result-title">${escapeHtml(entry.title)}</div>
+            <div class="result-snippet">${buildSnippet(entry, words)}</div>
+          `;
+          item.addEventListener('click', () => jumpTo(entry));
+          resultsPanel.appendChild(item);
+        });
+      }
+
+      function jumpTo(entry) {
+        const lessonBtn = document.querySelector(`.lesson-btn[data-module="${entry.module}"][data-lesson="${entry.lesson}"]`);
+        if (lessonBtn) lessonBtn.click();
+
+        const tabBtn = document.querySelector(`.topic-tab[data-topic="${CSS.escape(entry.topic)}"]`);
+        if (tabBtn) tabBtn.click();
+
+        requestAnimationFrame(() => {
+          const card = document.querySelector(`.note-card[data-search-id="${entry.id}"]`);
+          if (card) {
+            card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            card.classList.remove('flash');
+            void card.offsetWidth;
+            card.classList.add('flash');
+          }
+        });
+
+        searchWrap.classList.remove('open');
+        searchInput.blur();
+      }
+
+      function updateHotState() {
+        resultsPanel.querySelectorAll('.result-item').forEach((el, i) => {
+          el.classList.toggle('hot', i === activeIndex);
+        });
+        const hot = resultsPanel.querySelector('.result-item.hot');
+        if (hot) hot.scrollIntoView({ block: 'nearest' });
+      }
+
+      searchInput.addEventListener('input', () => {
+        const q = searchInput.value;
+        searchWrap.classList.toggle('has-query', q.length > 0);
+        activeResults = search(q);
+        renderResults(q);
+        searchWrap.classList.toggle('open', q.trim().length > 0);
+      });
+
+      searchInput.addEventListener('focus', () => {
+        if (searchInput.value.trim()) searchWrap.classList.add('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!searchWrap.contains(e.target)) searchWrap.classList.remove('open');
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          searchWrap.classList.remove('open', 'has-query');
+          searchInput.blur();
+          return;
+        }
+        if (e.key === 'ArrowDown') {
+          if (!activeResults.length) return;
+          e.preventDefault();
+          activeIndex = Math.min(activeIndex + 1, activeResults.length - 1);
+          updateHotState();
+          return;
+        }
+        if (e.key === 'ArrowUp') {
+          if (!activeResults.length) return;
+          e.preventDefault();
+          activeIndex = Math.max(activeIndex - 1, 0);
+          updateHotState();
+          return;
+        }
+        if (e.key === 'Enter') {
+          if (activeIndex >= 0 && activeResults[activeIndex]) jumpTo(activeResults[activeIndex]);
+          else if (activeResults[0]) jumpTo(activeResults[0]);
+        }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchWrap.classList.remove('open', 'has-query');
+        searchInput.focus();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          const tag = document.activeElement.tagName;
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+            e.preventDefault();
+            searchInput.focus();
+          }
+        }
+      });
+
+      searchIndex = buildIndex();
+    })();
+
+  </script>
+
+</body>
+</html>
