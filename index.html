@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cybersecurity :: Study Notes</title>
+<title>Software Development :: Study Notes</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2305070a'/%3E%3Cpath d='M50 8 L88 29 L88 71 L50 92 L12 71 L12 29 Z' fill='none' stroke='%232de2e6' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='11' fill='%23ff2f92'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -535,8 +535,8 @@
   <nav id="sidebar">
     <div id="sidebar-header">
       <span class="boot-line">access granted</span>
-      <h1 class="glitch" data-text="Cybersecurity">Cybersecurity<span class="cursor"></span></h1>
-      <p>Personal study notes — select a module to begin.</p>
+      <h1 class="glitch" data-text="Software Dev">Software Dev<span class="cursor"></span></h1>
+      <p>Personal study notes — select a week to begin.</p>
     </div>
 
     <!-- ============================================================
@@ -564,58 +564,48 @@
 
     <ul id="module-list">
 
-      <!-- ── MODULE 1 ── -->
+      <!-- ── WEEK 1 ── -->
       <li class="module-item open">
         <button class="module-btn" data-module="1">
           <span class="module-number">1</span>
-          <span class="module-label">Foundations</span>
+          <span class="module-label">Week 1</span>
           <span class="expand-icon">▾</span>
         </button>
         <ul class="lesson-list">
           <li>
             <button class="lesson-btn active" data-module="1" data-lesson="1">
-              <span class="lesson-num">01</span> Core Security Principles
+              <span class="lesson-num">01</span> Goals &amp; Objectives
             </button>
           </li>
           <li>
             <button class="lesson-btn" data-module="1" data-lesson="2">
-              <span class="lesson-num">02</span> Threat Landscape
+              <span class="lesson-num">02</span> Industry Frameworks
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="1" data-lesson="3">
+              <span class="lesson-num">03</span> Ethics
             </button>
           </li>
         </ul>
       </li>
 
-      <!-- ── MODULE 2 ── -->
+      <!-- ── FUTURE WEEKS — empty scaffold, ready for your own notes ──
+           HOW TO ADD A NEW WEEK:
+             1. Copy this <li class="module-item"> block, give it the next data-module number.
+             2. Add lesson-btn entries under .lesson-list with matching data-module/data-lesson values.
+             3. Copy a module-panel from below (Week 1) into #main, update data-module/data-lesson/data-topic values,
+                and replace the note-cards with the new content.
+      -->
       <li class="module-item">
         <button class="module-btn" data-module="2">
           <span class="module-number">2</span>
-          <span class="module-label">Malware &amp; Social Engineering</span>
+          <span class="module-label">Week 2</span>
           <span class="expand-icon">▾</span>
         </button>
         <ul class="lesson-list">
           <li>
             <button class="lesson-btn" data-module="2" data-lesson="1">
-              <span class="lesson-num">01</span> Malware Types
-            </button>
-          </li>
-          <li>
-            <button class="lesson-btn" data-module="2" data-lesson="2">
-              <span class="lesson-num">02</span> Phishing &amp; Network Attacks
-            </button>
-          </li>
-        </ul>
-      </li>
-
-      <!-- ── MODULE 3 — empty scaffold, ready for your own notes ── -->
-      <li class="module-item">
-        <button class="module-btn" data-module="3">
-          <span class="module-number">3</span>
-          <span class="module-label">Your Notes</span>
-          <span class="expand-icon">▾</span>
-        </button>
-        <ul class="lesson-list">
-          <li>
-            <button class="lesson-btn" data-module="3" data-lesson="1">
               <span class="lesson-num">01</span> New Lesson
             </button>
           </li>
@@ -636,463 +626,462 @@
   <main id="main">
 
     <!-- ════════════════════════════════════════════════════════════
-         MODULE 1 PANEL
+         WEEK 1 PANEL
          ════════════════════════════════════════════════════════════ -->
     <div class="module-panel active" data-module="1">
 
       <!-- ════════════════════════════════
-           MODULE 1 / LESSON 1 — Core Security Principles
+           WEEK 1 / LESSON 1 — Goals & Objectives
            ════════════════════════════════ -->
       <div class="lesson-group active" data-module="1" data-lesson="1">
 
         <div class="lesson-header">
-          <span class="lesson-eyebrow">Module 1 · Lesson 1</span>
-          <h2>Core Security Principles</h2>
-          <p class="lesson-description">The foundational model every other security concept builds on: what we're protecting, and how we control who can touch it.</p>
+          <span class="lesson-eyebrow">Week 1 · Lesson 1</span>
+          <h2>Goals &amp; Objectives of Organisations</h2>
+          <p class="lesson-description">Why organisations build or buy software, and how that choice connects back to their goals and objectives.</p>
         </div>
 
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m1l1-cia">CIA Triad</button>
-          <button class="topic-tab" data-topic="m1l1-aaa">AAA Framework</button>
-          <button class="topic-tab" data-topic="m1l1-terms">Key Terminology</button>
+          <button class="topic-tab active" data-topic="m1l1-types">Software Types &amp; Purpose</button>
+          <button class="topic-tab" data-topic="m1l1-goals">Goals vs Objectives</button>
+          <button class="topic-tab" data-topic="m1l1-impact">Enhancing Business Processes</button>
         </div>
 
-        <!-- ── TOPIC: CIA Triad ── -->
-        <div class="topic-panel active" data-topic="m1l1-cia">
+        <!-- ── TOPIC: Software Types & Purpose ── -->
+        <div class="topic-panel active" data-topic="m1l1-types">
 
           <div class="note-card">
-            <span class="tag">Core Model</span>
-            <h3><span class="card-icon">◉</span>Confidentiality</h3>
-            <ul>
-              <li>Ensures information is only accessible to <span class="key-term">authorised</span> people, systems, or processes</li>
-              <li>Enforced through encryption, access controls, and classification levels</li>
-              <li>Breach = an unauthorised party reads or copies data they shouldn't</li>
-            </ul>
-            <div class="terminal-box">
-              <div class="terminal-bar"><span></span><span></span><span></span><em>scenario.log</em></div>
-              <div class="terminal-body">
-                <span class="prompt">unencrypted database backup left on a public S3 bucket</span><br>
-                → anyone with the URL can read every customer record. Confidentiality failed even though nothing was "hacked."
-              </div>
-            </div>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Software Development</h3>
+            <p>The process of <span class="key-term">conceiving, designing, creating, deploying and supporting</span> software applications.</p>
           </div>
 
-          <div class="note-card">
-            <span class="tag">Core Model</span>
-            <h3><span class="card-icon">◈</span>Integrity</h3>
-            <ul>
-              <li>Ensures data stays <span class="key-term">accurate and unaltered</span> unless changed by an authorised action</li>
-              <li>Enforced through hashing, digital signatures, checksums, and version control</li>
-              <li>Breach = data is modified, corrupted, or forged without detection</li>
-            </ul>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Core Model</span>
-            <h3><span class="card-icon">◎</span>Availability</h3>
-            <ul>
-              <li>Ensures systems and data are <span class="key-term">accessible when needed</span> by authorised users</li>
-              <li>Enforced through redundancy, backups, load balancing, and DDoS protection</li>
-              <li>Breach = legitimate users can't reach the system — e.g. a ransomware outage or a DoS attack</li>
-            </ul>
-          </div>
-
-        </div>
-        <!-- END CIA Triad -->
-
-        <!-- ── TOPIC: AAA Framework ── -->
-        <div class="topic-panel" data-topic="m1l1-aaa">
-
-          <div class="note-card">
-            <span class="tag">Access Control</span>
-            <h3><span class="card-icon">▣</span>Authentication</h3>
-            <p>Proving <span class="key-term">who you are</span> — passwords, biometrics, hardware tokens, or a combination (MFA).</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Access Control</span>
-            <h3><span class="card-icon">▤</span>Authorisation</h3>
-            <p>Defining <span class="key-term">what you're allowed to do</span> once identity is confirmed — enforced through permissions, roles, and the principle of least privilege.</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Access Control</span>
-            <h3><span class="card-icon">▥</span>Accounting</h3>
-            <p>Recording <span class="key-term">what actually happened</span> — audit logs, timestamps, and session records used for review and incident response.</p>
-          </div>
-
-        </div>
-        <!-- END AAA Framework -->
-
-        <!-- ── TOPIC: Key Terminology ── -->
-        <div class="topic-panel" data-topic="m1l1-terms">
           <div class="card-grid">
             <div class="note-card">
-              <span class="tag">Term</span>
-              <h3>Asset</h3>
-              <p>Anything of value worth protecting — data, hardware, software, or reputation.</p>
+              <span class="tag">Software Type</span>
+              <h3>Systems Software</h3>
+              <p>Operating systems and device drivers.</p>
             </div>
             <div class="note-card">
-              <span class="tag">Term</span>
-              <h3>Vulnerability</h3>
-              <p>A weakness that could be exploited to cause harm.</p>
+              <span class="tag">Software Type</span>
+              <h3>Programming Software</h3>
+              <p>Gives programmers the tools to create code.</p>
             </div>
             <div class="note-card">
-              <span class="tag">Term</span>
-              <h3>Threat</h3>
-              <p>Anything with the potential to exploit a vulnerability.</p>
+              <span class="tag">Software Type</span>
+              <h3>Applications</h3>
+              <p>Helps users complete tasks, including web and mobile applications.</p>
             </div>
             <div class="note-card">
-              <span class="tag">Term</span>
-              <h3>Exploit</h3>
-              <p>The specific method or code used to take advantage of a vulnerability.</p>
+              <span class="tag">Software Type</span>
+              <h3>Embedded Software</h3>
+              <p>Used to control machines and devices.</p>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Reasons</span>
+            <h3><span class="card-icon">✎</span>Why Software Is Developed</h3>
+            <ul>
+              <li>To meet <span class="key-term">specific needs</span> of specific users - custom software</li>
+              <li>To meet a broad set of <span class="key-term">perceived needs</span> of potential users - commercial and open-source software</li>
+              <li>To <span class="key-term">automate mundane tasks</span>, and for entertainment or education - personal software</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- END Software Types & Purpose -->
+
+        <!-- ── TOPIC: Goals vs Objectives ── -->
+        <div class="topic-panel" data-topic="m1l1-goals">
+
+          <div class="note-card">
+            <span class="tag">Core Concept</span>
+            <h3><span class="card-icon">◉</span>Goals</h3>
+            <p><span class="key-term">Long term</span>. State the intention or purpose of the organisation.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Core Concept</span>
+            <h3><span class="card-icon">◎</span>Objectives</h3>
+            <p>Clearly defined, <span class="key-term">measurable, shorter term steps</span> towards achieving those goals.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Decision</span>
+            <h3><span class="card-icon">⚙</span>Choosing the Right Software</h3>
+            <ul>
+              <li>Organisations decide whether generic, commercial/open-source, or custom software is required</li>
+              <li>If generic software is used, products need to be evaluated and compared to find a suitable one</li>
+              <li>Any software, custom or generic, must be <span class="key-term">evaluated to ensure it meets privacy and security requirements</span></li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- END Goals vs Objectives -->
+
+        <!-- ── TOPIC: Enhancing Business Processes ── -->
+        <div class="topic-panel" data-topic="m1l1-impact">
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Productivity</h3>
+              <p>Increased efficiency, quality and capabilities.</p>
             </div>
             <div class="note-card">
-              <span class="tag">Term</span>
-              <h3>Risk</h3>
-              <p>The likelihood of a threat exploiting a vulnerability, multiplied by the impact if it does.</p>
+              <span class="tag">Impact</span>
+              <h3>Managing Information</h3>
+              <p>Business intelligence to enhance decision-making and innovation.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Cost Reduction</h3>
+              <p>Improving efficiency by automating processes.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Collaboration</h3>
+              <p>Facilitating cross functional and remote teams.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Accelerating Growth</h3>
+              <p>Enabling innovation, integration and collaboration.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Sales &amp; Service</h3>
+              <p>Improving sales and customer service.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Impact</span>
+              <h3>Customer Engagement</h3>
+              <p>Increasing direct communication with customers.</p>
             </div>
           </div>
         </div>
 
       </div>
-      <!-- END MODULE 1 / LESSON 1 -->
+      <!-- END WEEK 1 / LESSON 1 -->
 
       <!-- ════════════════════════════════
-           MODULE 1 / LESSON 2 — Threat Landscape
+           WEEK 1 / LESSON 2 — Industry Frameworks
            ════════════════════════════════ -->
       <div class="lesson-group" data-module="1" data-lesson="2">
 
         <div class="lesson-header">
-          <span class="lesson-eyebrow">Module 1 · Lesson 2</span>
-          <h2>Threat Landscape</h2>
-          <p class="lesson-description">Who's actually behind the attacks, and what makes a system worth attacking in the first place.</p>
+          <span class="lesson-eyebrow">Week 1 · Lesson 2</span>
+          <h2>Industry Frameworks</h2>
+          <p class="lesson-description">Structured best practices that keep software development secure, compliant and maintainable - focusing on two key Australian cyber security frameworks.</p>
         </div>
 
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m1l2-actors">Threat Actors</button>
-          <button class="topic-tab" data-topic="m1l2-surface">Attack Surface</button>
+          <button class="topic-tab active" data-topic="m1l2-overview">Overview</button>
+          <button class="topic-tab" data-topic="m1l2-e8">Essential Eight</button>
+          <button class="topic-tab" data-topic="m1l2-ism-env">ISM: Environments</button>
+          <button class="topic-tab" data-topic="m1l2-ism-design">ISM: Secure Design</button>
+          <button class="topic-tab" data-topic="m1l2-ism-test">ISM: Security Testing</button>
         </div>
 
-        <!-- ── TOPIC: Threat Actors ── -->
-        <div class="topic-panel active" data-topic="m1l2-actors">
+        <!-- ── TOPIC: Overview ── -->
+        <div class="topic-panel active" data-topic="m1l2-overview">
 
           <div class="note-card">
-            <span class="tag">Threat Actor</span>
-            <h3><span class="card-icon">▲</span>Script Kiddies<span class="sev sev-low">low capability</span></h3>
-            <p>Use pre-built tools without deep technical understanding. Often opportunistic rather than targeted.</p>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◈</span>Industry Frameworks</h3>
+            <p>Structured sets of <span class="key-term">best practices, standards and guidelines</span> designed to help organisations manage technology, data and security in a consistent, effective way.</p>
+            <ul>
+              <li>Secure</li>
+              <li>Compliant with laws and policies</li>
+              <li>Efficient and maintainable</li>
+            </ul>
           </div>
 
           <div class="note-card">
-            <span class="tag">Threat Actor</span>
-            <h3><span class="card-icon">▲</span>Hacktivists<span class="sev sev-medium">medium capability</span></h3>
-            <p>Motivated by political or social causes. Favour defacement, leaks, and denial-of-service to make a statement.</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Threat Actor</span>
-            <h3><span class="card-icon">▲</span>Organised Crime<span class="sev sev-high">high capability</span></h3>
-            <p>Financially motivated. Behind most ransomware and large-scale data-theft-for-profit operations.</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Threat Actor</span>
-            <h3><span class="card-icon">▲</span>Nation-State Actors<span class="sev sev-critical">critical capability</span></h3>
-            <p>Well-funded, patient, and highly capable. Pursue espionage, sabotage, or long-term strategic access — Advanced Persistent Threats (APTs).</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Threat Actor</span>
-            <h3><span class="card-icon">▲</span>Insider Threats<span class="sev sev-medium">medium capability</span></h3>
-            <p>Current or former employees/contractors with legitimate access, acting maliciously or carelessly.</p>
+            <span class="tag">Australia</span>
+            <h3><span class="card-icon">▣</span>Two Key Frameworks</h3>
+            <ul>
+              <li><span class="key-term">Essential Eight</span> - baseline cyber security strategies from the ACSC</li>
+              <li><span class="key-term">Information Security Manual (ISM)</span> - the Australian Government's primary cyber security framework</li>
+            </ul>
           </div>
 
         </div>
-        <!-- END Threat Actors -->
+        <!-- END Overview -->
 
-        <!-- ── TOPIC: Attack Surface ── -->
-        <div class="topic-panel" data-topic="m1l2-surface">
+        <!-- ── TOPIC: Essential Eight ── -->
+        <div class="topic-panel" data-topic="m1l2-e8">
 
           <div class="note-card">
-            <span class="tag">Concept</span>
-            <h3><span class="card-icon">◐</span>Attack Surface</h3>
-            <p>The sum of every point where an <span class="key-term">unauthorised user</span> could try to enter or extract data from a system — every open port, form field, API endpoint, and user account.</p>
+            <span class="tag">Essential Eight</span>
+            <h3><span class="card-icon">◉</span>What It Is</h3>
+            <p>Baseline cyber security strategies developed by the <span class="key-term">Australian Cyber Security Centre (ACSC)</span> to improve resilience against cyber threats - a practical, prioritised approach to defending against malware, unauthorised access and data breaches.</p>
           </div>
 
-          <div class="risk-grid">
-            <div class="note-card risk-card">
-              <div class="card-col-header">↑ increases exposure</div>
-              <ul>
-                <li>Unpatched software and outdated systems</li>
-                <li>Excessive open ports and services</li>
-                <li>Overly broad user permissions</li>
-                <li>Shadow IT — unmanaged, unapproved tools</li>
-              </ul>
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">01</span>
+              <h3>Application Control</h3>
+              <p>Prevents unapproved or malicious software from executing. Stops malware, ransomware and unauthorised applications.</p>
             </div>
-            <div class="note-card mitigation-card">
-              <div class="card-col-header">↓ reduces exposure</div>
-              <ul>
-                <li>Regular patching and update cycles</li>
-                <li>Closing unused ports and services</li>
-                <li>Principle of least privilege</li>
-                <li>Asset inventory and approved software lists</li>
-              </ul>
+            <div class="note-card">
+              <span class="tag">02</span>
+              <h3>Patch Applications</h3>
+              <p>Fixes security vulnerabilities in software. Prevents attackers exploiting known flaws.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">03</span>
+              <h3>Configure MS Office Macros</h3>
+              <p>Limits the use of potentially dangerous macros that can carry malware.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">04</span>
+              <h3>User Application Hardening</h3>
+              <p>Disables unnecessary features in apps, e.g. Flash, ads, Java. Reduces exploit risks.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">05</span>
+              <h3>Restrict Admin Privileges</h3>
+              <p>Only trusted users get admin rights, reducing internal and external attack risk.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">06</span>
+              <h3>Patch Operating Systems</h3>
+              <p>Keeps system software updated to close known vulnerabilities.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">07</span>
+              <h3>Multi-Factor Authentication</h3>
+              <p>Adds an extra layer of security beyond passwords, e.g. SMS code, authenticator app, token.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">08</span>
+              <h3>Regular Backups</h3>
+              <p>Ensures data can be restored after incidents such as ransomware or system failure.</p>
             </div>
           </div>
 
         </div>
+        <!-- END Essential Eight -->
+
+        <!-- ── TOPIC: ISM Guideline 1 ── -->
+        <div class="topic-panel" data-topic="m1l2-ism-env">
+
+          <div class="note-card">
+            <span class="tag">ISM · Guideline 1</span>
+            <h3><span class="card-icon">▤</span>Development, Testing &amp; Production Environments</h3>
+            <p>The ISM is the Australian Government's primary cyber security framework, covering principles, guidelines and controls for building secure applications throughout the development lifecycle.</p>
+          </div>
+
+          <div class="note-card">
+            <h3>Separation of Environments</h3>
+            <p>Keep development, testing and production systems separate. Prevents test code or bugs from affecting live systems.</p>
+          </div>
+          <div class="note-card">
+            <h3>Access Controls</h3>
+            <p>Limit access to each environment. Developers shouldn't automatically have access to production.</p>
+          </div>
+          <div class="note-card">
+            <h3>Data Handling</h3>
+            <p>Don't use real production data in development/testing unless absolutely necessary, and always anonymise it.</p>
+          </div>
+          <div class="note-card">
+            <h3>Monitoring</h3>
+            <p>Log who accesses what, and when, in all environments.</p>
+          </div>
+
+        </div>
+        <!-- END ISM: Environments -->
+
+        <!-- ── TOPIC: ISM Guideline 2 ── -->
+        <div class="topic-panel" data-topic="m1l2-ism-design">
+
+          <div class="note-card">
+            <span class="tag">ISM · Guideline 2</span>
+            <h3><span class="card-icon">▥</span>Secure Software Design &amp; Development</h3>
+          </div>
+
+          <div class="note-card">
+            <h3>Secure Coding Standards</h3>
+            <p>Use frameworks and languages that support secure practices, e.g. input validation, output encoding.</p>
+          </div>
+          <div class="note-card">
+            <h3>Threat Modelling</h3>
+            <p>Think about how the software might be attacked and build protections into the design.</p>
+          </div>
+          <div class="note-card">
+            <h3>Code Reviews</h3>
+            <p>Other team members check code to catch bugs and security issues.</p>
+          </div>
+          <div class="note-card">
+            <h3>Training</h3>
+            <p>Developers should be trained regularly in secure coding and current threats.</p>
+          </div>
+
+        </div>
+        <!-- END ISM: Secure Design -->
+
+        <!-- ── TOPIC: ISM Guideline 3 ── -->
+        <div class="topic-panel" data-topic="m1l2-ism-test">
+
+          <div class="note-card">
+            <span class="tag">ISM · Guideline 3</span>
+            <h3><span class="card-icon">◐</span>Application Security Testing</h3>
+          </div>
+
+          <div class="note-card">
+            <h3>Static Analysis (SAST)</h3>
+            <p>Tests source code without running the program, to find vulnerabilities early.</p>
+          </div>
+          <div class="note-card">
+            <h3>Dynamic Analysis (DAST)</h3>
+            <p>Tests the running application for security holes.</p>
+          </div>
+          <div class="note-card">
+            <h3>Penetration Testing</h3>
+            <p>Simulated attacks on the software to find weaknesses before hackers do.</p>
+          </div>
+          <div class="note-card">
+            <h3>Remediation &amp; Retesting</h3>
+            <p>Fix issues found during testing, then test again to confirm fixes worked.</p>
+          </div>
+
+        </div>
+        <!-- END ISM: Security Testing -->
 
       </div>
-      <!-- END MODULE 1 / LESSON 2 -->
+      <!-- END WEEK 1 / LESSON 2 -->
+
+      <!-- ════════════════════════════════
+           WEEK 1 / LESSON 3 — Ethics
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="1" data-lesson="3">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 1 · Lesson 3</span>
+          <h2>Ethics</h2>
+          <p class="lesson-description">Software development decisions affect people's rights, privacy, safety and trust - ethics is about doing what's right, not just what's legal or efficient.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m1l3-codes">Codes of Ethics</button>
+          <button class="topic-tab" data-topic="m1l3-issues">Ethical Issues</button>
+        </div>
+
+        <!-- ── TOPIC: Codes of Ethics ── -->
+        <div class="topic-panel active" data-topic="m1l3-codes">
+
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◉</span>Ethics &amp; Codes of Ethics</h3>
+            <ul>
+              <li><span class="key-term">Ethics</span> - a system of accepted rules about behaviour, based on what is considered right and wrong</li>
+              <li><span class="key-term">Code of ethics</span> - a guide of principles to help professionals conduct business honestly and with integrity</li>
+              <li>Some industries (e.g. banking, finance) have laws governing conduct; in others, a code of ethics is voluntarily adopted</li>
+            </ul>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">ACS</span>
+            <h3><span class="card-icon">▣</span>ACS Code of Professional Ethics</h3>
+            <p>The Australian Computer Society's core values are <span class="key-term">Honesty</span>, <span class="key-term">Trustworthiness</span> and <span class="key-term">Respect</span>.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Also Relevant</span>
+            <h3><span class="card-icon">▤</span>Other Codes of Ethics</h3>
+            <ul>
+              <li>ACM Software Engineering Code of Ethics</li>
+              <li>ACM Code of Ethics and Professional Conduct (for members)</li>
+              <li>IEEE Code of Ethics</li>
+              <li>Australia's AI Ethics Principles</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- END Codes of Ethics -->
+
+        <!-- ── TOPIC: Ethical Issues ── -->
+        <div class="topic-panel" data-topic="m1l3-issues">
+
+          <div class="note-card">
+            <span class="tag">Why It Matters</span>
+            <h3><span class="card-icon">◈</span>Consequences of Ignoring Ethics</h3>
+            <ul>
+              <li>Loss of user trust and respect</li>
+              <li>Negative media attention and reputational damage</li>
+              <li>Legal action or platform bans</li>
+              <li>Long term harm to individuals or communities</li>
+            </ul>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Issue 1</span>
+            <h3><span class="card-icon">▲</span>Ineffective Security Practices</h3>
+            <p>Failing to implement strong security, e.g. encryption, password protection, input validation, leaves users vulnerable to attacks, data leaks or identity theft.</p>
+            <p><em>E.g. a poorly protected app exposing users' private messages due to weak encryption.</em></p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Issue 2</span>
+            <h3><span class="card-icon">▲</span>Use of AI During Development</h3>
+            <p>Developers must question the source of AI training data, whether AI-generated content is accurate, and whether its use could introduce bias or cause harm.</p>
+            <p><em>E.g. using AI to build a recruitment app that favours certain genders or cultural backgrounds due to biased training data.</em></p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Issue 3</span>
+            <h3><span class="card-icon">▲</span>Intellectual Property &amp; Copyright</h3>
+            <p>Using someone else's code, images or algorithms without permission breaches copyright. Developers must respect licences, credit creators and avoid copy-pasting without attribution.</p>
+            <p><em>E.g. including third-party libraries without checking the licence type or providing attribution.</em></p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Issue 4</span>
+            <h3><span class="card-icon">▲</span>User Privacy &amp; Metadata</h3>
+            <p>Developers must be cautious collecting or exposing user data, including metadata (timestamps, locations, device info) that can unintentionally identify someone. Sharing or storing data without consent breaches privacy.</p>
+            <p><em>E.g. a social media app sharing image metadata that reveals where a user lives or works.</em></p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Issue 5</span>
+            <h3><span class="card-icon">▲</span>Content Moderation &amp; Offensive Material</h3>
+            <p>Developers of communication tools have an ethical duty to prevent the spread of offensive, harmful or unlawful content, e.g. through filters, moderation algorithms and flagging systems.</p>
+            <p><em>E.g. failing to prevent or remove hate speech in a chat or comments section, resulting in user harm.</em></p>
+          </div>
+
+        </div>
+        <!-- END Ethical Issues -->
+
+      </div>
+      <!-- END WEEK 1 / LESSON 3 -->
 
     </div>
-    <!-- END MODULE 1 PANEL -->
+    <!-- END WEEK 1 PANEL -->
 
     <!-- ════════════════════════════════════════════════════════════
-         MODULE 2 PANEL
+         WEEK 2 PANEL — empty scaffold
+         Copy any topic-panel block above as a starting point.
          ════════════════════════════════════════════════════════════ -->
     <div class="module-panel" data-module="2">
 
-      <!-- ════════════════════════════════
-           MODULE 2 / LESSON 1 — Malware Types
-           ════════════════════════════════ -->
       <div class="lesson-group active" data-module="2" data-lesson="1">
 
         <div class="lesson-header">
-          <span class="lesson-eyebrow">Module 2 · Lesson 1</span>
-          <h2>Malware Types</h2>
-          <p class="lesson-description">Malicious software, grouped by how it spreads and what it does once it's in.</p>
-        </div>
-
-        <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l1-virus">Viruses &amp; Worms</button>
-          <button class="topic-tab" data-topic="m2l1-ransom">Ransomware</button>
-          <button class="topic-tab" data-topic="m2l1-trojan">Trojans &amp; Spyware</button>
-        </div>
-
-        <!-- ── TOPIC: Viruses & Worms ── -->
-        <div class="topic-panel active" data-topic="m2l1-virus">
-
-          <div class="note-card">
-            <span class="tag">Malware</span>
-            <h3><span class="card-icon">✱</span>Virus</h3>
-            <ul>
-              <li>Attaches itself to a legitimate file or program</li>
-              <li>Needs a <span class="key-term">human action</span> to spread — opening the infected file</li>
-              <li>Payload triggers once executed: corruption, theft, or further spreading</li>
-            </ul>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Malware</span>
-            <h3><span class="card-icon">✱</span>Worm</h3>
-            <ul>
-              <li>Self-replicating — spreads across networks with <span class="key-term">no user interaction</span> required</li>
-              <li>Exploits vulnerabilities directly to jump between systems</li>
-              <li>Can cripple networks purely through the volume of traffic it generates</li>
-            </ul>
-          </div>
-
-          <div class="risk-grid">
-            <div class="note-card risk-card">
-              <div class="card-col-header">⚠ indicators</div>
-              <ul>
-                <li>Unexplained slow performance or crashes</li>
-                <li>Unusual outbound network traffic</li>
-                <li>Files that appear, disappear, or change size</li>
-              </ul>
-            </div>
-            <div class="note-card mitigation-card">
-              <div class="card-col-header">✓ mitigations</div>
-              <ul>
-                <li>Keep endpoint protection and definitions current</li>
-                <li>Patch known vulnerabilities promptly</li>
-                <li>Network segmentation to contain spread</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ── TOPIC: Ransomware ── -->
-        <div class="topic-panel" data-topic="m2l1-ransom">
-
-          <div class="note-card">
-            <span class="tag">Malware</span>
-            <h3><span class="card-icon">✱</span>Ransomware<span class="sev sev-critical">critical impact</span></h3>
-            <ul>
-              <li>Encrypts a victim's files and demands payment for the decryption key</li>
-              <li>Often paired with <span class="key-term">double extortion</span> — data is stolen before encryption, and leaked if payment is refused</li>
-              <li>Common entry points: phishing emails and exposed remote-access services</li>
-            </ul>
-            <div class="terminal-box">
-              <div class="terminal-bar"><span></span><span></span><span></span><em>readme_recover.txt</em></div>
-              <div class="terminal-body">
-                <span class="prompt">all your files have been encrypted</span><br>
-                pay 2.4 BTC within 72 hours or the price doubles — a typical ransom-note pattern, designed to pressure a fast, unverified decision.
-              </div>
-            </div>
-          </div>
-
-          <div class="risk-grid">
-            <div class="note-card risk-card">
-              <div class="card-col-header">⚠ indicators</div>
-              <ul>
-                <li>Files renamed with unfamiliar extensions</li>
-                <li>A ransom note appearing on the desktop</li>
-                <li>Sudden inability to open common file types</li>
-              </ul>
-            </div>
-            <div class="note-card mitigation-card">
-              <div class="card-col-header">✓ mitigations</div>
-              <ul>
-                <li>Regular, offline/immutable backups</li>
-                <li>Disable unnecessary remote access (e.g. RDP)</li>
-                <li>Email filtering and user awareness training</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ── TOPIC: Trojans & Spyware ── -->
-        <div class="topic-panel" data-topic="m2l1-trojan">
-
-          <div class="note-card">
-            <span class="tag">Malware</span>
-            <h3><span class="card-icon">✱</span>Trojan</h3>
-            <p>Disguises itself as <span class="key-term">legitimate software</span> to trick the user into installing it. Unlike a virus, it doesn't self-replicate — it relies entirely on deception to get in.</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Malware</span>
-            <h3><span class="card-icon">✱</span>Spyware</h3>
-            <p>Runs quietly in the background, <span class="key-term">collecting information</span> — keystrokes, browsing habits, credentials — and sending it back to an attacker.</p>
-          </div>
-
-        </div>
-
-      </div>
-      <!-- END MODULE 2 / LESSON 1 -->
-
-      <!-- ════════════════════════════════
-           MODULE 2 / LESSON 2 — Phishing & Network Attacks
-           ════════════════════════════════ -->
-      <div class="lesson-group" data-module="2" data-lesson="2">
-
-        <div class="lesson-header">
-          <span class="lesson-eyebrow">Module 2 · Lesson 2</span>
-          <h2>Phishing &amp; Network Attacks</h2>
-          <p class="lesson-description">Attacks aimed at people and at the connections between systems, rather than the systems themselves.</p>
-        </div>
-
-        <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l2-phishing">Phishing</button>
-          <button class="topic-tab" data-topic="m2l2-dos">DoS / DDoS</button>
-          <button class="topic-tab" data-topic="m2l2-mitm">Man-in-the-Middle</button>
-        </div>
-
-        <!-- ── TOPIC: Phishing ── -->
-        <div class="topic-panel active" data-topic="m2l2-phishing">
-
-          <div class="note-card">
-            <span class="tag">Social Engineering</span>
-            <h3><span class="card-icon">✉</span>Phishing</h3>
-            <ul>
-              <li>Fraudulent messages impersonating a <span class="key-term">trusted source</span> to trick a victim into acting</li>
-              <li><strong>Spear phishing</strong> — targeted at a specific individual using researched personal details</li>
-              <li><strong>Whaling</strong> — spear phishing aimed at senior executives</li>
-              <li><strong>Smishing / Vishing</strong> — the same technique via SMS or phone call</li>
-            </ul>
-            <div class="terminal-box">
-              <div class="terminal-bar"><span></span><span></span><span></span><em>inbox — 1 new message</em></div>
-              <div class="terminal-body">
-                <span class="prompt">"URGENT: your account will be suspended — verify now"</span><br>
-                a mismatched sender domain and a link that doesn't match the display text are the two fastest tells.
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ── TOPIC: DoS / DDoS ── -->
-        <div class="topic-panel" data-topic="m2l2-dos">
-
-          <div class="note-card">
-            <span class="tag">Network Attack</span>
-            <h3><span class="card-icon">⇶</span>Denial of Service</h3>
-            <p>Floods a system with traffic or requests until it can no longer serve <span class="key-term">legitimate users</span> — a direct attack on availability.</p>
-          </div>
-
-          <div class="note-card">
-            <span class="tag">Network Attack</span>
-            <h3><span class="card-icon">⇶</span>Distributed Denial of Service</h3>
-            <p>The same attack, launched from a <span class="key-term">botnet</span> of many compromised devices at once — far harder to block by source alone.</p>
-          </div>
-
-        </div>
-
-        <!-- ── TOPIC: Man-in-the-Middle ── -->
-        <div class="topic-panel" data-topic="m2l2-mitm">
-
-          <div class="note-card">
-            <span class="tag">Network Attack</span>
-            <h3><span class="card-icon">⇄</span>Man-in-the-Middle (MITM)</h3>
-            <ul>
-              <li>Attacker secretly positions themselves <span class="key-term">between two parties</span> in a conversation</li>
-              <li>Can read, and in some cases alter, traffic without either side knowing</li>
-              <li>Common on unsecured public Wi-Fi, or via ARP/DNS spoofing</li>
-            </ul>
-          </div>
-
-          <div class="risk-grid">
-            <div class="note-card risk-card">
-              <div class="card-col-header">⚠ indicators</div>
-              <ul>
-                <li>Unexpected certificate warnings</li>
-                <li>URLs that don't match the expected domain</li>
-              </ul>
-            </div>
-            <div class="note-card mitigation-card">
-              <div class="card-col-header">✓ mitigations</div>
-              <ul>
-                <li>Enforce HTTPS/TLS everywhere</li>
-                <li>Avoid sensitive activity on untrusted networks; use a VPN</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-      <!-- END MODULE 2 / LESSON 2 -->
-
-    </div>
-    <!-- END MODULE 2 PANEL -->
-
-    <!-- ════════════════════════════════════════════════════════════
-         MODULE 3 PANEL — empty scaffold
-         Copy any topic-panel block above as a starting point.
-         ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel" data-module="3">
-
-      <div class="lesson-group active" data-module="3" data-lesson="1">
-
-        <div class="lesson-header">
-          <span class="lesson-eyebrow">Module 3 · Lesson 1</span>
+          <span class="lesson-eyebrow">Week 2 · Lesson 1</span>
           <h2>New Lesson</h2>
-          <p class="lesson-description">Replace this description, then add topic tabs and note-cards below — copy the structure from Module 1 or 2.</p>
+          <p class="lesson-description">Replace this description, then add topic tabs and note-cards below - copy the structure from Week 1.</p>
         </div>
 
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m3l1-first">First Topic</button>
+          <button class="topic-tab active" data-topic="m2l1-first">First Topic</button>
         </div>
 
-        <div class="topic-panel active" data-topic="m3l1-first">
+        <div class="topic-panel active" data-topic="m2l1-first">
           <div class="note-card">
             <span class="tag">Tag</span>
             <h3><span class="card-icon">◆</span>Card Title</h3>
-            <p>Start typing here. Use <span class="key-term">key-term</span> spans for definitions worth remembering, and copy a <code>.terminal-box</code> or <code>.risk-grid</code> from an earlier lesson if this topic needs one.</p>
+            <p>Start typing here. Use <span class="key-term">key-term</span> spans for definitions worth remembering, and copy a <code>.card-grid</code> from Week 1 if this topic needs one.</p>
           </div>
         </div>
 
@@ -1101,6 +1090,7 @@
     </div>
 
   </main>
+
 
   <script>
 
