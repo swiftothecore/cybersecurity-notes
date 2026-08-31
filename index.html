@@ -614,7 +614,7 @@
              3. Copy a module-panel from below (Week 1) into #main, update data-module/data-lesson/data-topic values,
                 and replace the note-cards with the new content.
       -->
-      <li class="module-item">
+      <li class="module-item open">
         <button class="module-btn" data-module="2">
           <span class="module-number">2</span>
           <span class="module-label">Week 2</span>
@@ -622,7 +622,7 @@
         </button>
         <ul class="lesson-list">
           <li>
-            <button class="lesson-btn" data-module="2" data-lesson="1">
+            <button class="lesson-btn active" data-module="2" data-lesson="1">
               <span class="lesson-num">01</span> Vulnerabilities &amp; Risks
             </button>
           </li>
@@ -655,7 +655,7 @@
       </li>
 
       <!-- ── WEEK 3 ── -->
-      <li class="module-item open">
+      <li class="module-item">
         <button class="module-btn" data-module="3">
           <span class="module-number">3</span>
           <span class="module-label">Week 3</span>
@@ -663,13 +663,18 @@
         </button>
         <ul class="lesson-list">
           <li>
-            <button class="lesson-btn active" data-module="3" data-lesson="1">
-              <span class="lesson-num">01</span> Security of Data
+            <button class="lesson-btn" data-module="3" data-lesson="1">
+              <span class="lesson-num">01</span> In-House vs External Dev
             </button>
           </li>
           <li>
             <button class="lesson-btn" data-module="3" data-lesson="2">
-              <span class="lesson-num">02</span> Security Controls in Dev
+              <span class="lesson-num">02</span> Threat Modelling Principles
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="3" data-lesson="3">
+              <span class="lesson-num">03</span> Evaluating Dev Security
             </button>
           </li>
         </ul>
@@ -1126,12 +1131,12 @@
          WEEK 2 PANEL — empty scaffold
          Copy any topic-panel block above as a starting point.
          ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel" data-module="2">
+    <div class="module-panel active" data-module="2">
 
       <!-- ════════════════════════════════
            WEEK 2 / LESSON 1 — Vulnerabilities & Risks
            ════════════════════════════════ -->
-      <div class="lesson-group" data-module="2" data-lesson="1">
+      <div class="lesson-group active" data-module="2" data-lesson="1">
 
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 1</span>
@@ -2223,330 +2228,595 @@
     <!-- ════════════════════════════════════════════════════════════
          WEEK 3 PANEL
          ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel active" data-module="3">
+    <div class="module-panel" data-module="3">
 
       <!-- ════════════════════════════════
-           WEEK 3 / LESSON 1 — Security of Data
+           WEEK 3 / LESSON 1 — In-House vs External Development
            ════════════════════════════════ -->
       <div class="lesson-group active" data-module="3" data-lesson="1">
 
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 3 · Lesson 1</span>
-          <h2>Security of Data</h2>
-          <p class="lesson-description">Why data is valuable, what makes data secure, backup strategy, and how data should be disposed of.</p>
+          <h2>Advantages &amp; Disadvantages of In-House or External Development</h2>
+          <p class="lesson-description">Weighing up whether to build software in-house or externally, and managing the risks that come with relying on third-party code.</p>
         </div>
 
         <div class="topic-tabs">
           <button class="topic-tab active" data-topic="m3l1-overview">Overview</button>
-          <button class="topic-tab" data-topic="m3l1-characteristics">Characteristics of Secure Data</button>
-          <button class="topic-tab" data-topic="m3l1-backups">Backups &amp; the 3-2-1 Rule</button>
-          <button class="topic-tab" data-topic="m3l1-disposal">Data Disposal</button>
-          <button class="topic-tab" data-topic="m3l1-destruction">Destruction &amp; Deletion</button>
+          <button class="topic-tab" data-topic="m3l1-inhouse">In-House Development</button>
+          <button class="topic-tab" data-topic="m3l1-external">External Development</button>
+          <button class="topic-tab" data-topic="m3l1-thirdparty">Third-Party Risk</button>
+          <button class="topic-tab" data-topic="m3l1-sca">SCA</button>
+          <button class="topic-tab" data-topic="m3l1-encryption">Encryption &amp; Access Control</button>
+          <button class="topic-tab" data-topic="m3l1-comparison">Comparison</button>
         </div>
 
+        <!-- ── TOPIC: Overview ── -->
         <div class="topic-panel active" data-topic="m3l1-overview">
           <div class="note-card">
-            <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Why Data Is Valuable</h3>
-            <p>Data is valuable to individuals and organisations alike. If a hard disk crashed tomorrow with no backup, the things lost would be <span class="key-term">original and irreplaceable</span> - they took real time and effort to create, and can't simply be downloaded again.</p>
+            <span class="tag">Decision</span>
+            <h3><span class="card-icon">◆</span>In-House or External?</h3>
+            <p>When organisations need new software, they face an important decision: should they develop it <span class="key-term">in-house</span>, using their own team of developers, or <span class="key-term">externally</span>, by hiring a third party or using existing tools and services?</p>
+            <p>Understanding the advantages and disadvantages of each approach helps guide better project planning, resource use and risk management.</p>
           </div>
           <div class="note-card">
-            <span class="tag">Individuals</span>
-            <h3><span class="card-icon">✎</span>What You'd Lose at Home</h3>
-            <p>Unfinished or completed school work, projects, photos, and saved articles. Losing access to an email account can also mean losing sent/received emails, your address book, bookmarks, and all the preferences you've set up in your favourite programs.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Businesses</span>
-            <h3><span class="card-icon">▣</span>What a Business Would Lose</h3>
-            <ul>
-              <li>Client lists, payroll information, tax records</li>
-              <li>Accounting and transaction details</li>
-              <li>Records of who owes the business money, and who it owes</li>
-            </ul>
-          </div>
-          <div class="note-card">
-            <span class="tag">Impact</span>
-            <h3><span class="card-icon">⚠</span>Why It Would Be Catastrophic</h3>
-            <ul>
-              <li>The business wouldn't know its customers or how to contact them</li>
-              <li>Staff couldn't be paid, and income would drop to zero</li>
-              <li>The tax department and creditors could pursue legal action</li>
-              <li>Trade secrets would be lost, and reputation as a trustworthy organisation would suffer</li>
-              <li>A privacy policy violation could occur if personal information is damaged or released</li>
-            </ul>
-            <p>Computers can be replaced almost instantly since they're insured - the data on them can't be. Re-entering everything lost in a major system crash could take months or years and cost a fortune.</p>
+            <span class="tag">Concern</span>
+            <h3><span class="card-icon">◆</span>Third-Party Risk</h3>
+            <p>One key area of concern in external development is <span class="key-term">third-party risk</span>, where organisations rely on software components or services built by others.</p>
           </div>
         </div>
         <!-- END Overview -->
 
-        <div class="topic-panel" data-topic="m3l1-characteristics">
+        <!-- ── TOPIC: In-House Development ── -->
+        <div class="topic-panel" data-topic="m3l1-inhouse">
           <div class="note-card">
             <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Data Security</h3>
-            <p>Making sure only the people who should be able to <span class="key-term">read</span> the data can read it, and only the people who should be able to <span class="key-term">write</span> it can write it. Implemented through equipment such as a network operating system with user authentication, and measures such as organisational password policies.</p>
+            <h3><span class="card-icon">◆</span>In-House Development</h3>
+            <p>The design, development, testing and maintenance are carried out by the organisation's own employees. This gives full control over how the software is built and ensures it is tailored specifically to internal goals or client needs. In-house teams can communicate more efficiently with stakeholders, understand internal workflows, and adapt quickly to change.</p>
+          </div>
+          <div class="risk-grid">
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">✓ ADVANTAGES</div>
+              <ul>
+                <li>Full control over how the software is built</li>
+                <li>Tailored specifically to internal goals or client needs</li>
+                <li>More efficient communication with stakeholders</li>
+                <li>Better understanding of internal workflows</li>
+                <li>Adapts quickly to change</li>
+              </ul>
+            </div>
+            <div class="note-card risk-card">
+              <div class="card-col-header">⚠ DISADVANTAGES</div>
+              <ul>
+                <li>Resource-intensive - needs skilled developers, PMs, testers and support staff</li>
+                <li>Higher costs, particularly for small or medium businesses</li>
+                <li>Building complex features from scratch can be time-consuming</li>
+                <li>Slower if the team lacks experience with certain tools or technologies</li>
+              </ul>
+            </div>
           </div>
           <div class="note-card">
-            <h3><span class="card-icon">▣</span>Characteristics of Secure Information</h3>
-            <div class="table-wrap">
-              <table class="data-table">
-                <tr><th>Characteristic</th><th>What It Means</th></tr>
-                <tr><td>Protected</td><td>User authentication protects information with passwords. Firewalls, anti-malware and antivirus software are kept up to date. Physical storage is protected with access restrictions, locks, guards and/or alarms.</td></tr>
-                <tr><td>Confidential</td><td>People only have access to information they need. The <em>Privacy and Data Protection Act 2014</em> requires that sensitive information only be made available on a 'need to know' basis.</td></tr>
-                <tr><td>Risk managed</td><td>Regular backups are taken in case of data loss. Safety equipment (ventilation, fire extinguishers, alarms) is fitted in secure data centres, and an emergency business continuity plan is in place.</td></tr>
-              </table>
+            <p>Despite the challenges, in-house development remains popular for organisations with sensitive data or unique business requirements.</p>
+          </div>
+        </div>
+        <!-- END In-House Development -->
+
+        <!-- ── TOPIC: External Development ── -->
+        <div class="topic-panel" data-topic="m3l1-external">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>External / Third-Party Development</h3>
+            <p>Relying on individuals or companies outside the organisation to provide software components or build applications - outsourcing to a third-party vendor, purchasing off-the-shelf software, or using open-source tools such as <span class="key-term">APIs</span>, libraries and <span class="key-term">SDKs</span>. Today, most developers combine in-house and third-party solutions to speed up development and focus on innovation instead of reinventing basic features.</p>
+          </div>
+          <div class="risk-grid">
+            <div class="note-card mitigation-card">
+              <div class="card-col-header">✓ ADVANTAGES</div>
+              <ul>
+                <li>Can significantly reduce time and cost</li>
+                <li>Frees teams to focus on innovation instead of reinventing basic features</li>
+              </ul>
+            </div>
+            <div class="note-card risk-card">
+              <div class="card-col-header">⚠ DISADVANTAGES</div>
+              <ul>
+                <li>Places trust in someone else's security practices, update cycles and reliability</li>
+                <li>Disruptions or security incidents if a vendor stops supporting a component or a library has vulnerabilities</li>
+                <li>Licensing issues may arise if the terms of use aren't fully understood or followed</li>
+              </ul>
             </div>
           </div>
         </div>
-        <!-- END Characteristics -->
+        <!-- END External Development -->
 
-        <div class="topic-panel" data-topic="m3l1-backups">
+        <!-- ── TOPIC: Third-Party Risk ── -->
+        <div class="topic-panel" data-topic="m3l1-thirdparty">
           <div class="note-card">
             <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Backups</h3>
-            <p>A copy of data that can be recovered in the event of a primary data failure, allowing data to be restored from an earlier point in time. Primary failures can result from hardware or software failure, data corruption, or human-caused events such as malware or accidental deletion.</p>
+            <h3><span class="card-icon">◆</span>Third-Party Software</h3>
+            <p>Any external tools or code not developed by your own organisation - an SDK, an external API, a plug-in, or even entire applications hosted on another platform. Developers use these tools to save time, reduce costs, and avoid rebuilding features that are already available elsewhere.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Risk</span>
+            <h3><span class="card-icon">◆</span>Why Third-Party Software is a Problem</h3>
+            <p>These components may have vulnerabilities, outdated code or excessive permissions. If not carefully managed, they can become the weakest link in a system's security - third parties might gain access to confidential data, especially if not restricted to only the parts of the system they need. Poorly written or unmonitored components can also lead to bugs, compatibility issues or compliance problems.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Risk</span>
+            <h3><span class="card-icon">◆</span>Third-Party Risks Include</h3>
+            <ul>
+              <li>Vulnerabilities in external libraries or code can be exploited by attackers, even if your own code is secure</li>
+              <li>External services may access sensitive files, user data, or system configurations beyond what is necessary</li>
+              <li>Known flaws may remain unaddressed if security updates or patches aren't applied regularly</li>
+              <li>Vendors may stop supporting or maintaining their products, creating reliability and availability concerns</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Third-Party Risk -->
+
+        <!-- ── TOPIC: SCA ── -->
+        <div class="topic-panel" data-topic="m3l1-sca">
+          <div class="note-card">
+            <span class="tag">Tool</span>
+            <h3><span class="card-icon">◆</span>Software Composition Analysis (SCA)</h3>
+            <p>An automated technique that scans the software codebase to identify all external components. It provides visibility into what open-source or third-party tools are being used, and whether any of them have known vulnerabilities, licensing issues or outdated versions.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>What SCA Does</h3>
+            <p>SCA tools can tell whether your code is calling a vulnerable part of a library, and suggest ways to update or patch the problem. They also help maintain legal compliance by checking whether the licences attached to external code are compatible with your project's distribution.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Benefit</span>
+            <h3><span class="card-icon">◆</span>Benefits of SCA Tools</h3>
+            <ul>
+              <li>Automatically detect known security vulnerabilities in third-party libraries</li>
+              <li>Highlight licensing obligations to help avoid legal risks</li>
+              <li>Provide update recommendations when components are out of date</li>
+              <li>Show whether vulnerable code is actively used by your application</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END SCA -->
+
+        <!-- ── TOPIC: Encryption & Access Control ── -->
+        <div class="topic-panel" data-topic="m3l1-encryption">
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Encryption</h3>
+            <p>Ensures that even if data is intercepted or stolen, it remains unreadable without the proper decryption key. This is particularly important when third-party software handles or transmits user information, financial data or intellectual property.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Access Control</h3>
+            <p>Limiting what third-party software or vendors can see and do. Third-party code should only have access to the specific data and systems it needs to function. Applying the <span class="key-term">principle of least privilege</span> reduces the chance that a bug or security issue in a third-party tool will impact the entire system. Monitoring and logging all external access provides further oversight.</p>
           </div>
           <div class="note-card">
             <span class="tag">Best Practice</span>
-            <h3><span class="card-icon">✎</span>Frequency &amp; Multiple Methods</h3>
-            <p>The more time between backups, the more potential data loss when recovering. Retaining multiple copies gives the flexibility to restore to a point unaffected by corruption or attack. A good backup system typically includes:</p>
+            <h3><span class="card-icon">◆</span>Security Best Practices</h3>
             <ul>
-              <li>Daily incremental backups to a portable device and/or cloud storage</li>
-              <li>End-of-week server backups</li>
-              <li>Quarterly and yearly server backups</li>
+              <li>Encrypt data both during transmission and while it is stored, using strong cryptographic standards</li>
+              <li>Grant external systems or tools the minimum level of access required to function correctly</li>
+              <li>Monitor third-party activity and log access events for auditing and troubleshooting</li>
+              <li>Regularly review third-party permissions and revoke unnecessary access rights</li>
             </ul>
-            <p>It's vital to regularly check and test that you can actually restore your data from a backup.</p>
           </div>
-          <div class="card-grid">
-            <div class="note-card">
-              <span class="tag">3</span>
-              <h3><span class="card-icon">◉</span>Three Copies</h3>
-              <p>Keep at least three copies of any important files or data - the original and two backups.</p>
-            </div>
-            <div class="note-card">
-              <span class="tag">2</span>
-              <h3><span class="card-icon">◉</span>Two Media Types</h3>
-              <p>Keep the files or data on two different types of media.</p>
-            </div>
-            <div class="note-card">
-              <span class="tag">1</span>
-              <h3><span class="card-icon">◉</span>One Offsite</h3>
-              <p>Keep one copy offsite, away from the original location.</p>
-            </div>
-          </div>
+        </div>
+        <!-- END Encryption & Access Control -->
+
+        <!-- ── TOPIC: Comparison ── -->
+        <div class="topic-panel" data-topic="m3l1-comparison">
           <div class="note-card">
-            <span class="tag">Variation</span>
-            <h3><span class="card-icon">⌁</span>3-2-1-1 Rule</h3>
-            <p>The 3-2-1 rule is a minimum starting point. A common variation keeps <span class="key-term">two</span> offsite copies instead of one: one in the cloud (online), and one that is both offsite and offline - e.g. an external hard drive or tape stored at a different physical location.</p>
-          </div>
-          <div class="note-card">
-            <h3><span class="card-icon">▣</span>Essential Eight: Daily Backups Maturity</h3>
-            <p>The Australian Signals Directorate's Australian Cyber Security Centre (ACSC) treats daily backups as essential to protect against malware and recover data and system availability. All businesses should aim for maturity level three.</p>
+            <span class="tag">Summary</span>
+            <h3><span class="card-icon">▤</span>In-House vs External Development</h3>
             <div class="table-wrap">
               <table class="data-table">
-                <tr><th>Maturity Level 1</th><th>Maturity Level 2</th><th>Maturity Level 3</th></tr>
-                <tr><td>Backups performed monthly</td><td>Backups performed weekly</td><td>Backups performed at least daily</td></tr>
-                <tr><td>-</td><td>Stored offline, or online in a non-rewritable, non-erasable manner</td><td>Stored offline, or online in a non-rewritable, non-erasable manner</td></tr>
-                <tr><td>Stored for one to three months</td><td>Stored for one to three months</td><td>Stored for three months or greater</td></tr>
-                <tr><td>Partial restoration tested annually or more often</td><td>Full restoration tested at least once</td><td>Full restoration tested at least once when initially implemented, and each time infrastructure changes</td></tr>
-                <tr><td>-</td><td>Partial restoration tested bi-annually or more often</td><td>Partial restoration tested quarterly or more often</td></tr>
+                <tr><th>Factor</th><th>In-House Development</th><th>External / Third-Party Development</th></tr>
+                <tr><td>Control</td><td>Full control over all aspects of development including customisation and decision-making</td><td>Limited control over external code, services and customisation</td></tr>
+                <tr><td>Knowledge</td><td>Better knowledge of internal processes and operations</td><td>Lack of familiarity with business operations and internal process</td></tr>
+                <tr><td>Cost</td><td>High cost (staff, tools, infrastructure)</td><td>Often more cost-effective due to reuse of existing tools</td></tr>
+                <tr><td>Communication</td><td>Easier communication between parties involved</td><td>Slower communication as parties are external and possible miscommunication may arise</td></tr>
+                <tr><td>Speed</td><td>Slower, especially for complex projects</td><td>Faster due to reusable components and experienced vendors</td></tr>
+                <tr><td>Security</td><td>Easier to manage and audit - confidential data kept in-house</td><td>Relies on third-party security practices, may introduce hidden flaws</td></tr>
+                <tr><td>Customisation</td><td>Fully tailored to business needs</td><td>May be restricted by third-party limitations</td></tr>
+                <tr><td>Maintenance</td><td>Internal responsibility and lower ongoing maintenance costs</td><td>Ongoing dependency on external contractors and possibly higher ongoing maintenance costs</td></tr>
+                <tr><td>Legal risk</td><td>Full ownership of intellectual property</td><td>Must comply with licences and vendor terms</td></tr>
+                <tr><td>Integration</td><td>Easier with existing systems</td><td>May require adapters or extra configuration</td></tr>
               </table>
             </div>
           </div>
         </div>
-        <!-- END Backups -->
-
-        <div class="topic-panel" data-topic="m3l1-disposal">
-          <div class="note-card">
-            <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Data Disposal</h3>
-            <p>The destruction, transfer, damage or alteration of data.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Legislation</span>
-            <h3><span class="card-icon">⚖</span>Victorian Information Privacy Principles</h3>
-            <p>Under <span class="key-term">IPP 4.2</span>, organisations must take reasonable steps to destroy or permanently de-identify personal information no longer needed for any purpose. <span class="key-term">IPP 1.1</span> suggests minimising the need to dispose of data in the first place, by limiting how much identifiable information is collected.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Public Records</span>
-            <h3><span class="card-icon">▣</span>Public Records Act 1973</h3>
-            <p>Public records cannot be destroyed unless authorised. The Public Records Office Victoria (PROV) can issue three types of authority to destroy:</p>
-            <ul>
-              <li><span class="key-term">Normal Administrative Practice (NAP)</span></li>
-              <li><span class="key-term">Retention and Disposal Authority (RDA)</span></li>
-              <li><span class="key-term">Single Instance Disposal Authority (SIDA)</span></li>
-            </ul>
-            <p>Once authority to destroy is issued, information must be destroyed or de-identified, unless another legitimate purpose exists for retaining it.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">NAP</span>
-            <h3><span class="card-icon">✎</span>Normal Administrative Practice</h3>
-            <p>Organisations are authorised to destroy certain records as part of their normal administrative practice, including:</p>
-            <ul>
-              <li>Transitory messages - e.g. calendars, personal emails</li>
-              <li>Rough working papers - e.g. rough meeting notes</li>
-              <li>Drafts not intended for further reference</li>
-              <li>Copies retained for reference purposes only</li>
-              <li>Published material not included in the organisation's records</li>
-            </ul>
-          </div>
-        </div>
-        <!-- END Disposal -->
-
-        <div class="topic-panel" data-topic="m3l1-destruction">
-          <div class="note-card">
-            <span class="tag">Physical</span>
-            <h3><span class="card-icon">◆</span>Destroying Physical Information</h3>
-            <p>Suitable methods for papers, photographs and films include:</p>
-            <ul>
-              <li>Shredding - cross-shredding may be needed for sensitive documents</li>
-              <li>Pulping - reduces paper to fibres</li>
-              <li>Burning - only as a last resort, in an appropriate industrial facility</li>
-            </ul>
-          </div>
-          <div class="note-card">
-            <span class="tag">Digital</span>
-            <h3><span class="card-icon">⚠</span>Deletion Doesn't Mean Destruction</h3>
-            <p>Deleting digital information only removes the <span class="key-term">pointer</span> (the file name and directory path) to that information. The actual data is gradually overwritten by new data over time - until it's fully overwritten, it can still be retrieved with recovery tools.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Digital</span>
-            <h3><span class="card-icon">◈</span>Sanitisation Methods</h3>
-            <p>Sanitisation is the process of erasing or overwriting information on digital media. The method chosen depends on the information's classification and a risk assessment of its sensitivity.</p>
-            <ul>
-              <li><span class="key-term">Clearing</span> - information is overwritten and hidden under nonsensical data so it can't be retrieved via disk or file recovery utilities</li>
-              <li><span class="key-term">Purging</span> - information is randomised so it can't be reconstructed, even using nonstandard systems outside its usual environment (a "laboratory attack")</li>
-              <li><span class="key-term">Degaussing</span> - recorded data is erased by demagnetising magnetic media</li>
-              <li><span class="key-term">Destruction</span> - the most extreme form; the media is drastically altered and can never be reused</li>
-            </ul>
-          </div>
-          <div class="note-card">
-            <span class="tag">Digital</span>
-            <h3><span class="card-icon">▣</span>Physical Destruction Methods</h3>
-            <p>Shredding, disintegration, incineration, pulverisation, and melting. To ensure complete destruction, find and destroy <span class="key-term">all</span> copies - including system backups, the cloud, and offsite storage. Where information is stored in the cloud, contracts should stipulate that all copies will be destroyed under retention and disposal requirements.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Caution</span>
-            <h3><span class="card-icon">⚠</span>Wiping Devices Properly</h3>
-            <p>Un-wiped hard drives are sought after by scammers. Factory resetting and deleting data alone isn't enough to prevent recovery. For phones, tablets and solid state drives (SSDs), encryption can be used before resetting to prevent any remaining data from being recovered.</p>
-          </div>
-        </div>
-        <!-- END Destruction & Deletion -->
+        <!-- END Comparison -->
 
       </div>
       <!-- END WEEK 3 / LESSON 1 -->
 
       <!-- ════════════════════════════════
-           WEEK 3 / LESSON 2 — Security Controls in Software Development
+           WEEK 3 / LESSON 2 — Threat Modelling Principles
            ════════════════════════════════ -->
       <div class="lesson-group" data-module="3" data-lesson="2">
 
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 3 · Lesson 2</span>
-          <h2>Security Controls in Software Development</h2>
-          <p class="lesson-description">Six essential security controls developers use to protect data, with a closer look at version control and identity &amp; access management.</p>
+          <h2>Threat Modelling Principles in Software Development</h2>
+          <p class="lesson-description">A structured, four-step approach to identifying and addressing potential security threats to software systems.</p>
         </div>
 
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m3l2-overview">Overview</button>
-          <button class="topic-tab" data-topic="m3l2-version-control">Version Control &amp; Repositories</button>
-          <button class="topic-tab" data-topic="m3l2-iam">Identity &amp; Access Management</button>
+          <button class="topic-tab active" data-topic="m3l2-what">What is Threat Modelling?</button>
+          <button class="topic-tab" data-topic="m3l2-p1">Principle 1: Requirements</button>
+          <button class="topic-tab" data-topic="m3l2-p2">Principle 2: Identify Threats</button>
+          <button class="topic-tab" data-topic="m3l2-p3">Principle 3: Mitigate Threats</button>
+          <button class="topic-tab" data-topic="m3l2-p4">Principle 4: Confirm Mitigation</button>
         </div>
 
-        <div class="topic-panel active" data-topic="m3l2-overview">
+        <!-- ── TOPIC: What is Threat Modelling? ── -->
+        <div class="topic-panel active" data-topic="m3l2-what">
           <div class="note-card">
-            <span class="tag">Context</span>
-            <h3><span class="card-icon">◆</span>Developers as Guardians of Data</h3>
-            <p>Software powers schools, hospitals, banks, social media and government services - and all of it stores something precious: <span class="key-term">data</span>. As developers, every design choice and every line of code can help protect (or accidentally endanger) users' personal data. Secure software development isn't just about the end product, it's about:</p>
-            <ul>
-              <li>How the product is made</li>
-              <li>Who can access it</li>
-              <li>How it's stored</li>
-              <li>How it's maintained over time</li>
-            </ul>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Threat Modelling</h3>
+            <p>A <span class="key-term">structured approach to identifying and addressing potential security threats</span> to software systems. It's about <span class="key-term">thinking like an attacker</span> to predict how a system could be exploited, and then acting to prevent those risks.</p>
+            <p>Just like risk management plans for floods or fires, threat modelling prepares software to handle digital threats such as hacking, data leaks or unauthorised access.</p>
           </div>
           <div class="note-card">
-            <h3><span class="card-icon">▣</span>Six Essential Security Controls</h3>
+            <span class="tag">Process</span>
+            <h3><span class="card-icon">▤</span>The Four Principles</h3>
             <div class="table-wrap">
               <table class="data-table">
-                <tr><th>Security Control</th><th>What It Does</th><th>Why It's Important</th></tr>
-                <tr><td>Version control &amp; repositories</td><td>Tracks and manages code</td><td>Helps control access and recover from errors</td></tr>
-                <tr><td>Identity and access management (IAM)</td><td>Manages user access</td><td>Prevents unauthorised access</td></tr>
-                <tr><td>Encryption</td><td>Protects data</td><td>Keeps information safe even if breached</td></tr>
-                <tr><td>Code review</td><td>Peer-checks code</td><td>Identifies security issues early</td></tr>
-                <tr><td>Updates / patches</td><td>Fixes vulnerabilities</td><td>Reduces risk from known exploits</td></tr>
-                <tr><td>Environment separation</td><td>Isolates app stages</td><td>Keeps real data and users safe</td></tr>
+                <tr><th>Principle</th><th>Description</th></tr>
+                <tr><td>1. Define security requirements</td><td>What protections does the software or system need?</td></tr>
+                <tr><td>2. Identify threats</td><td>What could go wrong?</td></tr>
+                <tr><td>3. Mitigate threats</td><td>What can we do to prevent problems?</td></tr>
+                <tr><td>4. Confirm mitigation</td><td>Are our protections actually working?</td></tr>
               </table>
             </div>
           </div>
         </div>
-        <!-- END Overview -->
+        <!-- END What is Threat Modelling? -->
 
-        <div class="topic-panel" data-topic="m3l2-version-control">
+        <!-- ── TOPIC: Principle 1 ── -->
+        <div class="topic-panel" data-topic="m3l2-p1">
           <div class="note-card">
-            <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Version Control</h3>
-            <p>Also known as source control - a management strategy used to track and store changes to software development files across the whole project lifecycle. Without it, every change would overwrite the last, like an essay where old drafts vanish forever.</p>
+            <span class="tag">Principle 1</span>
+            <h3><span class="card-icon">◆</span>Define Security Requirements</h3>
+            <p>Before developers start writing code, they must define the <span class="key-term">security requirements</span> the software must meet - the rules and protections it should follow to remain safe from attacks.</p>
           </div>
           <div class="note-card">
-            <span class="tag">Tools</span>
-            <h3><span class="card-icon">⌁</span>Git &amp; GitHub</h3>
-            <p>Tools such as Git, and platforms such as GitHub, let developers safely make changes, fix bugs, experiment with new features, and undo mistakes - like an unlimited "undo" button with collaboration features built in. Code stored in repositories can be shared, reviewed and automatically backed up.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Benefit</span>
-            <h3><span class="card-icon">▣</span>Why It Matters for Teams</h3>
-            <p>Repositories let teams restrict access, so only approved users can change critical files or merge code into the main project. Every change is recorded with <span class="key-term">who made it, when, and why</span> - a complete history in case anything goes wrong. Malicious or poorly written code can be traced and removed.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Benefits</span>
-            <h3><span class="card-icon">✎</span>What Version Control Improves</h3>
+            <h3><span class="card-icon">◆</span>What Do Security Requirements Look Like?</h3>
             <ul>
-              <li>Team productivity and collaboration</li>
-              <li>Team communication with a reliable solution</li>
-              <li>Fewer development errors and conflicts</li>
-              <li>Faster development time and more successful deployments</li>
-              <li>Customer satisfaction through more reliable software versions</li>
+              <li>'User passwords must be encrypted.'</li>
+              <li>'Only verified users can access private data.'</li>
+              <li>'The system must log all failed login attempts.'</li>
             </ul>
           </div>
           <div class="note-card">
-            <span class="tag">Best Practice</span>
-            <h3><span class="card-icon">◈</span>Using It Effectively</h3>
-            <p>Changes should be saved frequently and consistently, using comprehensible naming conventions. Teams without version control often don't know which changes have been made available to users, and end up with incompatible changes between unrelated pieces of work that must be painstakingly untangled.</p>
+            <h3><span class="card-icon">◆</span>Security Requirements Should</h3>
+            <ul>
+              <li>Align with laws and regulations (e.g. <em>Privacy Act 1988</em>)</li>
+              <li>Protect sensitive data</li>
+              <li>Support user authentication and authorisation</li>
+              <li>Be clearly documented from the start of the project</li>
+            </ul>
           </div>
           <div class="note-card">
-            <span class="tag">Key Point</span>
-            <h3><span class="card-icon">◉</span>Both Tool and Safety Net</h3>
-            <p>Version control protects source code from catastrophe - deliberate or accidental security or physical risks - and from the casual degradation of human error. <strong>In secure development, version control is both a collaboration tool and a safety net.</strong> As with any important data, regular backups should still be done.</p>
+            <span class="tag">Why It Matters</span>
+            <p>If security is not planned from the beginning, it can lead to vulnerabilities that are harder and more expensive to fix later.</p>
           </div>
         </div>
-        <!-- END Version Control -->
+        <!-- END Principle 1 -->
 
-        <div class="topic-panel" data-topic="m3l2-iam">
+        <!-- ── TOPIC: Principle 2 ── -->
+        <div class="topic-panel" data-topic="m3l2-p2">
           <div class="note-card">
-            <span class="tag">Definition</span>
-            <h3><span class="card-icon">◆</span>Identity &amp; Access Management (IAM)</h3>
-            <p>Not everyone should have the keys to the kingdom. IAM is the practice of making sure that <span class="key-term">each person only has the access they need</span>, nothing more.</p>
+            <span class="tag">Principle 2</span>
+            <h3><span class="card-icon">◆</span>Identify Threats</h3>
+            <p>Once security requirements are clear, developers identify potential threats. This step often involves asking: 'What could go wrong?' or 'How might someone try to break or misuse this?'</p>
           </div>
           <div class="note-card">
-            <span class="tag">Analogy</span>
-            <h3><span class="card-icon">✎</span>Like a School Building</h3>
-            <p>Students, teachers and the principal all have access to different areas depending on their role. You wouldn't want a student wandering into the server room, and you wouldn't want just anyone editing school reports.</p>
+            <h3><span class="card-icon">▤</span>Common Threat Categories</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Threat type</th><th>Description</th><th>Example</th></tr>
+                <tr><td>Data breach</td><td>Unauthorised access to private data</td><td>Leaking personal information from a database</td></tr>
+                <tr><td>Code injection</td><td>Attacker sends harmful code through inputs</td><td>SQL injection via login form</td></tr>
+                <tr><td>Cross-site scripting (XSS)</td><td>Attacker injects code into a web page</td><td>Script steals session cookies</td></tr>
+                <tr><td>Denial of service (DoS)</td><td>Overwhelming the system to crash it</td><td>Spamming login to shut down the server</td></tr>
+                <tr><td>Man-in-the-middle</td><td>Intercepting communication</td><td>Eavesdropping on unsecured Wi-Fi</td></tr>
+              </table>
+            </div>
           </div>
           <div class="note-card">
             <span class="tag">Tools</span>
-            <h3><span class="card-icon">⚙</span>How IAM Works</h3>
-            <p>IAM uses login credentials, multi-factor authentication (MFA), and role-based permissions to keep systems organised and secure. This way, even if someone's password is stolen, the damage is limited.</p>
-          </div>
-          <div class="note-card">
-            <span class="tag">Principle</span>
-            <h3><span class="card-icon">◉</span>Principle of Least Privilege</h3>
-            <p>Give people the minimum access they need to do their job - for example, allowing a tester to view results but not change source code, or letting a junior developer work on a feature without touching the production database.</p>
+            <h3><span class="card-icon">◆</span>Tools &amp; Techniques Used</h3>
+            <ul>
+              <li><span class="key-term">STRIDE</span> - a model used to classify threats (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)</li>
+              <li><span class="key-term">Security auditing</span></li>
+              <li><span class="key-term">Threat brainstorming sessions</span></li>
+            </ul>
           </div>
         </div>
-        <!-- END IAM -->
+        <!-- END Principle 2 -->
+
+        <!-- ── TOPIC: Principle 3 ── -->
+        <div class="topic-panel" data-topic="m3l2-p3">
+          <div class="note-card">
+            <span class="tag">Principle 3</span>
+            <h3><span class="card-icon">◆</span>Mitigate Threats</h3>
+            <p>Once threats are identified, the next step is to find ways to mitigate (reduce or eliminate) them.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">▤</span>Examples of Mitigation Strategies</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Threat</th><th>Mitigation technique</th></tr>
+                <tr><td>SQL injection</td><td>Input validation and prepared statements</td></tr>
+                <tr><td>Data breach</td><td>Encrypt stored data and use secure authentication</td></tr>
+                <tr><td>XSS</td><td>Sanitise user input</td></tr>
+                <tr><td>DoS attacks</td><td>Rate limiting and traffic filtering</td></tr>
+                <tr><td>Weak passwords</td><td>Enforce strong password policies and multi-factor authentication (MFA)</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="note-card">
+            <span class="tag">Practice</span>
+            <h3><span class="card-icon">◆</span>Additional Security Practices</h3>
+            <ul>
+              <li><span class="key-term">Penetration testing</span> - simulate real attacks to test defences</li>
+              <li><span class="key-term">Secure coding practices</span> - training developers to avoid common vulnerabilities</li>
+              <li><span class="key-term">Application security tools</span> (such as SAST / DAST / IAST) - automatically detect flaws</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Principle 3 -->
+
+        <!-- ── TOPIC: Principle 4 ── -->
+        <div class="topic-panel" data-topic="m3l2-p4">
+          <div class="note-card">
+            <span class="tag">Principle 4</span>
+            <h3><span class="card-icon">◆</span>Confirm Threats Have Been Mitigated</h3>
+            <p>After implementing mitigation measures, it's essential to verify that the threats are truly handled. This is done through testing and review.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Techniques for Confirmation</h3>
+            <ul>
+              <li><span class="key-term">Security testing</span> (manual and automated)</li>
+              <li><span class="key-term">Code reviews</span> (internal or third-party)</li>
+              <li><span class="key-term">Regression testing</span> (to ensure fixes don't break other parts)</li>
+              <li><span class="key-term">Audit trails</span> (logging activities to track incidents)</li>
+              <li><span class="key-term">Compliance testing</span> (checking against legal and policy standards)</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Ongoing</span>
+            <p>Security is a continuous process, not a one-time fix. New threats emerge regularly, and software must evolve to stay protected.</p>
+          </div>
+        </div>
+        <!-- END Principle 4 -->
 
       </div>
       <!-- END WEEK 3 / LESSON 2 -->
+
+      <!-- ════════════════════════════════
+           WEEK 3 / LESSON 3 — Evaluating the Security of Software Development Practices
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="3" data-lesson="3">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 3 · Lesson 3</span>
+          <h2>Evaluating the Security of Software Development Practices</h2>
+          <p class="lesson-description">Criteria for assessing how securely an organisation builds and maintains software - from risk evaluation through to incident response and compliance.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m3l3-overview">Overview</button>
+          <button class="topic-tab" data-topic="m3l3-risk">Risk Evaluation</button>
+          <button class="topic-tab" data-topic="m3l3-controls">Security Controls</button>
+          <button class="topic-tab" data-topic="m3l3-practices">Secure Dev Practices</button>
+          <button class="topic-tab" data-topic="m3l3-testing">Security Testing</button>
+          <button class="topic-tab" data-topic="m3l3-thirdparty">Third-Party Components</button>
+          <button class="topic-tab" data-topic="m3l3-awareness">Security Awareness</button>
+          <button class="topic-tab" data-topic="m3l3-incident">Incident Response</button>
+          <button class="topic-tab" data-topic="m3l3-compliance">Compliance</button>
+        </div>
+
+        <!-- ── TOPIC: Overview ── -->
+        <div class="topic-panel active" data-topic="m3l3-overview">
+          <div class="note-card">
+            <span class="tag">Why It Matters</span>
+            <h3><span class="card-icon">◆</span>Evaluating Software Security</h3>
+            <p>Security in software development is not just a technical consideration - it's essential to protecting an organisation's data, users and reputation. As cyber threats become more advanced, organisations must evaluate how securely they build and maintain software across the entire development lifecycle, from planning to deployment and beyond. Security should be treated as a shared responsibility by everyone involved in the project.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Evaluation Criteria</h3>
+            <p>Organisations use evaluation criteria to identify strengths, weaknesses and areas for improvement. These criteria help decision-makers understand whether current practices meet industry standards, comply with regulations, and are effective against real-world threats. Evaluation should be built into the development cycle, with regular reviews and updates as new threats and technologies emerge.</p>
+          </div>
+        </div>
+        <!-- END Overview -->
+
+        <!-- ── TOPIC: Risk Evaluation ── -->
+        <div class="topic-panel" data-topic="m3l3-risk">
+          <div class="note-card">
+            <span class="tag">Foundation</span>
+            <h3><span class="card-icon">◆</span>Identifying &amp; Assessing Risk</h3>
+            <p>Risk management is the foundation of evaluating software security. It begins by identifying potential threats - anything that could cause harm to systems, data or people. Common threats include unauthorised access, data loss, system failures and cyber attacks. Each must be analysed in terms of likelihood and potential impact.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Prioritising Risk</h3>
+            <p>Once threats are identified, the next step is to evaluate how acceptable the risks are. Some risks may be low in both likelihood and impact, while others could be critical and require immediate action. The goal is not to eliminate all risks, which is usually impossible, but to reduce them to an acceptable level through smart, practical decisions.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Risk Evaluation</h3>
+            <ul>
+              <li>Has the organisation identified all relevant threats to its software and systems?</li>
+              <li>Are risks evaluated in terms of both likelihood and consequences?</li>
+              <li>Are mitigation strategies in place and reviewed regularly for effectiveness?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Risk Evaluation -->
+
+        <!-- ── TOPIC: Security Controls ── -->
+        <div class="topic-panel" data-topic="m3l3-controls">
+          <div class="note-card">
+            <span class="tag">Controls</span>
+            <h3><span class="card-icon">◆</span>Evaluating Security Controls</h3>
+            <p>Security controls are the tools and practices used to protect data and systems - <span class="key-term">authentication</span> (verifying identity), <span class="key-term">authorisation</span> (granting the right access), <span class="key-term">encryption</span> (protecting data), and <span class="key-term">access control</span> (restricting who can do what). Evaluation must assess whether these are properly implemented and strong enough against known threats.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Effective Evaluation</h3>
+            <p>Effective evaluation means checking not just that the controls exist, but that they are actively maintained, tested and updated. A system with outdated security controls or default passwords is just as vulnerable as one with no controls at all. Controls must also be balanced - too few create risk, but overly strict controls can block legitimate users or interfere with performance.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Evaluating Security Controls</h3>
+            <ul>
+              <li>Are authentication and access control mechanisms properly configured?</li>
+              <li>Is sensitive data encrypted during storage and transmission?</li>
+              <li>Are controls monitored and updated in response to evolving threats?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Security Controls -->
+
+        <!-- ── TOPIC: Secure Dev Practices ── -->
+        <div class="topic-panel" data-topic="m3l3-practices">
+          <div class="note-card">
+            <span class="tag">Practices</span>
+            <h3><span class="card-icon">◆</span>Reviewing Secure Development Practices</h3>
+            <p>Security must be embedded in the way code is written and maintained - techniques such as input validation (to prevent injection attacks), proper error handling (to avoid exposing sensitive system details), and regular code reviews. Developers should also follow principles such as <span class="key-term">least privilege</span> and <span class="key-term">fail-safe defaults</span>.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Evaluating Practices</h3>
+            <p>Evaluating development practices involves checking whether developers are consistently applying these principles. If a team lacks training in secure coding or skips critical security steps under pressure, vulnerabilities are more likely to slip through. Strong policies, training and automated tools help enforce security standards throughout the development lifecycle.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Reviewing Development Practices</h3>
+            <ul>
+              <li>Are developers trained in secure coding principles?</li>
+              <li>Are best practices such as input validation and error handling consistently followed?</li>
+              <li>Are secure defaults and access restrictions implemented in the code?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Secure Dev Practices -->
+
+        <!-- ── TOPIC: Security Testing ── -->
+        <div class="topic-panel" data-topic="m3l3-testing">
+          <div class="note-card">
+            <span class="tag">Testing</span>
+            <h3><span class="card-icon">◆</span>Conducting Security Testing</h3>
+            <p>Security testing is used to verify that software is not only functioning but also protected from attack. This includes automated tools such as vulnerability scanners and manual processes like penetration testing, which simulate real-world attacks to see how the system responds and where weaknesses lie.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>When to Test</h3>
+            <p>Testing should be performed regularly, especially after updates or changes to the software. It's important to test both internally developed features and third-party components. A thorough testing process helps ensure vulnerabilities are caught before they can be exploited and that developers receive feedback to improve future work.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Security Testing</h3>
+            <ul>
+              <li>Are vulnerability scans and penetration tests conducted regularly?</li>
+              <li>Are security tests included in continuous integration and deployment pipelines?</li>
+              <li>Are testing results used to guide improvements to code and architecture?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Security Testing -->
+
+        <!-- ── TOPIC: Third-Party Components ── -->
+        <div class="topic-panel" data-topic="m3l3-thirdparty">
+          <div class="note-card">
+            <span class="tag">Third-Party</span>
+            <h3><span class="card-icon">◆</span>Reviewing Third-Party Components</h3>
+            <p>Most modern software relies on third-party tools such as libraries, APIs, SDKs and external services. While these speed up development, they also come with risks - vulnerabilities in third-party code can be exploited just like flaws in your own code, and many attacks target known issues in widely used components.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Evaluating Third-Party Risk</h3>
+            <p>Evaluating third-party risk involves identifying all external components used in the project and assessing their security - checking their update history, security patches, licensing terms and community support. Organisations should also use tools such as software composition analysis (SCA) to automate this review.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Third-Party Risk Evaluation</h3>
+            <ul>
+              <li>Are all third-party tools and libraries documented and tracked?</li>
+              <li>Are external components regularly reviewed for known vulnerabilities?</li>
+              <li>Are licensing and compliance issues considered before use?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Third-Party Components -->
+
+        <!-- ── TOPIC: Security Awareness ── -->
+        <div class="topic-panel" data-topic="m3l3-awareness">
+          <div class="note-card">
+            <span class="tag">Culture</span>
+            <h3><span class="card-icon">◆</span>Security Awareness &amp; Culture</h3>
+            <p>Technology alone can't secure a system - people are just as important. Security awareness means ensuring all team members understand their responsibilities and the best practices to follow. Developers, testers, managers and even end users must be trained to spot suspicious activity and protect sensitive data.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Evaluating Culture</h3>
+            <p>Evaluating security culture means reviewing the organisation's training programs, communication practices, and overall approach to security. A strong culture supports proactive behaviour, while a weak one may lead to mistakes, oversights or non-compliance.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Security Awareness</h3>
+            <ul>
+              <li>Do all team members receive regular security training?</li>
+              <li>Is there a shared understanding of secure development responsibilities?</li>
+              <li>Is security treated as a priority at every level of the organisation?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Security Awareness -->
+
+        <!-- ── TOPIC: Incident Response ── -->
+        <div class="topic-panel" data-topic="m3l3-incident">
+          <div class="note-card">
+            <span class="tag">Readiness</span>
+            <h3><span class="card-icon">◆</span>Incident Response Readiness</h3>
+            <p>No matter how good your security is, incidents can still happen. What matters is how quickly and effectively the organisation responds. An incident response plan outlines what to do when a breach occurs - who is notified, how systems are isolated, how data is recovered, and how communication is managed.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Evaluating Readiness</h3>
+            <p>Evaluating incident readiness involves reviewing whether plans exist, are up-to-date, and are regularly tested. It also includes assessing how well the organisation can detect unusual behaviour and how fast it can act to limit damage.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Incident Readiness</h3>
+            <ul>
+              <li>Is there a documented and tested incident response plan?</li>
+              <li>Are roles and responsibilities clearly defined in the event of a breach?</li>
+              <li>Are incidents reviewed afterwards to improve the response process?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Incident Response -->
+
+        <!-- ── TOPIC: Compliance ── -->
+        <div class="topic-panel" data-topic="m3l3-compliance">
+          <div class="note-card">
+            <span class="tag">Compliance</span>
+            <h3><span class="card-icon">◆</span>Compliance &amp; Continuous Improvement</h3>
+            <p>Security strategies must also align with legal and industry standards, such as the <em>Privacy Act 1988</em>, the <em>Privacy and Data Protection Act 2014</em> (Vic), or guidelines from the Australian Cyber Security Centre. Compliance ensures organisations avoid legal penalties and uphold user trust.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">◆</span>Beyond the Checklist</h3>
+            <p>But security isn't just about meeting a checklist. Continuous improvement means regularly reviewing processes, updating tools, and staying informed about new threats. This proactive approach ensures the organisation stays ahead in an ever-changing security landscape.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Criteria</span>
+            <h3><span class="card-icon">◆</span>Criteria for Compliance &amp; Improvement</h3>
+            <ul>
+              <li>Are the software practices compliant with relevant laws and standards?</li>
+              <li>Are security strategies reviewed and improved over time?</li>
+              <li>Is feedback from incidents and audits used to enhance future security?</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Compliance -->
+
+      </div>
+      <!-- END WEEK 3 / LESSON 3 -->
 
     </div>
     <!-- END WEEK 3 PANEL -->
