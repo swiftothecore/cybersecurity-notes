@@ -565,7 +565,7 @@
     <ul id="module-list">
 
       <!-- ── WEEK 1 ── -->
-      <li class="module-item open">
+      <li class="module-item">
         <button class="module-btn" data-module="1">
           <span class="module-number">1</span>
           <span class="module-label">Week 1</span>
@@ -573,7 +573,7 @@
         </button>
         <ul class="lesson-list">
           <li>
-            <button class="lesson-btn active" data-module="1" data-lesson="1">
+            <button class="lesson-btn" data-module="1" data-lesson="1">
               <span class="lesson-num">01</span> Goals &amp; Objectives
             </button>
           </li>
@@ -597,7 +597,7 @@
              3. Copy a module-panel from below (Week 1) into #main, update data-module/data-lesson/data-topic values,
                 and replace the note-cards with the new content.
       -->
-      <li class="module-item">
+      <li class="module-item open">
         <button class="module-btn" data-module="2">
           <span class="module-number">2</span>
           <span class="module-label">Week 2</span>
@@ -605,8 +605,33 @@
         </button>
         <ul class="lesson-list">
           <li>
-            <button class="lesson-btn" data-module="2" data-lesson="1">
-              <span class="lesson-num">01</span> New Lesson
+            <button class="lesson-btn active" data-module="2" data-lesson="1">
+              <span class="lesson-num">01</span> Vulnerabilities &amp; Risks
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="2">
+              <span class="lesson-num">02</span> Mitigation Measures
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="3">
+              <span class="lesson-num">03</span> Social Engineering Attacks
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="4">
+              <span class="lesson-num">04</span> Software Security
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="5">
+              <span class="lesson-num">05</span> Key Legislation
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="2" data-lesson="6">
+              <span class="lesson-num">06</span> Improving Dev Security Practices
             </button>
           </li>
         </ul>
@@ -628,7 +653,7 @@
     <!-- ════════════════════════════════════════════════════════════
          WEEK 1 PANEL
          ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel active" data-module="1">
+    <div class="module-panel" data-module="1">
 
       <!-- ════════════════════════════════
            WEEK 1 / LESSON 1 — Goals & Objectives
@@ -1063,31 +1088,234 @@
          WEEK 2 PANEL — empty scaffold
          Copy any topic-panel block above as a starting point.
          ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel" data-module="2">
+    <div class="module-panel active" data-module="2">
 
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSON 1 — Vulnerabilities & Risks
+           ════════════════════════════════ -->
       <div class="lesson-group active" data-module="2" data-lesson="1">
 
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 1</span>
-          <h2>New Lesson</h2>
-          <p class="lesson-description">Replace this description, then add topic tabs and note-cards below - copy the structure from Week 1.</p>
+          <h2>Types of Vulnerabilities &amp; Risks</h2>
+          <p class="lesson-description">Common weaknesses in insecure software development environments, and how attackers exploit them to access data, disrupt services, or compromise user trust.</p>
         </div>
 
         <div class="topic-tabs">
-          <button class="topic-tab active" data-topic="m2l1-first">First Topic</button>
+          <button class="topic-tab active" data-topic="m2l1-overview">Overview</button>
+          <button class="topic-tab" data-topic="m2l1-access">Access &amp; Third-Party Risk</button>
+          <button class="topic-tab" data-topic="m2l1-attacks">Attacks &amp; Poor Practices</button>
+          <button class="topic-tab" data-topic="m2l1-iot">IoT &amp; Code of Practice</button>
         </div>
 
-        <div class="topic-panel active" data-topic="m2l1-first">
+        <!-- ── TOPIC: Overview ── -->
+        <div class="topic-panel active" data-topic="m2l1-overview">
+
           <div class="note-card">
-            <span class="tag">Tag</span>
-            <h3><span class="card-icon">◆</span>Card Title</h3>
-            <p>Start typing here. Use <span class="key-term">key-term</span> spans for definitions worth remembering, and copy a <code>.card-grid</code> from Week 1 if this topic needs one.</p>
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Insecure Development Environments</h3>
+            <p>When systems and processes are not properly protected, they become vulnerable to a wide range of <span class="key-term">cyber threats and risks</span>. These weaknesses can be exploited by attackers to gain access to data, disrupt services, or compromise user trust.</p>
+          </div>
+
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Poorly Secured APIs</h3>
+              <p>Application programming interfaces that aren't properly secured can expose sensitive data to unauthorised users.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Malware</h3>
+              <p>Viruses or spyware can be introduced if software is downloaded from unreliable sources or devices aren't adequately protected.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">Vulnerability</span>
+              <h3>Unpatched Software</h3>
+              <p>Outdated programs that haven't received security updates can create serious security holes.</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- END Overview -->
+
+        <!-- ── TOPIC: Access & Third-Party Risk ── -->
+        <div class="topic-panel" data-topic="m2l1-access">
+
+          <div class="note-card">
+            <span class="tag">Access Control</span>
+            <h3><span class="card-icon">⚠</span>Weak Identity &amp; Access Management</h3>
+            <p>If users are given <span class="key-term">too much access</span>, or passwords aren't strong and well-protected, it becomes easier for attackers - or even insiders - to exploit the system.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Insider Risk</span>
+            <h3><span class="card-icon">⚠</span>Insider Threats</h3>
+            <p>Threats don't always come from outside. Insider threats involve <span class="key-term">staff or contractors misusing their access</span>, whether intentionally or by accident.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Supply Chain</span>
+            <h3><span class="card-icon">⚠</span>Third-Party Software</h3>
+            <p>Using third-party software without properly reviewing its security can introduce <span class="key-term">unknown vulnerabilities</span> into the system.</p>
+          </div>
+
+        </div>
+        <!-- END Access & Third-Party Risk -->
+
+        <!-- ── TOPIC: Attacks & Poor Practices ── -->
+        <div class="topic-panel" data-topic="m2l1-attacks">
+
+          <div class="note-card">
+            <span class="tag">Attack</span>
+            <h3><span class="card-icon">⚠</span>Man-in-the-Middle Attacks</h3>
+            <p>Data is <span class="key-term">secretly intercepted</span> during transmission between two parties.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Cyber Incident</span>
+            <h3><span class="card-icon">⚠</span>Data Breaches &amp; DoS Attacks</h3>
+            <p>Cyber incidents such as data breaches and <span class="key-term">denial-of-service (DoS) attacks</span> can arise when security is neglected.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Development Practice</span>
+            <h3><span class="card-icon">✎</span>Ineffective Code Reviews</h3>
+            <p>Poor review practices increase the chance of bugs and security flaws making their way into live systems.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Development Practice</span>
+            <h3><span class="card-icon">✎</span>Combining Dev, Testing &amp; Production Environments</h3>
+            <p>Failing to keep <span class="key-term">development, testing and production</span> environments separate increases the chances of bugs, security flaws, and accidental leaks reaching live systems.</p>
+          </div>
+
+        </div>
+        <!-- END Attacks & Poor Practices -->
+
+        <!-- ── TOPIC: IoT & Code of Practice ── -->
+        <div class="topic-panel" data-topic="m2l1-iot">
+
+          <div class="note-card">
+            <span class="tag">Did You Know</span>
+            <h3><span class="card-icon">◈</span>Connectivity Raises the Stakes</h3>
+            <p>The more connected we are, the more opportunities there are for data breaches. New technologies and new uses for technology are rapidly being created, and risk assessment and security measures often can't keep up.</p>
+            <p>Smart home and Internet of Things (IoT) devices have become more popular, and these often lack proper security and encryption.</p>
+          </div>
+
+          <div class="note-card">
+            <span class="tag">Australia</span>
+            <h3><span class="card-icon">▣</span>IoT Code of Practice</h3>
+            <p>The Australian Government has released an IoT Code of Practice to increase the security of IoT technology. It contains <span class="key-term">13 principles</span> - the first three should be prioritised:</p>
+            <ul>
+              <li>1. No duplicated default or weak passwords</li>
+              <li>2. Implement a vulnerability disclosure policy</li>
+              <li>3. Keep software securely updated</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- END IoT & Code of Practice -->
+
+      </div>
+      <!-- END WEEK 2 / LESSON 1 -->
+
+      <!-- ════════════════════════════════
+           WEEK 2 / LESSONS 2–6 — empty scaffolds
+           Send the next screenshot and these get filled in the
+           same way as Lesson 1 above.
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="2" data-lesson="2">
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 2 · Lesson 2</span>
+          <h2>Mitigation Measures</h2>
+          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+        </div>
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l2-first">Overview</button>
+        </div>
+        <div class="topic-panel active" data-topic="m2l2-first">
+          <div class="note-card">
+            <span class="tag">Placeholder</span>
+            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
+            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
           </div>
         </div>
+      </div>
 
+      <div class="lesson-group" data-module="2" data-lesson="3">
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 2 · Lesson 3</span>
+          <h2>Social Engineering Attacks</h2>
+          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+        </div>
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l3-first">Overview</button>
+        </div>
+        <div class="topic-panel active" data-topic="m2l3-first">
+          <div class="note-card">
+            <span class="tag">Placeholder</span>
+            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
+            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-group" data-module="2" data-lesson="4">
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 2 · Lesson 4</span>
+          <h2>Software Security</h2>
+          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+        </div>
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l4-first">Overview</button>
+        </div>
+        <div class="topic-panel active" data-topic="m2l4-first">
+          <div class="note-card">
+            <span class="tag">Placeholder</span>
+            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
+            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-group" data-module="2" data-lesson="5">
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 2 · Lesson 5</span>
+          <h2>Key Legislation</h2>
+          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+        </div>
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l5-first">Overview</button>
+        </div>
+        <div class="topic-panel active" data-topic="m2l5-first">
+          <div class="note-card">
+            <span class="tag">Placeholder</span>
+            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
+            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-group" data-module="2" data-lesson="6">
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 2 · Lesson 6</span>
+          <h2>Improving Development Security Practices</h2>
+          <p class="lesson-description">Waiting on the next screenshot to fill this lesson in.</p>
+        </div>
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m2l6-first">Overview</button>
+        </div>
+        <div class="topic-panel active" data-topic="m2l6-first">
+          <div class="note-card">
+            <span class="tag">Placeholder</span>
+            <h3><span class="card-icon">◆</span>Not Yet Added</h3>
+            <p>Send the screenshot for this lesson and it'll be structured the same way as Lesson 1.</p>
+          </div>
+        </div>
       </div>
 
     </div>
+    <!-- END WEEK 2 PANEL -->
 
   </main>
 
