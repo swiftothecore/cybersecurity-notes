@@ -614,7 +614,7 @@
              3. Copy a module-panel from below (Week 1) into #main, update data-module/data-lesson/data-topic values,
                 and replace the note-cards with the new content.
       -->
-      <li class="module-item open">
+      <li class="module-item">
         <button class="module-btn" data-module="2">
           <span class="module-number">2</span>
           <span class="module-label">Week 2</span>
@@ -622,7 +622,7 @@
         </button>
         <ul class="lesson-list">
           <li>
-            <button class="lesson-btn active" data-module="2" data-lesson="1">
+            <button class="lesson-btn" data-module="2" data-lesson="1">
               <span class="lesson-num">01</span> Vulnerabilities &amp; Risks
             </button>
           </li>
@@ -649,6 +649,27 @@
           <li>
             <button class="lesson-btn" data-module="2" data-lesson="6">
               <span class="lesson-num">06</span> Improving Dev Security Practices
+            </button>
+          </li>
+        </ul>
+      </li>
+
+      <!-- ── WEEK 3 ── -->
+      <li class="module-item open">
+        <button class="module-btn" data-module="3">
+          <span class="module-number">3</span>
+          <span class="module-label">Week 3</span>
+          <span class="expand-icon">▾</span>
+        </button>
+        <ul class="lesson-list">
+          <li>
+            <button class="lesson-btn active" data-module="3" data-lesson="1">
+              <span class="lesson-num">01</span> Security of Data
+            </button>
+          </li>
+          <li>
+            <button class="lesson-btn" data-module="3" data-lesson="2">
+              <span class="lesson-num">02</span> Security Controls in Dev
             </button>
           </li>
         </ul>
@@ -1105,12 +1126,12 @@
          WEEK 2 PANEL — empty scaffold
          Copy any topic-panel block above as a starting point.
          ════════════════════════════════════════════════════════════ -->
-    <div class="module-panel active" data-module="2">
+    <div class="module-panel" data-module="2">
 
       <!-- ════════════════════════════════
            WEEK 2 / LESSON 1 — Vulnerabilities & Risks
            ════════════════════════════════ -->
-      <div class="lesson-group active" data-module="2" data-lesson="1">
+      <div class="lesson-group" data-module="2" data-lesson="1">
 
         <div class="lesson-header">
           <span class="lesson-eyebrow">Week 2 · Lesson 1</span>
@@ -2198,6 +2219,337 @@
 
     </div>
     <!-- END WEEK 2 PANEL -->
+
+    <!-- ════════════════════════════════════════════════════════════
+         WEEK 3 PANEL
+         ════════════════════════════════════════════════════════════ -->
+    <div class="module-panel active" data-module="3">
+
+      <!-- ════════════════════════════════
+           WEEK 3 / LESSON 1 — Security of Data
+           ════════════════════════════════ -->
+      <div class="lesson-group active" data-module="3" data-lesson="1">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 3 · Lesson 1</span>
+          <h2>Security of Data</h2>
+          <p class="lesson-description">Why data is valuable, what makes data secure, backup strategy, and how data should be disposed of.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m3l1-overview">Overview</button>
+          <button class="topic-tab" data-topic="m3l1-characteristics">Characteristics of Secure Data</button>
+          <button class="topic-tab" data-topic="m3l1-backups">Backups &amp; the 3-2-1 Rule</button>
+          <button class="topic-tab" data-topic="m3l1-disposal">Data Disposal</button>
+          <button class="topic-tab" data-topic="m3l1-destruction">Destruction &amp; Deletion</button>
+        </div>
+
+        <div class="topic-panel active" data-topic="m3l1-overview">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Why Data Is Valuable</h3>
+            <p>Data is valuable to individuals and organisations alike. If a hard disk crashed tomorrow with no backup, the things lost would be <span class="key-term">original and irreplaceable</span> - they took real time and effort to create, and can't simply be downloaded again.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Individuals</span>
+            <h3><span class="card-icon">✎</span>What You'd Lose at Home</h3>
+            <p>Unfinished or completed school work, projects, photos, and saved articles. Losing access to an email account can also mean losing sent/received emails, your address book, bookmarks, and all the preferences you've set up in your favourite programs.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Businesses</span>
+            <h3><span class="card-icon">▣</span>What a Business Would Lose</h3>
+            <ul>
+              <li>Client lists, payroll information, tax records</li>
+              <li>Accounting and transaction details</li>
+              <li>Records of who owes the business money, and who it owes</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Impact</span>
+            <h3><span class="card-icon">⚠</span>Why It Would Be Catastrophic</h3>
+            <ul>
+              <li>The business wouldn't know its customers or how to contact them</li>
+              <li>Staff couldn't be paid, and income would drop to zero</li>
+              <li>The tax department and creditors could pursue legal action</li>
+              <li>Trade secrets would be lost, and reputation as a trustworthy organisation would suffer</li>
+              <li>A privacy policy violation could occur if personal information is damaged or released</li>
+            </ul>
+            <p>Computers can be replaced almost instantly since they're insured - the data on them can't be. Re-entering everything lost in a major system crash could take months or years and cost a fortune.</p>
+          </div>
+        </div>
+        <!-- END Overview -->
+
+        <div class="topic-panel" data-topic="m3l1-characteristics">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Data Security</h3>
+            <p>Making sure only the people who should be able to <span class="key-term">read</span> the data can read it, and only the people who should be able to <span class="key-term">write</span> it can write it. Implemented through equipment such as a network operating system with user authentication, and measures such as organisational password policies.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">▣</span>Characteristics of Secure Information</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Characteristic</th><th>What It Means</th></tr>
+                <tr><td>Protected</td><td>User authentication protects information with passwords. Firewalls, anti-malware and antivirus software are kept up to date. Physical storage is protected with access restrictions, locks, guards and/or alarms.</td></tr>
+                <tr><td>Confidential</td><td>People only have access to information they need. The <em>Privacy and Data Protection Act 2014</em> requires that sensitive information only be made available on a 'need to know' basis.</td></tr>
+                <tr><td>Risk managed</td><td>Regular backups are taken in case of data loss. Safety equipment (ventilation, fire extinguishers, alarms) is fitted in secure data centres, and an emergency business continuity plan is in place.</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- END Characteristics -->
+
+        <div class="topic-panel" data-topic="m3l1-backups">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Backups</h3>
+            <p>A copy of data that can be recovered in the event of a primary data failure, allowing data to be restored from an earlier point in time. Primary failures can result from hardware or software failure, data corruption, or human-caused events such as malware or accidental deletion.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Best Practice</span>
+            <h3><span class="card-icon">✎</span>Frequency &amp; Multiple Methods</h3>
+            <p>The more time between backups, the more potential data loss when recovering. Retaining multiple copies gives the flexibility to restore to a point unaffected by corruption or attack. A good backup system typically includes:</p>
+            <ul>
+              <li>Daily incremental backups to a portable device and/or cloud storage</li>
+              <li>End-of-week server backups</li>
+              <li>Quarterly and yearly server backups</li>
+            </ul>
+            <p>It's vital to regularly check and test that you can actually restore your data from a backup.</p>
+          </div>
+          <div class="card-grid">
+            <div class="note-card">
+              <span class="tag">3</span>
+              <h3><span class="card-icon">◉</span>Three Copies</h3>
+              <p>Keep at least three copies of any important files or data - the original and two backups.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">2</span>
+              <h3><span class="card-icon">◉</span>Two Media Types</h3>
+              <p>Keep the files or data on two different types of media.</p>
+            </div>
+            <div class="note-card">
+              <span class="tag">1</span>
+              <h3><span class="card-icon">◉</span>One Offsite</h3>
+              <p>Keep one copy offsite, away from the original location.</p>
+            </div>
+          </div>
+          <div class="note-card">
+            <span class="tag">Variation</span>
+            <h3><span class="card-icon">⌁</span>3-2-1-1 Rule</h3>
+            <p>The 3-2-1 rule is a minimum starting point. A common variation keeps <span class="key-term">two</span> offsite copies instead of one: one in the cloud (online), and one that is both offsite and offline - e.g. an external hard drive or tape stored at a different physical location.</p>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">▣</span>Essential Eight: Daily Backups Maturity</h3>
+            <p>The Australian Signals Directorate's Australian Cyber Security Centre (ACSC) treats daily backups as essential to protect against malware and recover data and system availability. All businesses should aim for maturity level three.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Maturity Level 1</th><th>Maturity Level 2</th><th>Maturity Level 3</th></tr>
+                <tr><td>Backups performed monthly</td><td>Backups performed weekly</td><td>Backups performed at least daily</td></tr>
+                <tr><td>-</td><td>Stored offline, or online in a non-rewritable, non-erasable manner</td><td>Stored offline, or online in a non-rewritable, non-erasable manner</td></tr>
+                <tr><td>Stored for one to three months</td><td>Stored for one to three months</td><td>Stored for three months or greater</td></tr>
+                <tr><td>Partial restoration tested annually or more often</td><td>Full restoration tested at least once</td><td>Full restoration tested at least once when initially implemented, and each time infrastructure changes</td></tr>
+                <tr><td>-</td><td>Partial restoration tested bi-annually or more often</td><td>Partial restoration tested quarterly or more often</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- END Backups -->
+
+        <div class="topic-panel" data-topic="m3l1-disposal">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Data Disposal</h3>
+            <p>The destruction, transfer, damage or alteration of data.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Legislation</span>
+            <h3><span class="card-icon">⚖</span>Victorian Information Privacy Principles</h3>
+            <p>Under <span class="key-term">IPP 4.2</span>, organisations must take reasonable steps to destroy or permanently de-identify personal information no longer needed for any purpose. <span class="key-term">IPP 1.1</span> suggests minimising the need to dispose of data in the first place, by limiting how much identifiable information is collected.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Public Records</span>
+            <h3><span class="card-icon">▣</span>Public Records Act 1973</h3>
+            <p>Public records cannot be destroyed unless authorised. The Public Records Office Victoria (PROV) can issue three types of authority to destroy:</p>
+            <ul>
+              <li><span class="key-term">Normal Administrative Practice (NAP)</span></li>
+              <li><span class="key-term">Retention and Disposal Authority (RDA)</span></li>
+              <li><span class="key-term">Single Instance Disposal Authority (SIDA)</span></li>
+            </ul>
+            <p>Once authority to destroy is issued, information must be destroyed or de-identified, unless another legitimate purpose exists for retaining it.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">NAP</span>
+            <h3><span class="card-icon">✎</span>Normal Administrative Practice</h3>
+            <p>Organisations are authorised to destroy certain records as part of their normal administrative practice, including:</p>
+            <ul>
+              <li>Transitory messages - e.g. calendars, personal emails</li>
+              <li>Rough working papers - e.g. rough meeting notes</li>
+              <li>Drafts not intended for further reference</li>
+              <li>Copies retained for reference purposes only</li>
+              <li>Published material not included in the organisation's records</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END Disposal -->
+
+        <div class="topic-panel" data-topic="m3l1-destruction">
+          <div class="note-card">
+            <span class="tag">Physical</span>
+            <h3><span class="card-icon">◆</span>Destroying Physical Information</h3>
+            <p>Suitable methods for papers, photographs and films include:</p>
+            <ul>
+              <li>Shredding - cross-shredding may be needed for sensitive documents</li>
+              <li>Pulping - reduces paper to fibres</li>
+              <li>Burning - only as a last resort, in an appropriate industrial facility</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Digital</span>
+            <h3><span class="card-icon">⚠</span>Deletion Doesn't Mean Destruction</h3>
+            <p>Deleting digital information only removes the <span class="key-term">pointer</span> (the file name and directory path) to that information. The actual data is gradually overwritten by new data over time - until it's fully overwritten, it can still be retrieved with recovery tools.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Digital</span>
+            <h3><span class="card-icon">◈</span>Sanitisation Methods</h3>
+            <p>Sanitisation is the process of erasing or overwriting information on digital media. The method chosen depends on the information's classification and a risk assessment of its sensitivity.</p>
+            <ul>
+              <li><span class="key-term">Clearing</span> - information is overwritten and hidden under nonsensical data so it can't be retrieved via disk or file recovery utilities</li>
+              <li><span class="key-term">Purging</span> - information is randomised so it can't be reconstructed, even using nonstandard systems outside its usual environment (a "laboratory attack")</li>
+              <li><span class="key-term">Degaussing</span> - recorded data is erased by demagnetising magnetic media</li>
+              <li><span class="key-term">Destruction</span> - the most extreme form; the media is drastically altered and can never be reused</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Digital</span>
+            <h3><span class="card-icon">▣</span>Physical Destruction Methods</h3>
+            <p>Shredding, disintegration, incineration, pulverisation, and melting. To ensure complete destruction, find and destroy <span class="key-term">all</span> copies - including system backups, the cloud, and offsite storage. Where information is stored in the cloud, contracts should stipulate that all copies will be destroyed under retention and disposal requirements.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Caution</span>
+            <h3><span class="card-icon">⚠</span>Wiping Devices Properly</h3>
+            <p>Un-wiped hard drives are sought after by scammers. Factory resetting and deleting data alone isn't enough to prevent recovery. For phones, tablets and solid state drives (SSDs), encryption can be used before resetting to prevent any remaining data from being recovered.</p>
+          </div>
+        </div>
+        <!-- END Destruction & Deletion -->
+
+      </div>
+      <!-- END WEEK 3 / LESSON 1 -->
+
+      <!-- ════════════════════════════════
+           WEEK 3 / LESSON 2 — Security Controls in Software Development
+           ════════════════════════════════ -->
+      <div class="lesson-group" data-module="3" data-lesson="2">
+
+        <div class="lesson-header">
+          <span class="lesson-eyebrow">Week 3 · Lesson 2</span>
+          <h2>Security Controls in Software Development</h2>
+          <p class="lesson-description">Six essential security controls developers use to protect data, with a closer look at version control and identity &amp; access management.</p>
+        </div>
+
+        <div class="topic-tabs">
+          <button class="topic-tab active" data-topic="m3l2-overview">Overview</button>
+          <button class="topic-tab" data-topic="m3l2-version-control">Version Control &amp; Repositories</button>
+          <button class="topic-tab" data-topic="m3l2-iam">Identity &amp; Access Management</button>
+        </div>
+
+        <div class="topic-panel active" data-topic="m3l2-overview">
+          <div class="note-card">
+            <span class="tag">Context</span>
+            <h3><span class="card-icon">◆</span>Developers as Guardians of Data</h3>
+            <p>Software powers schools, hospitals, banks, social media and government services - and all of it stores something precious: <span class="key-term">data</span>. As developers, every design choice and every line of code can help protect (or accidentally endanger) users' personal data. Secure software development isn't just about the end product, it's about:</p>
+            <ul>
+              <li>How the product is made</li>
+              <li>Who can access it</li>
+              <li>How it's stored</li>
+              <li>How it's maintained over time</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <h3><span class="card-icon">▣</span>Six Essential Security Controls</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <tr><th>Security Control</th><th>What It Does</th><th>Why It's Important</th></tr>
+                <tr><td>Version control &amp; repositories</td><td>Tracks and manages code</td><td>Helps control access and recover from errors</td></tr>
+                <tr><td>Identity and access management (IAM)</td><td>Manages user access</td><td>Prevents unauthorised access</td></tr>
+                <tr><td>Encryption</td><td>Protects data</td><td>Keeps information safe even if breached</td></tr>
+                <tr><td>Code review</td><td>Peer-checks code</td><td>Identifies security issues early</td></tr>
+                <tr><td>Updates / patches</td><td>Fixes vulnerabilities</td><td>Reduces risk from known exploits</td></tr>
+                <tr><td>Environment separation</td><td>Isolates app stages</td><td>Keeps real data and users safe</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- END Overview -->
+
+        <div class="topic-panel" data-topic="m3l2-version-control">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Version Control</h3>
+            <p>Also known as source control - a management strategy used to track and store changes to software development files across the whole project lifecycle. Without it, every change would overwrite the last, like an essay where old drafts vanish forever.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Tools</span>
+            <h3><span class="card-icon">⌁</span>Git &amp; GitHub</h3>
+            <p>Tools such as Git, and platforms such as GitHub, let developers safely make changes, fix bugs, experiment with new features, and undo mistakes - like an unlimited "undo" button with collaboration features built in. Code stored in repositories can be shared, reviewed and automatically backed up.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Benefit</span>
+            <h3><span class="card-icon">▣</span>Why It Matters for Teams</h3>
+            <p>Repositories let teams restrict access, so only approved users can change critical files or merge code into the main project. Every change is recorded with <span class="key-term">who made it, when, and why</span> - a complete history in case anything goes wrong. Malicious or poorly written code can be traced and removed.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Benefits</span>
+            <h3><span class="card-icon">✎</span>What Version Control Improves</h3>
+            <ul>
+              <li>Team productivity and collaboration</li>
+              <li>Team communication with a reliable solution</li>
+              <li>Fewer development errors and conflicts</li>
+              <li>Faster development time and more successful deployments</li>
+              <li>Customer satisfaction through more reliable software versions</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <span class="tag">Best Practice</span>
+            <h3><span class="card-icon">◈</span>Using It Effectively</h3>
+            <p>Changes should be saved frequently and consistently, using comprehensible naming conventions. Teams without version control often don't know which changes have been made available to users, and end up with incompatible changes between unrelated pieces of work that must be painstakingly untangled.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Key Point</span>
+            <h3><span class="card-icon">◉</span>Both Tool and Safety Net</h3>
+            <p>Version control protects source code from catastrophe - deliberate or accidental security or physical risks - and from the casual degradation of human error. <strong>In secure development, version control is both a collaboration tool and a safety net.</strong> As with any important data, regular backups should still be done.</p>
+          </div>
+        </div>
+        <!-- END Version Control -->
+
+        <div class="topic-panel" data-topic="m3l2-iam">
+          <div class="note-card">
+            <span class="tag">Definition</span>
+            <h3><span class="card-icon">◆</span>Identity &amp; Access Management (IAM)</h3>
+            <p>Not everyone should have the keys to the kingdom. IAM is the practice of making sure that <span class="key-term">each person only has the access they need</span>, nothing more.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Analogy</span>
+            <h3><span class="card-icon">✎</span>Like a School Building</h3>
+            <p>Students, teachers and the principal all have access to different areas depending on their role. You wouldn't want a student wandering into the server room, and you wouldn't want just anyone editing school reports.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Tools</span>
+            <h3><span class="card-icon">⚙</span>How IAM Works</h3>
+            <p>IAM uses login credentials, multi-factor authentication (MFA), and role-based permissions to keep systems organised and secure. This way, even if someone's password is stolen, the damage is limited.</p>
+          </div>
+          <div class="note-card">
+            <span class="tag">Principle</span>
+            <h3><span class="card-icon">◉</span>Principle of Least Privilege</h3>
+            <p>Give people the minimum access they need to do their job - for example, allowing a tester to view results but not change source code, or letting a junior developer work on a feature without touching the production database.</p>
+          </div>
+        </div>
+        <!-- END IAM -->
+
+      </div>
+      <!-- END WEEK 3 / LESSON 2 -->
+
+    </div>
+    <!-- END WEEK 3 PANEL -->
 
   </main>
 
