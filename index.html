@@ -3276,8 +3276,8 @@
         if (currentIndex === -1) return;
 
         const nextIndex = e.key === 'ArrowDown'
-          ? Math.min(currentIndex + 1, moduleBtns.length — 1)
-          : Math.max(currentIndex — 1, 0);
+          ? Math.min(currentIndex + 1, moduleBtns.length - 1)
+          : Math.max(currentIndex - 1, 0);
         if (nextIndex === currentIndex) return;
 
         const nextModuleItem = moduleBtns[nextIndex].closest('.module-item');
@@ -3296,8 +3296,8 @@
       if (currentIndex === -1) return;
 
       const nextIndex = e.key === 'ArrowDown'
-        ? Math.min(currentIndex + 1, lessonBtns.length — 1)
-        : Math.max(currentIndex — 1, 0);
+        ? Math.min(currentIndex + 1, lessonBtns.length - 1)
+        : Math.max(currentIndex - 1, 0);
       if (nextIndex === currentIndex) return;
 
       lessonBtns[nextIndex].click();
@@ -3382,7 +3382,7 @@
 
           for (const w of words) {
             const inTitle = entry.lowerTitle.includes(w);
-            const bodyMatches = entry.lowerText.split(w).length — 1;
+            const bodyMatches = entry.lowerText.split(w).length - 1;
             if (!inTitle && bodyMatches === 0) { allWordsPresent = false; break; }
             if (inTitle) score += 12;
             score += Math.min(bodyMatches, 5) * 2;
@@ -3392,7 +3392,7 @@
           if (allWordsPresent) scored.push({ entry, score });
         }
 
-        scored.sort((a, b) => b.score — a.score);
+        scored.sort((a, b) => b.score - a.score);
         return scored.slice(0, 25).map(s => s.entry);
       }
 
@@ -3407,7 +3407,7 @@
         if (hitPos === -1) hitPos = 0;
 
         const radius = 70;
-        let start = Math.max(0, hitPos — radius);
+        let start = Math.max(0, hitPos - radius);
         let end = Math.min(text.length, hitPos + radius);
         let snippet = text.slice(start, end);
         if (start > 0) snippet = '… ' + snippet;
@@ -3505,14 +3505,14 @@
         if (e.key === 'ArrowDown') {
           if (!activeResults.length) return;
           e.preventDefault();
-          activeIndex = Math.min(activeIndex + 1, activeResults.length — 1);
+          activeIndex = Math.min(activeIndex + 1, activeResults.length - 1);
           updateHotState();
           return;
         }
         if (e.key === 'ArrowUp') {
           if (!activeResults.length) return;
           e.preventDefault();
-          activeIndex = Math.max(activeIndex — 1, 0);
+          activeIndex = Math.max(activeIndex - 1, 0);
           updateHotState();
           return;
         }
