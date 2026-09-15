@@ -314,6 +314,8 @@
     transition: color var(--transition), border-color var(--transition), background var(--transition);
   }
   .lesson-btn:hover { color: var(--text-sidebar-hover); background: rgba(45,226,230,.04); }
+  .lesson-btn:focus,
+  .lesson-btn:focus-visible { outline: none; }
   .lesson-btn.active {
     color: var(--cyan);
     border-left-color: var(--cyan);
@@ -360,6 +362,8 @@
     transition: color var(--transition), border-color var(--transition);
   }
   .topic-tab:hover { color: var(--text-primary); }
+  .topic-tab:focus,
+  .topic-tab:focus-visible { outline: none; }
   .topic-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); text-shadow: 0 0 10px var(--cyan-dim); }
 
   .topic-panel { display: none; }
