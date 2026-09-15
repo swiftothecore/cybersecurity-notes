@@ -15,6 +15,14 @@ commit.
 - `update-notes.sh` — run after downloading a fresh export straight into this
   folder (as `cybersecurity-notes-vNN.html` or similar). It diffs it against
   the tracked file, commits, pushes to GitHub, and deletes the downloaded copy.
+- `poster-cybersecurity-sac.html` / `.pdf` — double-sided A4 SAC revision
+  poster (Weeks 1–4). Type scales from the single `--fs` custom property in
+  `:root`; every other size is an `em`, so raising `--fs` is the only knob
+  needed to trade content for legibility. At 5.1pt both sides fit one page
+  each. Print the PDF, not the HTML.
+- `revision-cybersecurity-weeks1-4.html` / `.pdf` — the breathable study
+  version of the same content, plus Week 1 Lesson 1 and the detail the poster
+  couldn't hold. Flows over ~31 A4 pages with recall prompts per lesson.
 
 ## Workflow
 
